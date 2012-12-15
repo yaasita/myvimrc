@@ -116,7 +116,6 @@ command Kakkofold call Kakkofold()
 command Sst tabe ~/.vim/bundle/myvimrc/plugin/myvimrc.vim
 command Tabnasi setlocal expandtab | setlocal list | retab
 command Ttp call Ttp()
-"command
 command ZenkakuSpace call ZenkakuSpace()
 
 "}}}
