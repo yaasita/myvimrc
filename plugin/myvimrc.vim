@@ -100,7 +100,7 @@ autocmd Filetype eruby call RubySet()
 autocmd Filetype html  call HtmlSet()
 autocmd Filetype perl  call PerlSet()
 autocmd Filetype ruby  call RubySet()
-autocmd Filetype sh    call Bashset()
+autocmd Filetype sh    call BashSet()
 autocmd Filetype vb    call VbSet()
 
 command -nargs=* -complete=file Pj w | !perl % <args>
@@ -223,7 +223,7 @@ function RubySet() "{{{2
     ":retab
 endfunction "}}}
 
-function Bashset() "{{{2
+function BashSet() "{{{2
     set isfname=@,48-57,/,.,-,_,+,,,#,$,%,~,
 endfunction "}}}
 
