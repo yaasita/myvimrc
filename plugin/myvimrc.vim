@@ -115,6 +115,7 @@ command HankakuSpace call HankakuSpace()
 command Kakkofold call Kakkofold() 
 command Tabnasi setlocal expandtab | setlocal list | retab
 command Ttp call Ttp()
+"command
 command ZenkakuSpace call ZenkakuSpace()
 
 "}}}
