@@ -113,6 +113,7 @@ command Cuc call Cuc()
 command Cul call Cul() 
 command HankakuSpace call HankakuSpace()
 command Kakkofold call Kakkofold() 
+command Sst tabe ~/.vim/bundle/myvimrc/plugin/myvimrc.vim
 command Tabnasi setlocal expandtab | setlocal list | retab
 command Ttp call Ttp()
 command ZenkakuSpace call ZenkakuSpace()
