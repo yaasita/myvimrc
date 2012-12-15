@@ -90,19 +90,18 @@ vnoremap hcm di<!-- <C-R>" --><Esc>
 "------------------------------------------
 "**** command ********** {{{1
 
-autocmd BufNewFile *.htm  0r $VIM/vimfiles/skeleton.html
 autocmd BufRead,BufNewFile *.mq4 setfiletype mql4
 autocmd BufRead,BufNewFile *.pco setfiletype cobol
 autocmd BufRead,BufNewFile *.txt setfiletype txt
 autocmd BufReadPost  * silent! loadview
 autocmd BufWritePost * mkview
 autocmd Filetype cobol call CobolSet()
+autocmd Filetype eruby call RubySet()
 autocmd Filetype html  call HtmlSet()
 autocmd Filetype perl  call PerlSet()
-autocmd Filetype vb    call Kakko()
-autocmd Filetype ruby  call Rubyset()
-autocmd Filetype eruby call Rubyset()
-autocmd Filetype sh call Bashset()
+autocmd Filetype ruby  call RubySet()
+autocmd Filetype sh    call Bashset()
+autocmd Filetype vb    call VbSet()
 
 command -nargs=* -complete=file Pj w | !perl % <args>
 command -nargs=0 CdCurrent cd %:p:h
@@ -112,10 +111,10 @@ command ClearHistory call ClearHistory()
 command Clip set clipboard=unnamed 
 command Cuc call Cuc() 
 command Cul call Cul() 
+command HankakuSpace call HankakuSpace()
 command Kakkofold call Kakkofold() 
 command Sst tabe $MYGVIMRC
 command Tabnasi setlocal expandtab | setlocal list | retab
-command TopMostWindow call TopMostWindow()
 command Ttp call Ttp()
 command ZenkakuSpace call ZenkakuSpace()
 
@@ -217,6 +216,17 @@ function VbSet() "{{{2
 	inoremap <buffer> " ""<LEFT>
 endfunction "}}}
 
+function RubySet() "{{{2
+	setlocal expandtab
+	setlocal list
+	setlocal shiftwidth=2
+	":retab
+endfunction "}}}
+
+function Bashset() "{{{2
+	set isfname=@,48-57,/,.,-,_,+,,,#,$,%,~,
+endfunction "}}}
+
 function Ttp() "{{{2
 	%s/^..*ttp/http/
 	g!/ttp/d
@@ -277,17 +287,6 @@ function ClearHistory() "{{{2
 	exe "normal a \<BS>\<Esc>"
 	let &undolevels = old_undolevels
 	unlet old_undolevels
-endfunction "}}}
-
-function Rubyset() "{{{2
-	setlocal expandtab
-	setlocal list
-	setlocal shiftwidth=2
-	":retab
-endfunction "}}}
-
-function Bashset() "{{{2
-	set isfname=@,48-57,/,.,-,_,+,,,#,$,%,~,
 endfunction "}}}
 
 function OtherWindowOpen(filename) "{{{2
