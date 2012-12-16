@@ -228,10 +228,12 @@ function BashSet() "{{{2
 endfunction "}}}
 
 function Ttp() "{{{2
-    %s/^..*ttp/http/
-    g!/ttp/d
+	g!/ttp/d
+    g!/\.\(jpg\|png\|bmp\)/d 
+    %s/\.\(jpg\|png\|bmp\)/.\1\r/g
+    %s/^.*http/http/g
+	g!/^http/d
     g!/\.\(jpg\|png\|bmp\)$/d 
-    %s/^ttp/http/
 endfunction "}}}
 
 function BlogEscape() "{{{2
