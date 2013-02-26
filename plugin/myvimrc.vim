@@ -1,6 +1,5 @@
 "**** myvimrc *******
 " vim: set fdm=marker:
-"Last Change:2013/02/26.
 " by yaasita
 "
 
@@ -197,7 +196,7 @@ function CobolSet() "{{{2
 endfunction "}}}
 
 function HtmlSet() "{{{2
-    inoremap <buffer> " ""<LEFT>
+    "inoremap <buffer> " ""<LEFT>
     inoremap <buffer> ' ''<LEFT>
     inoremap <buffer> < <><LEFT>
 endfunction "}}}
