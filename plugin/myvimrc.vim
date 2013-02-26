@@ -1,6 +1,6 @@
 "**** myvimrc *******
 " vim: set fdm=marker:
-"Last Change:2012/12/16.
+"Last Change:2013/02/26.
 " by yaasita
 "
 
@@ -62,6 +62,7 @@ inoremap <silent> <ESC> <ESC>:set imi=0<CR>
 inoremap <silent> jj <ESC>
 nnoremap ,c :w<CR>:!gcc % <CR>:!a.exe<CR>
 nnoremap ,d :w<CR>:!g++ % <CR>:!a.exe<CR>
+nnoremap tt 0y$
 nnoremap ,e :call Execfile()<CR>
 nnoremap / :set ims=0<CR>/
 nnoremap <BS> gT
