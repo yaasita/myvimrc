@@ -103,26 +103,26 @@ autocmd Filetype ruby  call RubySet()
 autocmd Filetype sh    call BashSet()
 autocmd Filetype vb    call VbSet()
 
-command -nargs=* -complete=file Pj w | !perl % <args>
-command -nargs=0 CdCurrent cd %:p:h
-command -nargs=1 -complete=file VDsplit vertical diffsplit <args>
-command BlogEscape call BlogEscape() 
-command ClearHistory call ClearHistory()
-command Clip set clipboard=unnamed 
-command Cuc call Cuc() 
-command Cul call Cul() 
-command HankakuSpace call HankakuSpace()
-command Kakkofold call Kakkofold() 
-command Sst tabe ~/.vim/bundle/myvimrc/plugin/myvimrc.vim
-command Tabnasi setlocal expandtab | setlocal list | retab
-command Ttp call Ttp()
-command ZenkakuSpace call ZenkakuSpace()
+command! -nargs=* -complete=file Pj w | !perl % <args>
+command! -nargs=0 CdCurrent cd %:p:h
+command! -nargs=1 -complete=file VDsplit vertical diffsplit <args>
+command! BlogEscape call BlogEscape() 
+command! ClearHistory call ClearHistory()
+command! Clip set clipboard=unnamed 
+command! Cuc call Cuc() 
+command! Cul call Cul() 
+command! HankakuSpace call HankakuSpace()
+command! Kakkofold call Kakkofold() 
+command! Sst tabe ~/.vim/bundle/myvimrc/plugin/myvimrc.vim
+command! Tabnasi setlocal expandtab | setlocal list | retab
+command! Ttp call Ttp()
+command! ZenkakuSpace call ZenkakuSpace()
 
 "}}}
 "------------------------------------------
 "**** function ********* {{{1
 
-function CobolSet() "{{{2
+function! CobolSet() "{{{2
     set ft=
     setlocal indentexpr=
     setlocal autoindent
@@ -195,13 +195,13 @@ function CobolSet() "{{{2
     command CobolMapToggle call CobolMapToggle()
 endfunction "}}}
 
-function HtmlSet() "{{{2
+function! HtmlSet() "{{{2
     "inoremap <buffer> " ""<LEFT>
     inoremap <buffer> ' ''<LEFT>
     inoremap <buffer> < <><LEFT>
 endfunction "}}}
 
-function PerlSet() "{{{2
+function! PerlSet() "{{{2
     inoremap <buffer> { {}<LEFT>
     inoremap <buffer> [ []<LEFT>
     inoremap <buffer> ( ()<LEFT>
@@ -209,25 +209,25 @@ function PerlSet() "{{{2
     inoremap <buffer> ' ''<LEFT>
 endfunction "}}}
 
-function VbSet() "{{{2
+function! VbSet() "{{{2
     inoremap <buffer> { {}<LEFT>
     inoremap <buffer> [ []<LEFT>
     inoremap <buffer> ( ()<LEFT>
     inoremap <buffer> " ""<LEFT>
 endfunction "}}}
 
-function RubySet() "{{{2
+function! RubySet() "{{{2
     setlocal expandtab
     setlocal list
     setlocal shiftwidth=2
     ":retab
 endfunction "}}}
 
-function BashSet() "{{{2
+function! BashSet() "{{{2
     set isfname=@,48-57,/,.,-,_,+,,,#,$,%,~,
 endfunction "}}}
 
-function Ttp() "{{{2
+function! Ttp() "{{{2
 	g!/ttp/d
     g!/\.\(jpg\|png\|bmp\)/d 
     %s/\.\(jpg\|png\|bmp\)/.\1\r/g
@@ -236,22 +236,22 @@ function Ttp() "{{{2
     g!/\.\(jpg\|png\|bmp\)$/d 
 endfunction "}}}
 
-function BlogEscape() "{{{2
+function! BlogEscape() "{{{2
     %s/</\&lt;/gc
     %s/>/\&gt;/gc
 endfunction "}}}
 
-function Cul() "{{{2
+function! Cul() "{{{2
     highlight CursorLine guibg=NONE gui=underline
     set cursorline
 endfunction "}}}
 
-function Cuc() "{{{2
+function! Cuc() "{{{2
     highlight CursorColumn guibg=NONE gui=underline
     set cursorcolumn
 endfunction "}}}
 
-function Kakkofold() "{{{2
+function! Kakkofold() "{{{2
     setlocal foldmarker={,}
     setlocal fdm=marker
     normal zM
@@ -259,7 +259,7 @@ function Kakkofold() "{{{2
     setlocal foldmarker={{{,}}}
 endfunction "}}}
 
-function HankakuSpace() "{{{2
+function! HankakuSpace() "{{{2
     syntax match   HankakuSpace / /
     redir @"
     highlight HankakuSpace
@@ -271,7 +271,7 @@ function HankakuSpace() "{{{2
     endif
 endfunction "}}}
 
-function ZenkakuSpace() "{{{2
+function! ZenkakuSpace() "{{{2
     syntax match   ZenkakuSpace /　/
     redir @"
     highlight ZenkakuSpace
@@ -283,7 +283,7 @@ function ZenkakuSpace() "{{{2
     endif
 endfunction "}}}
 
-function ClearHistory() "{{{2
+function! ClearHistory() "{{{2
     let old_undolevels = &undolevels
     set undolevels=-1
     exe "normal a \<BS>\<Esc>"
@@ -291,12 +291,12 @@ function ClearHistory() "{{{2
     unlet old_undolevels
 endfunction "}}}
 
-function OtherWindowOpen(filename) "{{{2
+function! OtherWindowOpen(filename) "{{{2
     execute "normal \<c-w>\<c-p>"
     execute "e ".a:filename
 endfunction "}}}
 
-function Execfile() "{{{2
+function! Execfile() "{{{2
     w
     if (&ft == 'ruby' && match(expand("%:t"),"_spec.rb") > 0 )
         execute '!clear && rspec -c ' expand("%")
