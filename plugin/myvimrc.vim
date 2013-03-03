@@ -297,11 +297,17 @@ function! OtherWindowOpen(filename) "{{{2
 endfunction "}}}
 
 function! Execfile() "{{{2
+	if has('win32')
+		let l:clearcmd = "!"
+	else
+		let l:clearcmd = "!clear && "
+	endif
+
     w
     if (&ft == 'ruby' && match(expand("%:t"),"_spec.rb") > 0 )
-        execute '!clear && rspec -c ' expand("%")
+        execute l:clearcmd.'rspec -c '.expand("%")
     else
-        execute '!clear && ' &ft ' ' expand("%")
+        execute l:clearcmd.&ft.' '.expand("%")
     endif
 endfunction "}}}
 
