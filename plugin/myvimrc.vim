@@ -306,6 +306,8 @@ function! Execfile() "{{{2
     w
     if (&ft == 'ruby' && match(expand("%:t"),"_spec.rb") > 0 )
         execute l:clearcmd.'rspec -c '.expand("%")
+    elseif (expand("%:p") == "/etc/unbound/unbound.conf" )
+        execute l:clearcmd."/etc/init.d/unbound restart"
     else
         execute l:clearcmd.&ft.' '.expand("%")
     endif
