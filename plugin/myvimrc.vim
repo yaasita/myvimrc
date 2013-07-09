@@ -306,6 +306,8 @@ function! Execfile() "{{{2
     w
     if (&ft == 'ruby' && match(expand("%:t"),"_spec.rb") > 0 )
         execute l:clearcmd.'rspec -c '.expand("%")
+    elseif (expand("%:t") == '.mailfilter')
+        execute l:clearcmd."maildrop -V 9 < /dev/null"
     else
         execute l:clearcmd.&ft.' '.expand("%")
     endif
