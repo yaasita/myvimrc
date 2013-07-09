@@ -308,6 +308,8 @@ function! Execfile() "{{{2
         execute l:clearcmd.'rspec -c '.expand("%")
     elseif (expand("%:t") == '.mailfilter')
         execute l:clearcmd."maildrop -V 9 < /dev/null"
+    elseif (expand("%:p") == "/etc/unbound/unbound.conf" )
+        execute l:clearcmd."/etc/init.d/unbound restart"
     else
         execute l:clearcmd.&ft.' '.expand("%")
     endif
