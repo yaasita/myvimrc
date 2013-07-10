@@ -308,6 +308,8 @@ function! Execfile() "{{{2
         execute l:clearcmd.'rspec -c '.expand("%")
     elseif (expand("%:p") == "/etc/unbound/unbound.conf" )
         execute l:clearcmd."/etc/init.d/unbound restart"
+    elseif (&ft == 'sh')
+        execute l:clearcmd."./".expand("%")
     else
         execute l:clearcmd.&ft.' '.expand("%")
     endif
