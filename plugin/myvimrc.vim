@@ -312,6 +312,8 @@ function! Execfile() "{{{2
         execute l:clearcmd."/etc/init.d/unbound restart"
     elseif (&ft == 'sh')
         execute l:clearcmd."./".expand("%")
+    elseif (expand("%:p:h") == "/etc/postfix")
+        execute l:clearcmd."service postfix restart"
     else
         execute l:clearcmd.&ft.' '.expand("%")
     endif
