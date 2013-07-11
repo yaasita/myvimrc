@@ -304,16 +304,24 @@ function! Execfile() "{{{2
 	endif
 
     w
-    if (&ft == 'ruby' && match(expand("%:t"),"_spec.rb") > 0 )
+    if (&ft == 'ruby' && match(expand("%:t"),"_spec.rb") > 0 ) 
+        " rspec
         execute l:clearcmd.'rspec -c '.expand("%")
     elseif (expand("%:t") == '.mailfilter')
+        " maildrop
         execute l:clearcmd."maildrop -V 9 < /dev/null"
     elseif (expand("%:p") == "/etc/unbound/unbound.conf" )
+        " unbound
         execute l:clearcmd."/etc/init.d/unbound restart"
     elseif (&ft == 'sh')
+        " shell
         execute l:clearcmd."./".expand("%")
     elseif (expand("%:p:h") == "/etc/postfix")
+        " postfix
         execute l:clearcmd."service postfix restart"
+    elseif (match(expand("%:p:h"), "/etc/apache2") >= 0)
+        " apache
+        execute l:clearcmd."service apache2 restart"
     else
         execute l:clearcmd.&ft.' '.expand("%")
     endif
