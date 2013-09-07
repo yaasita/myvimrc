@@ -62,7 +62,7 @@ inoremap <silent> jj <ESC>
 nnoremap ,c :w<CR>:!gcc % <CR>:!a.exe<CR>
 nnoremap ,d :w<CR>:!g++ % <CR>:!a.exe<CR>
 nnoremap tt 0y$
-nnoremap ,e :call Execfile()<CR>
+nnoremap ,e :call Imadesyo()<CR>
 nnoremap / :set ims=0<CR>/
 nnoremap <BS> gT
 nnoremap <ESC><ESC> :noh<CR>
