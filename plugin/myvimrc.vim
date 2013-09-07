@@ -296,19 +296,19 @@ function! OtherWindowOpen(filename) "{{{2
     execute "e ".a:filename
 endfunction "}}}
 
-function! Execfile() "{{{2
-	if has('win32')
-		let l:clearcmd = "!"
-	else
-		let l:clearcmd = "!clear && "
-	endif
+"function! Execfile() "{{{2
+	"if has('win32')
+	"	let l:clearcmd = "!"
+	"else
+	"	let l:clearcmd = "!clear && "
+	"endif
 
-    w
-    if (expand("%:p") =~ '\v^/etc/unbound')
-        execute l:clearcmd."service unbound restart"
-    else
-        execute l:clearcmd.&ft.' '.expand("%")
-    endif
+    "w
+    "if (expand("%:p") =~ '\v^/etc/unbound')
+    "    execute l:clearcmd."service unbound restart"
+    "else
+    "    execute l:clearcmd.&ft.' '.expand("%")
+    "endif
     "if (&ft == 'ruby' && match(expand("%:t"),"_spec.rb") > 0 ) 
     "    " rspec
     "    execute l:clearcmd.'rspec -c '.expand("%")
@@ -330,7 +330,7 @@ function! Execfile() "{{{2
     "else
     "    execute l:clearcmd.&ft.' '.expand("%")
     "endif
-endfunction "}}}
+"endfunction "}}}
 
 "}}}
 "------------------------------------------
