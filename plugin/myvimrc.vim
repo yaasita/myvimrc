@@ -114,6 +114,7 @@ command! Cul call Cul()
 command! HankakuSpace call HankakuSpace()
 command! Kakkofold call Kakkofold() 
 command! Sst tabe ~/.vim/bundle/myvimrc/plugin/myvimrc.vim
+command! Ist tabe ~/.vim/bundle/imadesyo/autoload/imadesyo.vim
 command! Tabnasi setlocal expandtab | setlocal list | retab
 command! Ttp call Ttp()
 command! ZenkakuSpace call ZenkakuSpace()
@@ -295,42 +296,6 @@ function! OtherWindowOpen(filename) "{{{2
     execute "normal \<c-w>\<c-p>"
     execute "e ".a:filename
 endfunction "}}}
-
-"function! Execfile() "{{{2
-	"if has('win32')
-	"	let l:clearcmd = "!"
-	"else
-	"	let l:clearcmd = "!clear && "
-	"endif
-
-    "w
-    "if (expand("%:p") =~ '\v^/etc/unbound')
-    "    execute l:clearcmd."service unbound restart"
-    "else
-    "    execute l:clearcmd.&ft.' '.expand("%")
-    "endif
-    "if (&ft == 'ruby' && match(expand("%:t"),"_spec.rb") > 0 ) 
-    "    " rspec
-    "    execute l:clearcmd.'rspec -c '.expand("%")
-    "elseif (expand("%:t") == '.mailfilter')
-    "    " maildrop
-    "    execute l:clearcmd."maildrop -V 9 < /dev/null"
-    "elseif (expand("%:p") == "/etc/unbound/unbound.conf" )
-    "    " unbound
-    "    execute l:clearcmd."/etc/init.d/unbound restart"
-    "elseif (&ft == 'sh')
-    "    " shell
-    "    execute l:clearcmd."./".expand("%")
-    "elseif (expand("%:p:h") == "/etc/postfix")
-    "    " postfix
-    "    execute l:clearcmd."service postfix restart"
-    "elseif (match(expand("%:p:h"), "/etc/apache2") >= 0)
-    "    " apache
-    "    execute l:clearcmd."service apache2 restart"
-    "else
-    "    execute l:clearcmd.&ft.' '.expand("%")
-    "endif
-"endfunction "}}}
 
 "}}}
 "------------------------------------------
