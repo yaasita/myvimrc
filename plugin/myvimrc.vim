@@ -109,6 +109,7 @@ command! -nargs=1 -complete=file VDsplit vertical diffsplit <args>
 command! BlogEscape call BlogEscape() 
 command! BundleInstall NeoBundleInstall
 command! BundleUpdate  NeoBundleUpdate
+command! BundleClean   NeoBundleClean
 command! ClearHistory call ClearHistory()
 command! Clip set clipboard=unnamed 
 command! Cuc call Cuc() 
