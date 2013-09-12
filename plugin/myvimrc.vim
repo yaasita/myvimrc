@@ -107,14 +107,16 @@ command! -nargs=* -complete=file Pj w | !perl % <args>
 command! -nargs=0 CdCurrent cd %:p:h
 command! -nargs=1 -complete=file VDsplit vertical diffsplit <args>
 command! BlogEscape call BlogEscape() 
+command! BundleInstall NeoBundleInstall
+command! BundleUpdate  NeoBundleUpdate
 command! ClearHistory call ClearHistory()
 command! Clip set clipboard=unnamed 
 command! Cuc call Cuc() 
 command! Cul call Cul() 
 command! HankakuSpace call HankakuSpace()
+command! Ist tabe ~/.vim/bundle/imadesyo/autoload/imadesyo.vim
 command! Kakkofold call Kakkofold() 
 command! Sst tabe ~/.vim/bundle/myvimrc/plugin/myvimrc.vim
-command! Ist tabe ~/.vim/bundle/imadesyo/autoload/imadesyo.vim
 command! Tabnasi setlocal expandtab | setlocal list | retab
 command! Ttp call Ttp()
 command! ZenkakuSpace call ZenkakuSpace()
