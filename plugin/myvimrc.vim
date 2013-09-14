@@ -105,10 +105,10 @@ autocmd Filetype cobol call CobolSet()
 autocmd Filetype eruby call RubySet()
 autocmd Filetype html  call HtmlSet()
 autocmd Filetype perl  call PerlSet()
+autocmd Filetype qf    nnoremap <buffer> q  :q<CR>
 autocmd Filetype ruby  call RubySet()
 autocmd Filetype sh    call BashSet()
 autocmd Filetype vb    call VbSet()
-autocmd Filetype qf    nnoremap <buffer> q  :q<CR>
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
 
 command! -nargs=* -complete=file Pj w | !perl % <args>
