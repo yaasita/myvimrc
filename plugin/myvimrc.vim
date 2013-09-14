@@ -4,9 +4,10 @@
 "
 
 "------------------------------------------
-"**** plugin ************* {{{1
+"**** option ************* {{{1
 
 filetype plugin indent on
+
 set autoindent
 set autoread
 set backspace=2
@@ -15,6 +16,8 @@ set complete=.,w
 set foldcolumn=2
 set foldopen=mark,percent,quickfix,tag
 set formatoptions=tcqmM
+set grepformat=%f:%l:%m,%f:%l%m,%f\ \ %l%m,%f
+set grepprg=ack\ -l\ $*\ /dev/null
 set hidden
 set history=60
 set hlsearch
@@ -48,6 +51,7 @@ set whichwrap+=[
 set whichwrap+=]
 set wildmenu
 set wildmode=list:longest
+
 syntax on
 
 "}}}
@@ -102,6 +106,7 @@ autocmd Filetype perl  call PerlSet()
 autocmd Filetype ruby  call RubySet()
 autocmd Filetype sh    call BashSet()
 autocmd Filetype vb    call VbSet()
+autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
 
 command! -nargs=* -complete=file Pj w | !perl % <args>
 command! -nargs=0 CdCurrent cd %:p:h
@@ -318,3 +323,4 @@ endfunction "}}}
 
 "}}}
 "------------------------------------------
+
