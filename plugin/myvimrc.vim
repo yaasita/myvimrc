@@ -83,7 +83,6 @@ nnoremap <Left>  zh
 nnoremap <Right> zl
 nnoremap <SPACE> gt
 nnoremap co :copen<CR>
-"nnoremap q  :call MyQuit()<CR>
 nnoremap tt 0y$
 nnoremap wf :call OtherWindowOpen(expand("<cfile>"))<CR>
 nnoremap x "_x
@@ -330,14 +329,6 @@ function! Ygrep(...) "{{{2
     endwhile
     execute 'silent grep! ' . exp . " " . dir
     execute 'redr!'
-endfunction "}}}
-
-function! MyQuit(...) "{{{2
-    if &ft == 'qf'
-        execute ':q'
-    else
-        normal q
-    endif
 endfunction "}}}
 
 "}}}
