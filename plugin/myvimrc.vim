@@ -125,7 +125,7 @@ command! Clip set clipboard=unnamed
 command! Cuc call Cuc() 
 command! Cul call Cul() 
 command! HankakuSpace call HankakuSpace()
-command! Ist tabe ~/.vim/bundle/imadesyo/autoload/imadesyo.vim
+command! Ist tabe ~/.vim/bundle/imadesyo_develop/autoload/imadesyo.vim
 command! Kakkofold call Kakkofold() 
 command! Sst tabe ~/.vim/bundle/myvimrc/plugin/myvimrc.vim
 command! Tabnasi setlocal expandtab | setlocal list | retab
