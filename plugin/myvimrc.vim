@@ -42,6 +42,7 @@ set showcmd
 set showmatch
 set showtabline=2
 set smartcase
+set spellcapcheck=
 set statusline=%<%f\ %m%r%h%w%=%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}\ %2*%y%0*%6l,%c%V%1*%8P
 set tabstop=4
 set titlelen=100
@@ -65,7 +66,6 @@ inoremap <silent> <ESC> <ESC>:set imi=0<CR>
 inoremap <silent> jj <ESC>
 nnoremap ,c :w<CR>:!gcc % <CR>:!a.exe<CR>
 nnoremap ,d :w<CR>:!g++ % <CR>:!a.exe<CR>
-nnoremap tt 0y$
 nnoremap ,e :Imadesyo<CR>
 nnoremap / :set ims=0<CR>/
 nnoremap <BS> gT
@@ -82,6 +82,9 @@ nnoremap <F7> :Unite file<CR>
 nnoremap <Left>  zh
 nnoremap <Right> zl
 nnoremap <SPACE> gt
+nnoremap co :copen<CR>
+"nnoremap q  :call MyQuit()<CR>
+nnoremap tt 0y$
 nnoremap wf :call OtherWindowOpen(expand("<cfile>"))<CR>
 nnoremap x "_x
 vnoremap ' di'<C-R>"'<ESC>
@@ -106,6 +109,7 @@ autocmd Filetype perl  call PerlSet()
 autocmd Filetype ruby  call RubySet()
 autocmd Filetype sh    call BashSet()
 autocmd Filetype vb    call VbSet()
+autocmd Filetype qf    nnoremap <buffer> q  :q<CR>
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
 
 command! -nargs=* -complete=file Pj w | !perl % <args>
@@ -326,6 +330,14 @@ function! Ygrep(...) "{{{2
     endwhile
     execute 'silent grep! ' . exp . " " . dir
     execute 'redr!'
+endfunction "}}}
+
+function! MyQuit(...) "{{{2
+    if &ft == 'qf'
+        execute ':q'
+    else
+        normal q
+    endif
 endfunction "}}}
 
 "}}}
