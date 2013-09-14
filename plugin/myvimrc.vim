@@ -17,7 +17,7 @@ set foldcolumn=2
 set foldopen=mark,percent,quickfix,tag
 set formatoptions=tcqmM
 set grepformat=%f:%l:%m,%f:%l%m,%f\ \ %l%m,%f
-set grepprg=ack\ -l\ $*\ .
+set grepprg=ack\ -l\ $*\ /dev/null
 set hidden
 set history=60
 set hlsearch
@@ -109,12 +109,13 @@ autocmd Filetype vb    call VbSet()
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
 
 command! -nargs=* -complete=file Pj w | !perl % <args>
+command! -nargs=* Ygrep call Ygrep(<f-args>)
 command! -nargs=0 CdCurrent cd %:p:h
 command! -nargs=1 -complete=file VDsplit vertical diffsplit <args>
 command! BlogEscape call BlogEscape() 
+command! BundleClean   NeoBundleClean
 command! BundleInstall NeoBundleInstall
 command! BundleUpdate  NeoBundleUpdate
-command! BundleClean   NeoBundleClean
 command! ClearHistory call ClearHistory()
 command! Clip set clipboard=unnamed 
 command! Cuc call Cuc() 
@@ -303,6 +304,28 @@ endfunction "}}}
 function! OtherWindowOpen(filename) "{{{2
     execute "normal \<c-w>\<c-p>"
     execute "e ".a:filename
+endfunction "}}}
+
+function! Ygrep(...) "{{{2
+    let dir = ""
+    let exp = ""
+    if !exists("a:1")
+        let exp = @/
+    else
+        let exp = a:1
+    endif
+    if !exists("a:2")
+        let dir = "."
+    else
+        let dir = ""
+    endif
+    let index = 2
+    while index <= a:0
+        let dir = dir . " " . a:{index}
+        let index = index + 1
+    endwhile
+    execute 'silent grep! ' . exp . " " . dir
+    execute 'redr!'
 endfunction "}}}
 
 "}}}
