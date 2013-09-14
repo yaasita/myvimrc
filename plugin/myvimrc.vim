@@ -17,7 +17,7 @@ set foldcolumn=2
 set foldopen=mark,percent,quickfix,tag
 set formatoptions=tcqmM
 set grepformat=%f:%l:%m,%f:%l%m,%f\ \ %l%m,%f
-set grepprg=ack\ -l\ $*\ /dev/null
+set grepprg=ack\ -l\ $*\ .
 set hidden
 set history=60
 set hlsearch
