@@ -239,7 +239,7 @@ function! RubySet() "{{{2
 endfunction "}}}
 
 function! BashSet() "{{{2
-    set isfname=@,48-57,/,.,-,_,+,,,#,$,%,~,
+    set isfname=@,48-57,/,.,-,_,+,,,#,$,%,~
 endfunction "}}}
 
 function! Ttp() "{{{2
