@@ -78,7 +78,8 @@ nnoremap <F3> :vertical resize 40<CR>
 nnoremap <F4> :resize 40<CR>
 nnoremap <F5> :NeoComplCacheToggle<CR>
 nnoremap <F6> :Unite buffer<CR>
-nnoremap <F7> :Unite file<CR>
+nnoremap <F7> :Unite file_rec<CR>
+nnoremap <F8> :call SpellToggle()<CR>
 nnoremap <Left>  zh
 nnoremap <Right> zl
 nnoremap <SPACE> gt
@@ -329,6 +330,16 @@ function! Ygrep(...) "{{{2
     endwhile
     execute 'silent grep! ' . exp . " " . dir
     execute 'redr!'
+endfunction "}}}
+
+function! SpellToggle() "{{{2
+    setlocal spell!
+    if exists("g:syntax_on")
+        syntax off
+    else
+        syntax on
+    endif
+    setlocal spell?
 endfunction "}}}
 
 "}}}
