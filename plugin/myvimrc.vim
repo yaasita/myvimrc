@@ -124,6 +124,7 @@ command! ClearHistory call ClearHistory()
 command! Clip set clipboard=unnamed 
 command! Cuc call Cuc() 
 command! Cul call Cul() 
+command! Diffoff diffoff | set fdc=2
 command! HankakuSpace call HankakuSpace()
 command! Ist tabe ~/.vim/bundle/imadesyo_develop/autoload/imadesyo.vim
 command! Kakkofold call Kakkofold() 
