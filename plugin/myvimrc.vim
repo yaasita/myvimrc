@@ -76,7 +76,7 @@ nnoremap <F1> :tab :h<CR>
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <F3> :vertical resize 40<CR>
 nnoremap <F4> :resize 40<CR>
-nnoremap <F5> :NeoComplCacheToggle<CR>
+nnoremap <F5> :call NeoToggle()<CR>
 nnoremap <F6> :Unite buffer<CR>
 nnoremap <F7> :Unite file_rec<CR>
 nnoremap <F8> :call SpellToggle()<CR>
@@ -341,6 +341,18 @@ function! SpellToggle() "{{{2
         syntax on
     endif
     setlocal spell?
+endfunction "}}}
+
+function! NeoToggle() "{{{2
+    if !exists("g:neocomp") || !g:neocomp
+        let g:neocomp = 1
+        NeoComplCacheEnable
+        echo "NeoComplCacheEnable"
+    else
+        let g:neocomp = 0
+        NeoComplCacheDisable
+        echo "NeoComplCacheDisable"
+    endif
 endfunction "}}}
 
 "}}}
