@@ -107,7 +107,7 @@ autocmd BufRead,BufNewFile *.txt setfiletype txt
 autocmd BufReadPost  * silent! loadview
 autocmd BufWritePost * mkview
 autocmd Filetype cobol call CobolSet()
-autocmd Filetype snippet setlocal noexpandtab
+autocmd Filetype snippet setlocal noexpandtab list
 autocmd Filetype eruby call RubySet()
 autocmd Filetype html  call HtmlSet()
 autocmd Filetype perl  call PerlSet()
