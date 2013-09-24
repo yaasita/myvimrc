@@ -62,6 +62,7 @@ syntax on
 cnoreabbrev t tabe
 cnoremap <C-N> <Down>
 cnoremap <C-P> <Up>
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 inoremap <silent> <ESC> <ESC>:set imi=0<CR>
 inoremap <silent> jj <ESC>
 nnoremap ,c :w<CR>:!gcc % <CR>:!a.exe<CR>
@@ -80,6 +81,7 @@ nnoremap <F5> :call NeoToggle()<CR>
 nnoremap <F6> :Unite buffer<CR>
 nnoremap <F7> :Unite file_rec<CR>
 nnoremap <F8> :call SpellToggle()<CR>
+nnoremap <F9> :execute "NeoSnippetEdit -split ".&ft<CR>
 nnoremap <Left>  zh
 nnoremap <Right> zl
 nnoremap <SPACE> gt
@@ -87,11 +89,13 @@ nnoremap co :copen<CR>
 nnoremap tt 0y$
 nnoremap wf :call OtherWindowOpen(expand("<cfile>"))<CR>
 nnoremap x "_x
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 vnoremap ' di'<C-R>"'<ESC>
 vnoremap ( di(<C-R>")<ESC>
 vnoremap * y/<C-R>"<CR>
 vnoremap [ di[<C-R>"]<ESC>
 vnoremap hcm di<!-- <C-R>" --><Esc>
+xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 "}}}
 "------------------------------------------
