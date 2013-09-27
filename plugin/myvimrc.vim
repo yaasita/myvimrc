@@ -241,6 +241,10 @@ function! RubySet() "{{{2
     setlocal list
     setlocal shiftwidth=2
     ":retab
+    let l:name = expand("%:p")
+    if (l:name =~ '\v.+cookbooks/.+')
+        NeoSnippetSource ~/.vim/bundle/myvimrc/snippets/chef.snip
+    endif
 endfunction "}}}
 
 function! BashSet() "{{{2
