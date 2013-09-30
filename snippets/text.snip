@@ -7,3 +7,12 @@ options     head
     options     head
         ${3:#:TARGET}
 
+snippet tel
+abbr 電話の伝言
+	【入電】${1:#:company} ${2:from_name}様
+	
+	＞${3:to_name}さん
+	
+	$1 $2様から${4:time}頃電話ありました
+	${5:TARGET}
+	以上よろしくお願いします
