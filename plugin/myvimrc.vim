@@ -245,6 +245,9 @@ function! RubySet() "{{{2
     if (l:name =~ '\v.+cookbooks/.+')
         NeoSnippetSource ~/.vim/bundle/myvimrc/snippets/chef.snip
     endif
+    if (&fdm == "manual")
+        setlocal fdm=syntax
+    endif
 endfunction "}}}
 
 function! BashSet() "{{{2
