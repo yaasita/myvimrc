@@ -247,6 +247,7 @@ function! RubySet() "{{{2
     endif
     if (&fdm == "manual")
         setlocal fdm=syntax
+        normal zR
     endif
 endfunction "}}}
 
