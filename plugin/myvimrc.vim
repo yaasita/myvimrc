@@ -106,15 +106,16 @@ autocmd BufRead,BufNewFile *.pco setfiletype cobol
 autocmd BufRead,BufNewFile *.txt setfiletype txt
 autocmd BufReadPost  * silent! loadview
 autocmd BufWritePost * mkview
-autocmd Filetype cobol call CobolSet()
-autocmd Filetype snippet setlocal noexpandtab list
-autocmd Filetype eruby call RubySet()
-autocmd Filetype html  call HtmlSet()
-autocmd Filetype perl  call PerlSet()
-autocmd Filetype qf    nnoremap <buffer> q  :q<CR>
-autocmd Filetype ruby  call RubySet()
-autocmd Filetype sh    call BashSet()
-autocmd Filetype vb    call VbSet()
+autocmd Filetype cobol    call CobolSet()
+autocmd Filetype snippet  setlocal noexpandtab list
+autocmd Filetype eruby    call RubySet()
+autocmd Filetype html     call HtmlSet()
+autocmd Filetype perl     call PerlSet()
+autocmd Filetype qf       nnoremap <buffer> q  :q<CR>
+autocmd Filetype ruby     call RubySet()
+autocmd Filetype sh       call BashSet()
+autocmd Filetype vb       call VbSet()
+autocmd Filetype markdown call MarkdownSet()
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
 
 command! -nargs=* -complete=file Pj w | !perl % <args>
@@ -249,6 +250,10 @@ function! RubySet() "{{{2
         setlocal fdm=syntax
         normal zR
     endif
+endfunction "}}}
+
+function! MarkdownSet() "{{{2
+    NeoSnippetSource ~/.vim/bundle/myvimrc/snippets/markdown.snippets
 endfunction "}}}
 
 function! BashSet() "{{{2
