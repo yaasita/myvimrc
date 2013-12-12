@@ -66,7 +66,7 @@ imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 inoremap <silent> <ESC> <ESC>:set imi=0<CR>
 inoremap <silent> jj <ESC>
 nnoremap ,c :w<CR>:!gcc % <CR>:!a.exe<CR>
-nnoremap ,d :w<CR>:!g++ % <CR>:!a.exe<CR>
+nnoremap ,d :DeleteComment<CR>
 nnoremap ,e :Imadesyo<CR>
 nnoremap / :set ims=0<CR>/
 nnoremap <BS> gT
@@ -136,6 +136,7 @@ command! Ist tabe ~/.vim/bundle/imadesyo_develop/autoload/imadesyo.vim
 command! Kakkofold call Kakkofold() 
 command! Sst tabe ~/.vim/bundle/myvimrc/plugin/myvimrc.vim
 command! Tabnasi setlocal expandtab | setlocal list | retab
+command! DeleteComment g/^#\|^$/d
 command! Ttp call Ttp()
 command! ZenkakuSpace call ZenkakuSpace()
 
