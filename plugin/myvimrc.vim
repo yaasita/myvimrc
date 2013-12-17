@@ -32,7 +32,7 @@ set noendofline
 set noequalalways
 set noswapfile
 set nowrapscan
-set nrformats=hex,alpha
+set nrformats=hex
 set number
 set ruler
 set selection=inclusive
