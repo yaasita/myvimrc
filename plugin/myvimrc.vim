@@ -68,9 +68,11 @@ inoremap <silent> jj <ESC>
 nnoremap ,c :w<CR>:!gcc % <CR>:!a.exe<CR>
 nnoremap ,d :DeleteComment<CR>
 nnoremap ,e :Imadesyo<CR>
+nnoremap ,r :Unite file_mru<CR>
 nnoremap / :set ims=0<CR>/
 nnoremap <BS> gT
 nnoremap <ESC><ESC> :noh<CR>
+nnoremap <F10> :execute "NeoSnippetEdit -split ".&ft<CR>
 nnoremap <F11> :RjcolorNext<CR>
 nnoremap <F12> :RjcolorBack<CR>
 nnoremap <F1> :tab :h<CR>
@@ -80,8 +82,8 @@ nnoremap <F4> :resize 40<CR>
 nnoremap <F5> :call NeoToggle()<CR>
 nnoremap <F6> :Unite buffer<CR>
 nnoremap <F7> :Unite file_rec<CR>
-nnoremap <F8> :call SpellToggle()<CR>
-nnoremap <F9> :execute "NeoSnippetEdit -split ".&ft<CR>
+nnoremap <F8> :Unite file_mru<CR>
+nnoremap <F9> :call SpellToggle()<CR>
 nnoremap <Left>  zh
 nnoremap <Right> zl
 nnoremap <SPACE> gt
