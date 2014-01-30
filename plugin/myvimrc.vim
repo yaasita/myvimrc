@@ -138,7 +138,7 @@ command! Ist tabe ~/.vim/bundle/imadesyo_develop/autoload/imadesyo.vim
 command! Kakkofold call Kakkofold() 
 command! Sst tabe ~/.vim/bundle/myvimrc/plugin/myvimrc.vim
 command! Tabnasi setlocal expandtab | setlocal list | retab
-command! DeleteComment g/^#\|^$/d
+command! DeleteComment g/^\s*#\|^$/d
 command! Ttp call Ttp()
 command! ZenkakuSpace call ZenkakuSpace()
 
