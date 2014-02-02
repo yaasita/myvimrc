@@ -132,13 +132,14 @@ command! ClearHistory call ClearHistory()
 command! Clip set clipboard=unnamed 
 command! Cuc call Cuc() 
 command! Cul call Cul() 
+command! DeleteComment g/^\s*#\|^\s*$/d
 command! Diffoff diffoff | set fdc=2
 command! HankakuSpace call HankakuSpace()
 command! Ist tabe ~/.vim/bundle/imadesyo_develop/autoload/imadesyo.vim
 command! Kakkofold call Kakkofold() 
+command! Migemo call Migemo()
 command! Sst tabe ~/.vim/bundle/myvimrc/plugin/myvimrc.vim
 command! Tabnasi setlocal expandtab | setlocal list | retab
-command! DeleteComment g/^\s*#\|^\s*$/d
 command! Ttp call Ttp()
 command! ZenkakuSpace call ZenkakuSpace()
 
@@ -371,6 +372,14 @@ function! NeoToggle() "{{{2
         let g:neocomp = 0
         NeoComplCacheDisable
         echo "NeoComplCacheDisable"
+    endif
+endfunction "}}}
+
+function! Migemo() "{{{2
+    if hasmapto('\<CR>','c')
+        cunmap <expr><CR>
+    else
+        cnoremap <expr><CR> migemosearch#replace_search_word()."\<CR>"
     endif
 endfunction "}}}
 
