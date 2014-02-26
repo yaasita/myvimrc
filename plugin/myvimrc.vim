@@ -128,6 +128,7 @@ command! BlogEscape call BlogEscape()
 command! BundleClean   NeoBundleClean
 command! BundleInstall NeoBundleInstall
 command! BundleUpdate  NeoBundleUpdate
+command! Bundle call Bundle()
 command! ClearHistory call ClearHistory()
 command! Clip set clipboard=unnamed 
 command! Cuc call Cuc() 
@@ -381,6 +382,12 @@ function! Migemo() "{{{2
     else
         cnoremap <expr><CR> migemosearch#replace_search_word()."\<CR>"
     endif
+endfunction "}}}
+
+function! Bundle() "{{{2
+    NeoBundleInstall
+    NeoBundleUpdate
+    NeoBundleClean!
 endfunction "}}}
 
 "}}}
