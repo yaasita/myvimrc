@@ -71,6 +71,10 @@ nnoremap ,e :Imadesyo<CR>
 nnoremap ,r :Unite file_mru<CR>
 nnoremap / :set ims=0<CR>/
 nnoremap <BS> gT
+nnoremap <C-h> <C-w><
+nnoremap <C-j> <C-w>-
+nnoremap <C-k> <C-w>+
+nnoremap <C-l> <C-w>>
 nnoremap <ESC><ESC> :noh<CR>
 nnoremap <F10> :execute "NeoSnippetEdit -split ".&ft<CR>
 nnoremap <F11> :RjcolorNext<CR>
