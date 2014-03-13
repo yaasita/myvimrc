@@ -123,6 +123,7 @@ autocmd Filetype sh       call BashSet()
 autocmd Filetype vb       call VbSet()
 autocmd Filetype markdown call MarkdownSet()
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
+autocmd BufWritePost *.md silent! OreMarkdown
 
 command! -nargs=* -complete=file Pj w | !perl % <args>
 command! -nargs=* Ygrep call Ygrep(<f-args>)
