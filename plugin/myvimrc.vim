@@ -113,17 +113,17 @@ autocmd BufRead,BufNewFile *.txt setfiletype txt
 autocmd BufReadPost  * silent! loadview
 autocmd BufWritePost * mkview
 autocmd Filetype cobol    call CobolSet()
-autocmd Filetype snippet  setlocal noexpandtab list
 autocmd Filetype eruby    call RubySet()
 autocmd Filetype html     call HtmlSet()
+autocmd Filetype markdown call MarkdownSet()
+autocmd Filetype markdown let b:imadesyo_command = ore_markdown#cmd()
 autocmd Filetype perl     call PerlSet()
 autocmd Filetype qf       nnoremap <buffer> q  :q<CR>
 autocmd Filetype ruby     call RubySet()
 autocmd Filetype sh       call BashSet()
+autocmd Filetype snippet  setlocal noexpandtab list
 autocmd Filetype vb       call VbSet()
-autocmd Filetype markdown call MarkdownSet()
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
-autocmd BufWritePost *.md silent! OreMarkdown
 
 command! -nargs=* -complete=file Pj w | !perl % <args>
 command! -nargs=* Ygrep call Ygrep(<f-args>)
