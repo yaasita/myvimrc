@@ -112,7 +112,6 @@ autocmd Filetype cobol    call CobolSet()
 autocmd Filetype eruby    call RubySet()
 autocmd Filetype html     call HtmlSet()
 autocmd Filetype markdown call MarkdownSet()
-autocmd Filetype markdown let b:imadesyo_command = 'OreMarkdown'
 autocmd Filetype perl     call PerlSet()
 autocmd Filetype qf       nnoremap <buffer> q  :q<CR>
 autocmd Filetype ruby     call RubySet()
@@ -262,6 +261,7 @@ endfunction "}}}
 
 function! MarkdownSet() "{{{2
     NeoSnippetSource ~/.vim/bundle/myvimrc/snippets/markdown.snippets
+    let b:imadesyo_command = 'OreMarkdown'
 endfunction "}}}
 
 function! BashSet() "{{{2
