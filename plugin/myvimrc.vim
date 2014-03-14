@@ -71,10 +71,6 @@ nnoremap ,e :Imadesyo<CR>
 nnoremap ,r :Unite file_mru<CR>
 nnoremap / :set ims=0<CR>/
 nnoremap <BS> gT
-nnoremap <C-h> <C-w><
-nnoremap <C-j> <C-w>-
-nnoremap <C-k> <C-w>+
-nnoremap <C-l> <C-w>>
 nnoremap <ESC><ESC> :noh<CR>
 nnoremap <F10> :execute "NeoSnippetEdit -split ".&ft<CR>
 nnoremap <F11> :RjcolorNext<CR>
@@ -148,6 +144,7 @@ command! Migemo call Migemo()
 command! Sst tabe ~/.vim/bundle/myvimrc/plugin/myvimrc.vim
 command! Tabnasi setlocal expandtab | setlocal list | retab
 command! Ttp call Ttp()
+command! WindowSizeToggle call WindowSizeToggle()
 command! ZenkakuSpace call ZenkakuSpace()
 
 "}}}
@@ -396,6 +393,20 @@ function! Bundle() "{{{2
     NeoBundleClean!
 endfunction "}}}
 
+function! WindowSizeToggle() "{{{2
+    if hasmapto('<C-w><','n') 
+        nunmap <C-h>
+        nunmap <C-j>
+        nunmap <C-k>
+        nunmap <C-l>
+    else
+        nnoremap <C-h> <C-w><
+        nnoremap <C-j> <C-w>-
+        nnoremap <C-k> <C-w>+
+        nnoremap <C-l> <C-w>>
+    endif
+endfunction "}}}
+
 "}}}
 "------------------------------------------
 "**** memo ************* {{{1
@@ -414,5 +425,3 @@ endfunction "}}}
 
 "}}}
 "------------------------------------------
-
-
