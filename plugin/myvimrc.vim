@@ -108,6 +108,7 @@ autocmd BufRead,BufNewFile *.pco setfiletype cobol
 autocmd BufRead,BufNewFile *.txt setfiletype txt
 autocmd BufReadPost  * silent! loadview
 autocmd BufWritePost * mkview
+autocmd BufWritePost *.md silent! OreMarkdown bg
 autocmd Filetype cobol    call CobolSet()
 autocmd Filetype eruby    call RubySet()
 autocmd Filetype html     call HtmlSet()
