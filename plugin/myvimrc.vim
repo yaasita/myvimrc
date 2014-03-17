@@ -390,6 +390,7 @@ function! Migemo() "{{{2
 endfunction "}}}
 
 function! Bundle() "{{{2
+    silent! execute "!cd ~/.vim && find ./view/ ./undo/ -mtime +90 -delete"
     NeoBundleInstall
     NeoBundleUpdate
     NeoBundleClean!
