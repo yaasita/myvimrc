@@ -90,6 +90,7 @@ nnoremap <Right> zl
 nnoremap <SPACE> gt
 nnoremap co :copen<CR>
 nnoremap sn :Unite neosnippet<CR>
+nnoremap sp :Unite neosnippet<CR>
 nnoremap tt 0y$
 nnoremap wf :call OtherWindowOpen(expand("<cfile>"))<CR>
 nnoremap x "_x
