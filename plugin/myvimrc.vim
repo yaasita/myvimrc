@@ -73,14 +73,14 @@ nnoremap ,r :Unite file_mru<CR>
 nnoremap / :set ims=0<CR>/
 nnoremap <BS> gT
 nnoremap <ESC><ESC> :noh<CR>
-nnoremap <F10> :execute "NeoSnippetEdit -split ".&ft<CR>
+nnoremap <F10> :WindowSizeToggle<CR>
 nnoremap <F11> :RjcolorNext<CR>
 nnoremap <F12> :RjcolorBack<CR>
 nnoremap <F1> :tab :h<CR>
 nnoremap <F2> :NERDTreeToggle<CR>
-nnoremap <F3> :vertical resize 40<CR>
-nnoremap <F4> :resize 40<CR>
-nnoremap <F5> :call NeoToggle()<CR>
+nnoremap <F3> :execute "NeoSnippetEdit -split ".&ft<CR>
+nnoremap <F4> :Unite line<CR>
+nnoremap <F5> :Unite neosnippet<CR>
 nnoremap <F6> :Unite buffer<CR>
 nnoremap <F7> :Unite file_rec<CR>
 nnoremap <F8> :Unite file_mru<CR>
@@ -266,7 +266,7 @@ function! RubySet() "{{{2
 endfunction "}}}
 
 function! MarkdownSet() "{{{2
-    NeoSnippetSource ~/.vim/bundle/myvimrc/snippets/markdown.snippets
+    "NeoSnippetSource ~/.vim/bundle/myvimrc/snippets/markdown.snippets
     let b:imadesyo_command = 'OreMarkdown'
 endfunction "}}}
 
@@ -371,18 +371,6 @@ function! SpellToggle() "{{{2
         syntax on
     endif
     setlocal spell?
-endfunction "}}}
-
-function! NeoToggle() "{{{2
-    if !exists("g:neocomp") || !g:neocomp
-        let g:neocomp = 1
-        NeoComplCacheEnable
-        echo "NeoComplCacheEnable"
-    else
-        let g:neocomp = 0
-        NeoComplCacheDisable
-        echo "NeoComplCacheDisable"
-    endif
 endfunction "}}}
 
 function! Migemo() "{{{2
