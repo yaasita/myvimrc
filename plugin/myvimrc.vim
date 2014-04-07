@@ -267,6 +267,8 @@ endfunction "}}}
 
 function! MarkdownSet() "{{{2
     "NeoSnippetSource ~/.vim/bundle/myvimrc/snippets/markdown.snippets
+    syntax match Goji /公務支援/
+    highlight link Goji Error
     let b:imadesyo_command = 'OreMarkdown'
 endfunction "}}}
 
