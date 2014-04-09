@@ -92,7 +92,7 @@ nnoremap co :copen<CR>
 nnoremap sn :Unite neosnippet<CR>
 nnoremap sp :Unite neosnippet<CR>
 nnoremap tt 0y$
-nnoremap wf :call OtherWindowOpen(expand("<cfile>"))<CR>
+"nnoremap wf :call OtherWindowOpen(expand("<cfile>"))<CR>
 nnoremap x "_x
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 vnoremap ' di'<C-R>"'<ESC>
