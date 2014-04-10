@@ -66,6 +66,7 @@ cnoremap <C-P> <Up>
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 inoremap <silent> <ESC> <ESC>:set imi=0<CR>
 inoremap <silent> jj <ESC>
+nnoremap + ,
 nnoremap ,c :w<CR>:!gcc % <CR>:!a.exe<CR>
 nnoremap ,d :DeleteComment<CR>
 nnoremap ,e :Imadesyo<CR>
@@ -92,7 +93,7 @@ nnoremap co :copen<CR>
 nnoremap sn :Unite neosnippet<CR>
 nnoremap sp :Unite neosnippet<CR>
 nnoremap tt 0y$
-"nnoremap wf :call OtherWindowOpen(expand("<cfile>"))<CR>
+nnoremap tf :call OtherWindowOpen(expand("<cfile>"))<CR>
 nnoremap x "_x
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 vnoremap ' di'<C-R>"'<ESC>
