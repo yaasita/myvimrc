@@ -1,1 +1,10 @@
+snippet     date
+abbr        date +%Y%m%d_%H%M%S
+options     word
+    date +%Y%m%d_%H%M%S
 
+snippet     old_file_delete
+abbr        古いファイル削除
+alias       find_old_file
+options     head
+    find ${1:#:DIR} -type f -mtime +60 -delete
