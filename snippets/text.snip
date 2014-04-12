@@ -1,12 +1,3 @@
-snippet     snippet
-abbr        snippet abbr options <snippet code>
-alias       snip
-options     head
-    snippet     ${1:#:trigger}
-    abbr        ${2:#:abbr}
-    options     head
-        ${3:#:TARGET}
-
 snippet tel
 abbr 電話の伝言
 	【入電】${1:#:相手の会社} ${2:#:相手の名前}様
@@ -15,5 +6,5 @@ abbr 電話の伝言
 	
 	$1 $2様から`strftime("%H:%m")`頃電話ありました
 	${5:折り返し電話欲しいそうです}
-    Tel:${6:#:電話番号}
+	Tel:${6:#:電話番号}
 	以上よろしくお願いします
