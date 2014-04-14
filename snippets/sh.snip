@@ -8,3 +8,8 @@ abbr        古いファイル削除
 alias       find_old_file
 options     head
 	find ${1:#:DIR} -type f -mtime +60 -delete
+
+snippet     read_stdin
+abbr        標準入力から読み込み
+options     head
+	read ${1:input}
