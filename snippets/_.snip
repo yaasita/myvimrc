@@ -8,3 +8,8 @@ abbr        ファイル名
 alias       fname
 options     word
     `expand('%:t')`
+
+snippet     autodate
+abbr        Last modified time
+alias       lmod
+	Last Change:`strftime("%Y/%m/%d")`.
