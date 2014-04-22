@@ -51,6 +51,7 @@ set titlestring=%t\ (%<%{expand(\"%:p:h\")})\ \-\ %{v:servername}\ %{v:version}
 set viewoptions=folds,cursor
 set whichwrap+=[
 set whichwrap+=]
+set wildignore=*.doc,*.jpg,*.pdf,*.png,*.psd,*.xls,*.xlsx
 set wildmenu
 set wildmode=list:longest
 
