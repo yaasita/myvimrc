@@ -71,6 +71,7 @@ nnoremap + ,
 nnoremap ,c :w<CR>:!gcc % <CR>:!a.exe<CR>
 nnoremap ,d :DeleteComment<CR>
 nnoremap ,e :Imadesyo<CR>
+nnoremap ,a :!cat >> %<CR>
 nnoremap ,r :Unite file_mru<CR>
 nnoremap / :set ims=0<CR>/
 nnoremap <BS> gT
