@@ -1,0 +1,27 @@
+snippet     gemfile
+abbr        Gemfile
+	source 'http://rubygems.org'
+	
+	gem 'sqlite3'
+
+	group :assets do
+	  gem 'sass-rails',   '~> 3.1.5'
+	  gem 'coffee-rails', '~> 3.1.1'
+	  gem 'uglifier', '>= 1.0.3'
+	end
+
+snippet     fileopen
+alias       open
+abbr        File.open(filename) do ... end
+  File.open(${1:#:filename}, '${2:#:mode:r|w}') do |${3:io}|
+    ${0:TARGET}
+  end
+
+snippet     rescue
+alias       begin
+abbr        例外処理
+	begin
+		${1}
+	rescue
+		${2}
+	end
