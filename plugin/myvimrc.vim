@@ -115,18 +115,19 @@ autocmd BufRead,BufNewFile *.txt setfiletype txt
 autocmd BufReadPost  * silent! loadview
 autocmd BufWritePost * mkview
 autocmd BufWritePost *.md silent! OreMarkdown bg utf8
+autocmd BufWritePost *.snip NeoSnippetMakeCache
 autocmd Filetype cobol      call CobolSet()
-autocmd Filetype yaml       set shiftwidth=2
 autocmd Filetype eruby      call RubySet()
 autocmd Filetype html       call HtmlSet()
 autocmd Filetype markdown   call MarkdownSet()
+autocmd Filetype neosnippet setlocal list noexpandtab
 autocmd Filetype perl       call PerlSet()
 autocmd Filetype qf         nnoremap <buffer> q  :q<CR>
 autocmd Filetype ruby       call RubySet()
 autocmd Filetype sh         call BashSet()
 autocmd Filetype snippet    setlocal noexpandtab list
 autocmd Filetype vb         call VbSet()
-autocmd Filetype neosnippet setlocal list noexpandtab
+autocmd Filetype yaml       set shiftwidth=2
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
 
 command! -nargs=* -complete=file Pj w | !perl % <args>
