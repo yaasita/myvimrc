@@ -13,3 +13,9 @@ abbr        ファイルを保存させる
 		ForceType application/octet-stream
 		Header set Content-Disposition attachment
 	</Files>
+
+snippet    allssl
+abbr       常時SSL
+	RewriteEngine on
+	RewriteCond %{SERVER_PORT} !^443$
+	RewriteRule ^/(.*)?$ https://%{HTTP_HOST}/\$1 [L,R]
