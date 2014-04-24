@@ -6,3 +6,10 @@ abbr        BASIC認証
 		AuthUserFile "${2:/etc/apache2/htpasswd/pass}"
 		Require valid-user
 	</Directory>
+
+snippet     savefile
+abbr        ファイルを保存させる
+	<Files *.${1:txt}>
+		ForceType application/octet-stream
+		Header set Content-Disposition attachment
+	</Files>
