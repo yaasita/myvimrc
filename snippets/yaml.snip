@@ -1,0 +1,7 @@
+snippet     ansible_templete
+abbr        templete
+	template: src=${1:hoge.j2} dest=${2:/etc/network/interfaces} owner=${3:root} group=${4:root} mode=${5:0644}
+
+snippet     ansible_shell
+abbr        シェル実行
+	shell: ${1:apt-get source dwm} creates=${2:/tmp/dwm-6.0} chdir=${3:/tmp}
