@@ -5,3 +5,11 @@ abbr        templete
 snippet     ansible_shell
 abbr        シェル実行
 	shell: ${1:apt-get source dwm} creates=${2:/tmp/dwm-6.0} chdir=${3:/tmp}
+
+snippet     ansible_apt
+abbr        aptでインストール
+	apt: pkg={{ item }} state=installed
+	with_items:
+	 - apt-file
+	 - tmux
+	 - postfix
