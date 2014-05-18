@@ -115,7 +115,7 @@ autocmd BufRead,BufNewFile *.txt setfiletype txt
 autocmd BufRead,BufNewFile Dockerfile setfiletype dockerfile
 autocmd BufReadPost  * silent! loadview
 autocmd BufWritePost * mkview
-autocmd BufWritePost *.md silent! OreMarkdown bg utf8
+autocmd BufWritePost *.md,*.markdown silent! OreMarkdown bg utf8
 autocmd BufWritePost *.snip NeoSnippetMakeCache
 autocmd Filetype cobol      call CobolSet()
 autocmd Filetype eruby      call RubySet()
