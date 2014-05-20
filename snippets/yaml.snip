@@ -7,9 +7,31 @@ abbr        シェル実行
 	shell: ${1:apt-get source dwm} creates=${2:/tmp/dwm-6.0} chdir=${3:/tmp}
 
 snippet     ansible_apt
+alias       with_items
 abbr        aptでインストール
 	apt: pkg={{ item }} state=installed
 	with_items:
 	 - apt-file
 	 - tmux
 	 - postfix
+
+snippet   ansible_directory
+abbr      ディレクトリ作成
+	file: path=/home/yamasita/.ssh owner=yamasita group=yamasita mode=0700 state=directory recurse=yes
+
+snippet   ansible_copy
+abbr      ファイルコピー
+	copy: src={{ item }}.key dest=/home/{{ item }}/.ssh/authorized_keys owner={{ item }} group={{ item }} mode=0644
+
+snippet   ansible_symlink
+abbr      シンボリックリンク
+	file: src=/file/to/link/to dest=/path/to/symlink owner=foo group=foo state=link
+
+snippet    ansible_notify
+abbr   リスタート例
+	notify: restart postfix
+
+snippet      ansible_handler
+abbr     ハンドラ例
+	- name: restart nginx
+	  service: name=nginx state=restarted
