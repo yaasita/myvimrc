@@ -35,3 +35,36 @@ snippet      ansible_handler
 abbr     ハンドラ例
 	- name: restart nginx
 	  service: name=nginx state=restarted
+
+snippet      ansible_user
+abbr     ユーザ作成
+	user: name={{ item }} shell=/bin/bash groups=sudo,adm password={{ bps_password }} append=yes update_password=on_create
+	with_items:
+	  - yamasita
+	  - baba
+	  - morimori
+
+snippet  ansible_hostname
+abbr     ホスト名の設定
+	hostname: name={{server_host_name}}
+
+snippet  ansible_include
+abbr     include
+	- include: rbenv-setup.yml
+	  sudo: yes
+	  sudo_user: "{{ ruby_deploy_user }}"
+
+snippet ansible_register
+abbr    実行結果判定
+	- name: rbenvにインストールされてるバージョンチェック
+	  shell: cd; bash -lc "rbenv versions | grep -q {{ install_ruby_version }}"
+	  register: result
+	  failed_when: result.rc not in [0, 1]
+
+	- name: Installs ruby
+	  shell: cd; bash -lc "CONFIGURE_OPTS=--disable-install-rdoc rbenv install {{ install_ruby_version }}"
+	  when: result.rc != 0
+
+snippet  ansible_ignore_errors
+abbr エラー無視
+	ignore_errors: True
