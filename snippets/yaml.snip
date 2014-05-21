@@ -21,7 +21,7 @@ abbr      ディレクトリ作成
 
 snippet   ansible_copy
 abbr      ファイルコピー
-	copy: src={{ item }}.key dest=/home/{{ item }}/.ssh/authorized_keys owner={{ item }} group={{ item }} mode=0644
+	copy: src={{ item }}.key dest=/home/{{ item }}/.ssh/authorized_keys owner={{ item }} group={{ item }} mode=0644 force=no
 
 snippet   ansible_symlink
 abbr      シンボリックリンク
