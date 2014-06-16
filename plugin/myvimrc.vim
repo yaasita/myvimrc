@@ -84,7 +84,7 @@ nnoremap <F3> :execute "NeoSnippetEdit -split ".&ft<CR>
 nnoremap <F4> :Unite line<CR>
 nnoremap <F5> :Unite neosnippet<CR>
 nnoremap <F6> :Unite buffer<CR>
-nnoremap <F7> :lcd %:p:h<CR>:Unite file_rec<CR>
+nnoremap <F7> :Unite file_rec<CR>
 nnoremap <F8> :Unite file_mru<CR>
 nnoremap <F9> :call SpellToggle()<CR>
 nnoremap <Left>  zh
