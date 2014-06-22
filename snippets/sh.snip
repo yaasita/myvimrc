@@ -19,3 +19,10 @@ abbr        標準入力から読み込み
 alias       input
 options     head
 	read ${1:input}
+
+snippet     if_>
+abbr        数値比較>
+	if [ "$pull_line" -gt "1" ]; then
+	fi
+
+
