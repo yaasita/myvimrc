@@ -19,3 +19,7 @@ abbr        標準入力から読み込み
 alias       input
 options     head
 	read ${1:input}
+
+snippet     sudo -u
+abbr        sudoでユーザ実行
+	sudo -u ${1:yamasita} bash -lc "${2:/path/to/script.sh}"
