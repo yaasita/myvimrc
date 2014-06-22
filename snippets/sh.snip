@@ -22,4 +22,4 @@ options     head
 
 snippet     sudo -u
 abbr        sudoでユーザ実行
-	sudo -u ${1:yamasita} bash -lc "${2:/path/to/script.sh}"
+	sudo -H -u ${1:yamasita} bash -lc "${2:/path/to/script.sh}"
