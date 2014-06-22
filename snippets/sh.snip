@@ -25,4 +25,6 @@ abbr        数値比較>
 	if [ "$pull_line" -gt "1" ]; then
 	fi
 
-
+snippet     sudo -u
+abbr        sudoでユーザ実行
+	sudo -u ${1:yamasita} bash -lc "${2:/path/to/script.sh}"
