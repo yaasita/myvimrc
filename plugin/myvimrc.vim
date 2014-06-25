@@ -82,7 +82,7 @@ nnoremap <F1> :tab :h<CR>
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <F3> :execute "NeoSnippetEdit -split ".&ft<CR>
 nnoremap <F4> :Unite line<CR>
-nnoremap <F5> :Unite neosnippet<CR>
+nnoremap <F5> :Unite snippet<CR>
 nnoremap <F6> :Unite buffer<CR>
 nnoremap <F7> :Unite file_rec<CR>
 nnoremap <F8> :Unite file_mru<CR>
@@ -91,8 +91,7 @@ nnoremap <Left>  zh
 nnoremap <Right> zl
 nnoremap <SPACE> gt
 nnoremap co :copen<CR>
-nnoremap sn :Unite neosnippet<CR>
-nnoremap sp :Unite neosnippet<CR>
+nnoremap sp :Unite snippet<CR>
 nnoremap tt 0y$
 nnoremap tf :call OtherWindowOpen(expand("<cfile>"))<CR>
 nnoremap x "_x
