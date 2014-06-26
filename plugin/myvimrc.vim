@@ -146,7 +146,7 @@ command! CopyPaste setlocal nonu foldcolumn=0
 command! Cuc call Cuc() 
 command! Cul call Cul() 
 command! DeleteComment g/^\s*#\|^\s*$/d
-command! Diffoff diffoff | set fdc=2
+command! Diffoff diffoff! | set fdc=2
 command! HankakuSpace call HankakuSpace()
 command! Ist tabe ~/.vim/bundle/imadesyo_develop/autoload/imadesyo.vim
 command! Kakkofold call Kakkofold() 
