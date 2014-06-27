@@ -278,7 +278,7 @@ function! MarkdownSet() "{{{2
 endfunction "}}}
 
 function! BashSet() "{{{2
-    set isfname=@,48-57,/,.,-,_,+,,,#,$,%,~
+    setlocal isfname=@,48-57,/,.,-,_,+,,,#,$,%,~
 endfunction "}}}
 
 function! Ttp() "{{{2
