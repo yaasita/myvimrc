@@ -13,6 +13,7 @@ set autoread
 set backspace=2
 set cmdheight=2
 set complete=.,w
+set completefunc=GoogleComplete
 set foldcolumn=2
 set foldopen=mark,percent,quickfix,tag
 set formatoptions=tcqmM
@@ -406,6 +407,22 @@ function! WindowSizeToggle() "{{{2
         nnoremap <C-j> <C-w>-
         nnoremap <C-k> <C-w>+
         nnoremap <C-l> <C-w>>
+    endif
+endfunction "}}}
+
+function! GoogleComplete(findstart, base) "{{{2
+    if a:findstart
+        let line = getline('.')
+        let start = col('.') - 1
+        while start > 0 && line[start - 1] =~ '\S'
+            let start -= 1
+        endwhile
+        return start
+    else
+        let ret = system('curl -s -G --data-urlencode "q='
+                    \ . a:base . '" "http://suggestqueries.google.com/complete/search?&client=firefox&hl=ja&ie=utf8&oe=utf8"')
+        let res = split(substitute(ret,'\[\|\]\|"',"","g"),",")
+        return res
     endif
 endfunction "}}}
 
