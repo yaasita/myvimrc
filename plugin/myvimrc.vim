@@ -114,7 +114,7 @@ autocmd BufRead,BufNewFile *.pco setfiletype cobol
 autocmd BufRead,BufNewFile *.txt setfiletype txt
 autocmd BufRead,BufNewFile Dockerfile setfiletype dockerfile
 autocmd BufReadPost  * silent! loadview
-autocmd BufWritePost * mkview
+autocmd BufWritePost * call MkView()
 autocmd BufWritePost *.md,*.markdown silent! OreMarkdown bg utf8
 autocmd BufWritePost *.snip NeoSnippetMakeCache
 autocmd Filetype cobol      call CobolSet()
@@ -425,6 +425,13 @@ function! GoogleComplete(findstart, base) "{{{2
         return res
     endif
 endfunction "}}}
+
+function! MkView() "{{{2
+    if &fdm != "diff"
+        mkview
+    endif
+endfunction "}}}
+
 
 "}}}
 "------------------------------------------
