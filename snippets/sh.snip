@@ -32,3 +32,9 @@ abbr        sudoでユーザ実行
 snippet     if_regrex
 abbr        正規表現if
 	if [[ "$STRING" =~ ^ab[cd]$ ]]; then
+
+snippet     function
+alias       func
+	function ${1:#:name} {
+		${0:TARGET}
+	}
