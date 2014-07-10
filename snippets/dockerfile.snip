@@ -1,18 +1,18 @@
 snippet     dockerfile
 abbr        ひな形
-	FROM ubuntu:14.04
+	#FROM ubuntu:14.04
+	FROM debian:jessie
 	MAINTAINER yaasita
-
+	#apt
+	ADD 02proxy /etc/apt/apt.conf.d/02proxy
+	RUN apt-get update
+	#package
+	RUN apt-get install -y vim git aptitude build-essential
+	#ssh
+	RUN apt-get install -y openssh-server
+	RUN mkdir /var/run/sshd/
 	RUN mkdir /root/.ssh
 	ADD authorized_keys /root/.ssh/authorized_keys
-
-	RUN apt-get update
-	RUN apt-get install -y software-properties-common python-software-properties openssh-server
-	RUN mkdir /var/run/sshd/
-	RUN apt-add-repository ppa:zanchey/asciinema
-	RUN apt-get update
-	RUN apt-get install -y asciinema
-	RUN apt-get install -y python-virtualenv
-
+	RUN echo root:root | chpasswd
 	CMD /usr/sbin/sshd -D
 
