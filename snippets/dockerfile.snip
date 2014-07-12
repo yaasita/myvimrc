@@ -13,6 +13,7 @@ abbr        ひな形
 	RUN mkdir /var/run/sshd/
 	RUN mkdir /root/.ssh
 	ADD authorized_keys /root/.ssh/authorized_keys
+	RUN perl -i -ple 's/^(permitrootlogin\s)(.*)/\1yes/i' /etc/ssh/sshd_config
 	RUN echo root:root | chpasswd
 	CMD /usr/sbin/sshd -D
 
