@@ -275,6 +275,7 @@ function! MarkdownSet() "{{{2
     syntax match Goji /公務支援/
     highlight link Goji Error
     let b:imadesyo_command = 'OreMarkdown'
+    set foldlevel=2
 endfunction "}}}
 
 function! BashSet() "{{{2
