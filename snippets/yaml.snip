@@ -84,3 +84,7 @@ abbr var/main.ymlファイル例
 snippet ansible_git
 abbr git
 	git: repo=ssh://git@github.com/mylogin/hello.git dest=/home/mylogin/hello
+
+snippet ansible_name
+abbr 処理名
+	- name: ${1:systemユーザ作成}
