@@ -136,6 +136,7 @@ command! -nargs=0 CdCurrent lcd %:p:h
 command! -nargs=1 -complete=file VDsplit vertical diffsplit <args>
 command! -nargs=? Eiwa call Eiwa(<f-args>)
 command! -nargs=? Waei call Waei(<f-args>)
+command! -nargs=? Kokugo call Kokugo(<f-args>)
 command! BlogEscape call BlogEscape() 
 command! BookmarkOpen tabe ~/.NERDTreeBookmarks
 command! Bundle call Bundle()
@@ -465,6 +466,24 @@ function! Waei(...) "{{{2
     execute l:cmd . "curl -s -L " .
                 \ "http://dictionary.goo.ne.jp/srch/je/" . l:search_word . "/m1u/ " .
                 \ " | grep prog_compound " .
+                \ " | perl -ple 's/<.+?>//g'" .
+                \ " | head -10"
+endfunction "}}}
+
+function! Kokugo(...) "{{{2
+	if has('win32') || has('gui_running')
+		let l:cmd = "!"
+    else
+		let l:cmd = "!clear && "
+    endif
+    if a:0 == 0
+        let l:search_word = expand("<cword>")
+    else
+        let l:search_word = a:1
+    endif
+    execute l:cmd . "curl -s -L " .
+                \ "http://dictionary.goo.ne.jp/srch/jn/" . l:search_word . "/m1u/ " .
+                \ " | grep meaning " .
                 \ " | perl -ple 's/<.+?>//g'" .
                 \ " | head -10"
 endfunction "}}}
