@@ -108,7 +108,6 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 "------------------------------------------
 "**** command ********** {{{1
 
-"autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.mq4 setfiletype mql4
 autocmd BufRead,BufNewFile *.pco setfiletype cobol
 autocmd BufRead,BufNewFile *.txt setfiletype txt
@@ -119,7 +118,6 @@ autocmd BufWritePost *.snip NeoSnippetMakeCache
 autocmd Filetype cobol      call CobolSet()
 autocmd Filetype eruby      call RubySet()
 autocmd Filetype html       call HtmlSet()
-autocmd Filetype markdown   call MarkdownSet()
 autocmd Filetype neosnippet setlocal list noexpandtab
 autocmd Filetype perl       call PerlSet()
 autocmd Filetype qf         nnoremap <buffer> q  :q<CR>
@@ -271,14 +269,6 @@ function! RubySet() "{{{2
         setlocal fdm=syntax
         normal zR
     endif
-endfunction "}}}
-
-function! MarkdownSet() "{{{2
-    "NeoSnippetSource ~/.vim/bundle/myvimrc/snippets/markdown.snippets
-    syntax match Goji /公務支援/
-    highlight link Goji Error
-    let b:imadesyo_command = 'OreMarkdown'
-    set foldlevel=2
 endfunction "}}}
 
 function! BashSet() "{{{2
