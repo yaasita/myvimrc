@@ -109,7 +109,6 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 "**** command ********** {{{1
 
 autocmd BufRead,BufNewFile *.mq4 setfiletype mql4
-autocmd BufRead,BufNewFile *.pco setfiletype cobol
 autocmd BufRead,BufNewFile *.txt setfiletype txt
 autocmd BufReadPost  * silent! loadview
 autocmd BufWritePost * call MkView()
