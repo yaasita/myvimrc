@@ -112,14 +112,9 @@ autocmd BufReadPost  * silent! loadview
 autocmd BufWritePost * call MkView()
 autocmd BufWritePost *.md,*.markdown silent! OreMarkdown bg utf8
 autocmd BufWritePost *.snip NeoSnippetMakeCache
-autocmd Filetype eruby      call RubySet()
-autocmd Filetype html       call HtmlSet()
 autocmd Filetype neosnippet setlocal list noexpandtab
 autocmd Filetype qf         nnoremap <buffer> q  :q<CR>
-autocmd Filetype ruby       call RubySet()
-autocmd Filetype sh         call BashSet()
 autocmd Filetype snippet    setlocal noexpandtab list
-autocmd Filetype vb         call VbSet()
 autocmd Filetype yaml       set shiftwidth=2
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
 
@@ -129,7 +124,7 @@ command! -nargs=1 -complete=file VDsplit vertical diffsplit <args>
 command! -nargs=? Eiwa call Eiwa(<f-args>)
 command! -nargs=? Kokugo call Kokugo(<f-args>)
 command! -nargs=? Waei call Waei(<f-args>)
-command! BlogEscape call BlogEscape() 
+command! TagEscape call TagEscape() 
 command! BookmarkOpen tabe ~/.NERDTreeBookmarks
 command! Bundle call Bundle()
 command! BundleClean   NeoBundleClean
@@ -156,38 +151,6 @@ command! ZenkakuSpace call ZenkakuSpace()
 "------------------------------------------
 "**** function ********* {{{1
 
-function! HtmlSet() "{{{2
-    "inoremap <buffer> " ""<LEFT>
-    inoremap <buffer> ' ''<LEFT>
-    inoremap <buffer> < <><LEFT>
-endfunction "}}}
-
-function! VbSet() "{{{2
-    inoremap <buffer> { {}<LEFT>
-    inoremap <buffer> [ []<LEFT>
-    inoremap <buffer> ( ()<LEFT>
-    inoremap <buffer> " ""<LEFT>
-endfunction "}}}
-
-function! RubySet() "{{{2
-    setlocal expandtab
-    setlocal list
-    setlocal shiftwidth=2
-    ":retab
-    let l:name = expand("%:p")
-    if (l:name =~ '\v.+cookbooks/.+')
-        NeoSnippetSource ~/.vim/bundle/myvimrc/snippets/chef.snip
-    endif
-    if (&fdm == "manual")
-        setlocal fdm=syntax
-        normal zR
-    endif
-endfunction "}}}
-
-function! BashSet() "{{{2
-    setlocal isfname=@,48-57,/,.,-,_,+,,,#,$,%,~
-endfunction "}}}
-
 function! Ttp() "{{{2
 	g!/ttp/d
     g!/\.\(jpg\|png\|bmp\)/d 
@@ -197,7 +160,7 @@ function! Ttp() "{{{2
     g!/\.\(jpg\|png\|bmp\)$/d 
 endfunction "}}}
 
-function! BlogEscape() "{{{2
+function! TagEscape() "{{{2
     %s/</\&lt;/gc
     %s/>/\&gt;/gc
 endfunction "}}}
