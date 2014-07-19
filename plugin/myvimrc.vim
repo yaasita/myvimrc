@@ -108,8 +108,6 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 "------------------------------------------
 "**** command ********** {{{1
 
-autocmd BufRead,BufNewFile *.mq4 setfiletype mql4
-autocmd BufRead,BufNewFile *.txt setfiletype txt
 autocmd BufReadPost  * silent! loadview
 autocmd BufWritePost * call MkView()
 autocmd BufWritePost *.md,*.markdown silent! OreMarkdown bg utf8
@@ -117,7 +115,6 @@ autocmd BufWritePost *.snip NeoSnippetMakeCache
 autocmd Filetype eruby      call RubySet()
 autocmd Filetype html       call HtmlSet()
 autocmd Filetype neosnippet setlocal list noexpandtab
-autocmd Filetype perl       call PerlSet()
 autocmd Filetype qf         nnoremap <buffer> q  :q<CR>
 autocmd Filetype ruby       call RubySet()
 autocmd Filetype sh         call BashSet()
@@ -126,7 +123,6 @@ autocmd Filetype vb         call VbSet()
 autocmd Filetype yaml       set shiftwidth=2
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
 
-command! -nargs=* -complete=file Pj w | !perl % <args>
 command! -nargs=* Ygrep call Ygrep(<f-args>)
 command! -nargs=0 CdCurrent lcd %:p:h
 command! -nargs=1 -complete=file VDsplit vertical diffsplit <args>
@@ -164,14 +160,6 @@ function! HtmlSet() "{{{2
     "inoremap <buffer> " ""<LEFT>
     inoremap <buffer> ' ''<LEFT>
     inoremap <buffer> < <><LEFT>
-endfunction "}}}
-
-function! PerlSet() "{{{2
-    inoremap <buffer> { {}<LEFT>
-    inoremap <buffer> [ []<LEFT>
-    inoremap <buffer> ( ()<LEFT>
-    inoremap <buffer> " ""<LEFT>
-    inoremap <buffer> ' ''<LEFT>
 endfunction "}}}
 
 function! VbSet() "{{{2
