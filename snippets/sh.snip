@@ -25,9 +25,9 @@ abbr        数値比較>
 	if [ "$pull_line" -gt "1" ]; then
 	fi
 
-snippet     sudo -u
+snippet     sudo-u
 abbr        sudoでユーザ実行
-	sudo -H -u ${1:yamasita} bash -lc "${2:/path/to/script.sh}"
+	sudo -Hu ${1:yamasita} bash -lc "${2:/path/to/script.sh}"
 
 snippet     if_regrex
 abbr        正規表現if
