@@ -121,9 +121,9 @@ autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
 command! -nargs=* Ygrep call Ygrep(<f-args>)
 command! -nargs=0 CdCurrent lcd %:p:h
 command! -nargs=1 -complete=file VDsplit vertical diffsplit <args>
-command! -nargs=? Eiwa call Eiwa(<f-args>)
-command! -nargs=? Kokugo call Kokugo(<f-args>)
-command! -nargs=? Waei call Waei(<f-args>)
+command! -nargs=? Eiwa call Goo("ej",<f-args>)
+command! -nargs=? Kokugo call Goo("jn",<f-args>)
+command! -nargs=? Waei call Goo("je",<f-args>)
 command! TagEscape call TagEscape() 
 command! BookmarkOpen tabe ~/.NERDTreeBookmarks
 command! Bundle call Bundle()
@@ -301,7 +301,7 @@ function! MkView() "{{{2
     endif
 endfunction "}}}
 
-function! Eiwa(...) "{{{2
+function! Goo(jisyo,...) "{{{2
 	if has('win32') || has('gui_running')
 		let l:cmd = "!"
     else
@@ -312,48 +312,20 @@ function! Eiwa(...) "{{{2
     else
         let l:search_word = a:1
     endif
+    if a:jisyo == "ej"
+        let l:search_tag = " | perl -nle 'print if /alllist/i../<\\/dl>/ or /prog_meaning/'"
+    elseif a:jisyo == "je"
+        let l:search_tag = " | perl -nle 'print if /alllist/i../<\\/dl>/ or /prog_meaning|prog_example/' "
+    elseif a:jisyo == "jn"
+        let l:search_tag = " | perl -nle 'print if /alllist/i../<\\/dl>/ or /meaning/' "
+    endif
     execute l:cmd . "curl -s -L " .
-                \ "http://dictionary.goo.ne.jp/srch/ej/" . l:search_word . "/m1u/ " .
-                \ " | perl -nle 'print if /alllist/i../<\\/dl>/ or /prog_meaning/'" .
+                \ "http://dictionary.goo.ne.jp/srch/" . a:jisyo . "/" .
+                \ "$(echo " . l:search_word . " | nkf -wMQ | tr = \\%)" .
+                \ "/m1u/ " .
+                \ l:search_tag .
                 \ " | perl -ple 's/<.+?>//g'"
-                \ " | head -10"
-endfunction "}}}
-
-function! Waei(...) "{{{2
-	if has('win32') || has('gui_running')
-		let l:cmd = "!"
-    else
-		let l:cmd = "!clear && "
-    endif
-    if a:0 == 0
-        let l:search_word = expand("<cword>")
-    else
-        let l:search_word = a:1
-    endif
-    execute l:cmd . "curl -s -L " .
-                \ "http://dictionary.goo.ne.jp/srch/je/" . l:search_word . "/m1u/ " .
-                \ " | grep prog_compound " .
-                \ " | perl -nle 'print if /alllist/i../<\\/dl>/ or /prog_meaning/'" .
-                \ " | perl -ple 's/<.+?>//g'" .
-                \ " | head -10"
-endfunction "}}}
-
-function! Kokugo(...) "{{{2
-	if has('win32') || has('gui_running')
-		let l:cmd = "!"
-    else
-		let l:cmd = "!clear && "
-    endif
-    if a:0 == 0
-        let l:search_word = expand("<cword>")
-    else
-        let l:search_word = a:1
-    endif
-    execute l:cmd . "curl -s -L " .
-                \ "http://dictionary.goo.ne.jp/srch/jn/" . l:search_word . "/m1u/ " .
-                \ " | grep meaning " .
-                \ " | perl -ple 's/<.+?>//g'" .
-                \ " | head -10"
+                \ " | head -50"
 endfunction "}}}
 
 "}}}
