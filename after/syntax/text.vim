@@ -1,4 +1,4 @@
-"Last Change:2012/07/23.
+"Last Change:2014/07/19.
 
 "(大文字/小文字を区別しない)
 syntax case ignore
@@ -22,32 +22,32 @@ syntax case ignore
 
 
 "マーク行をハイライト
-syntax match Todo /.*¥%'a.*/ containedin=ALL
-syntax match Todo /.*¥%'b.*/ containedin=ALL
-syntax match Todo /.*¥%'c.*/ containedin=ALL
-syntax match Todo /.*¥%'d.*/ containedin=ALL
-syntax match Todo /.*¥%'e.*/ containedin=ALL
-syntax match Todo /.*¥%'f.*/ containedin=ALL
-syntax match Todo /.*¥%'g.*/ containedin=ALL
-syntax match Todo /.*¥%'h.*/ containedin=ALL
-syntax match Todo /.*¥%'i.*/ containedin=ALL
-syntax match Todo /.*¥%'j.*/ containedin=ALL
-syntax match Todo /.*¥%'k.*/ containedin=ALL
-syntax match Todo /.*¥%'l.*/ containedin=ALL
-syntax match Todo /.*¥%'m.*/ containedin=ALL
-syntax match Todo /.*¥%'n.*/ containedin=ALL
-syntax match Todo /.*¥%'o.*/ containedin=ALL
-syntax match Todo /.*¥%'p.*/ containedin=ALL
-syntax match Todo /.*¥%'q.*/ containedin=ALL
-syntax match Todo /.*¥%'r.*/ containedin=ALL
-syntax match Todo /.*¥%'s.*/ containedin=ALL
-syntax match Todo /.*¥%'t.*/ containedin=ALL
-syntax match Todo /.*¥%'u.*/ containedin=ALL
-syntax match Todo /.*¥%'v.*/ containedin=ALL
-syntax match Todo /.*¥%'w.*/ containedin=ALL
-syntax match Todo /.*¥%'x.*/ containedin=ALL
-syntax match Todo /.*¥%'y.*/ containedin=ALL
-syntax match Todo /.*¥%'z.*/ containedin=ALL
+syntax match Todo /.*\%'a.*/ containedin=ALL
+syntax match Todo /.*\%'b.*/ containedin=ALL
+syntax match Todo /.*\%'c.*/ containedin=ALL
+syntax match Todo /.*\%'d.*/ containedin=ALL
+syntax match Todo /.*\%'e.*/ containedin=ALL
+syntax match Todo /.*\%'f.*/ containedin=ALL
+syntax match Todo /.*\%'g.*/ containedin=ALL
+syntax match Todo /.*\%'h.*/ containedin=ALL
+syntax match Todo /.*\%'i.*/ containedin=ALL
+syntax match Todo /.*\%'j.*/ containedin=ALL
+syntax match Todo /.*\%'k.*/ containedin=ALL
+syntax match Todo /.*\%'l.*/ containedin=ALL
+syntax match Todo /.*\%'m.*/ containedin=ALL
+syntax match Todo /.*\%'n.*/ containedin=ALL
+syntax match Todo /.*\%'o.*/ containedin=ALL
+syntax match Todo /.*\%'p.*/ containedin=ALL
+syntax match Todo /.*\%'q.*/ containedin=ALL
+syntax match Todo /.*\%'r.*/ containedin=ALL
+syntax match Todo /.*\%'s.*/ containedin=ALL
+syntax match Todo /.*\%'t.*/ containedin=ALL
+syntax match Todo /.*\%'u.*/ containedin=ALL
+syntax match Todo /.*\%'v.*/ containedin=ALL
+syntax match Todo /.*\%'w.*/ containedin=ALL
+syntax match Todo /.*\%'x.*/ containedin=ALL
+syntax match Todo /.*\%'y.*/ containedin=ALL
+syntax match Todo /.*\%'z.*/ containedin=ALL
 
 
 
