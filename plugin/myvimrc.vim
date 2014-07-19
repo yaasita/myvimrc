@@ -314,8 +314,9 @@ function! Eiwa(...) "{{{2
     endif
     execute l:cmd . "curl -s -L " .
                 \ "http://dictionary.goo.ne.jp/srch/ej/" . l:search_word . "/m1u/ " .
-                \ " | grep prog_meaning " .
+                \ " | perl -nle 'print if /alllist/i../<\\/dl>/ or /prog_meaning/'" .
                 \ " | perl -ple 's/<.+?>//g'"
+                \ " | head -10"
 endfunction "}}}
 
 function! Waei(...) "{{{2
@@ -332,6 +333,7 @@ function! Waei(...) "{{{2
     execute l:cmd . "curl -s -L " .
                 \ "http://dictionary.goo.ne.jp/srch/je/" . l:search_word . "/m1u/ " .
                 \ " | grep prog_compound " .
+                \ " | perl -nle 'print if /alllist/i../<\\/dl>/ or /prog_meaning/'" .
                 \ " | perl -ple 's/<.+?>//g'" .
                 \ " | head -10"
 endfunction "}}}
