@@ -3,12 +3,14 @@ abbr        Gemfile
 	source 'http://rubygems.org'
 	
 	gem 'sqlite3'
-
+	
 	group :assets do
 	  gem 'sass-rails',   '~> 3.1.5'
 	  gem 'coffee-rails', '~> 3.1.1'
 	  gem 'uglifier', '>= 1.0.3'
 	end
+	
+	gem 'rails',  :github => 'rails/rails'
 
 snippet     fileopen
 alias       open
