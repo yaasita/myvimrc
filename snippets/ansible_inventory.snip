@@ -1,0 +1,23 @@
+snippet     ansible_ssh_user
+abbr        sshのユーザ指定
+	ansible_ssh_user='${1:yamasita}'
+
+snippet     ansible_ssh_port=5555
+abbr        ポート指定
+	ansible_ssh_port=${1:5555}
+
+snippet     ansible_ssh_host
+abbr        host指定
+	ansible_ssh_host=192.168.1.50
+
+snippet     ansible_ssh_pass
+abbr        パスワード指定
+	ansible_ssh_pass='${1:hogepass}'
+
+snippet     ansible_sudo_pass
+abbr        sudoパスワード指定
+	ansible_sudo_pass='${1:hogepass}'
+
+snippet     ansible_ssh_private_key_file
+abbr        秘密鍵指定
+	ansible_ssh_private_key_file='${1:/home/example/.ssh/aws.pem}'
