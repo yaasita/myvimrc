@@ -1,0 +1,10 @@
+
+snippet     chroot_sftp
+abbr        sftpのみ許可するユーザ
+	Match User ${1:hogeuser*}
+		ChrootDirectory ${1:/var/chroot/hogedir}
+		X11Forwarding no
+		AllowTcpForwarding no
+		ForceCommand internal-sftp -u 0000
+		PasswordAuthentication yes
+
