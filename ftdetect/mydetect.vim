@@ -8,3 +8,7 @@ function! s:FTAnsible()
         setf ansible_inventory
     endif
 endfunction
+autocmd BufRead,BufNewFile *.mail call s:FTMail()
+function! s:FTMail()
+    setf mail
+endfunction
