@@ -330,9 +330,7 @@ endfunction "}}}
 
 function! MyNeoSnippetEdit()
     if &ft == "mail"
-        let g:neosnippet#snippets_directory=[ expand("~")."/.vim/bundle/myvimrc/snippets", expand("~")."/.vim/snippets" ]
-        execute "NeoSnippetEdit -split ".&ft
-        let g:neosnippet#snippets_directory=[ expand("~")."/.vim/snippets", expand("~")."/.vim/bundle/myvimrc/snippets" ]
+        botright split ~/.vim/snippets/mail.snip
     else
         execute "NeoSnippetEdit -split ".&ft
     endif
