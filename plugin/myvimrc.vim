@@ -81,7 +81,7 @@ nnoremap <F11> :RjcolorNext<CR>
 nnoremap <F12> :RjcolorBack<CR>
 nnoremap <F1> :tab :h<CR>
 nnoremap <F2> :NERDTreeToggle<CR>
-nnoremap <F3> :execute "NeoSnippetEdit -split ".&ft<CR>
+nnoremap <F3> :call MyNeoSnippetEdit()<CR>
 nnoremap <F4> :Unite line<CR>
 nnoremap <F5> :Unite neosnippet<CR>
 nnoremap <F6> :Unite buffer<CR>
@@ -327,6 +327,16 @@ function! Goo(jisyo,...) "{{{2
                 \ " | perl -ple 's/<.+?>//g'"
                 \ " | head -50"
 endfunction "}}}
+
+function! MyNeoSnippetEdit()
+    if &ft == "mail"
+        let g:neosnippet#snippets_directory=[ expand("~")."/.vim/bundle/myvimrc/snippets", expand("~")."/.vim/snippets" ]
+        execute "NeoSnippetEdit -split ".&ft
+        let g:neosnippet#snippets_directory=[ expand("~")."/.vim/snippets", expand("~")."/.vim/bundle/myvimrc/snippets" ]
+    else
+        execute "NeoSnippetEdit -split ".&ft
+    endif
+endfunction
 
 "}}}
 "------------------------------------------
