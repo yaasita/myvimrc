@@ -328,13 +328,13 @@ function! Goo(jisyo,...) "{{{2
                 \ " | head -50"
 endfunction "}}}
 
-function! MyNeoSnippetEdit()
+function! MyNeoSnippetEdit() "{{{2
     if &ft == "mail"
         botright split ~/.vim/snippets/mail.snip
     else
         execute "NeoSnippetEdit -split ".&ft
     endif
-endfunction
+endfunction "}}}
 
 "}}}
 "------------------------------------------
