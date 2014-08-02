@@ -229,7 +229,8 @@ function! Ygrep(...) "{{{2
         let exp = a:1
     endif
     if !exists("a:2")
-        let dir = "%:p:h"
+        "let dir = "%:p:h"
+        let dir = "."
     endif
     let index = 2
     while index <= a:0
