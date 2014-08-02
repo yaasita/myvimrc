@@ -1,0 +1,11 @@
+snippet     snippet-template
+abbr        スニペット雛形
+	snippet     ${1:name}
+	alias       ${2:alias}
+	abbr        ${3:説明}
+		ansible_ssh_pass=\${1:hogeohoge}
+		comment=\${2:#:comment}
+
+snippet     snippet-alias
+abbr        エイリアス
+	alias       ${2:hogealias}

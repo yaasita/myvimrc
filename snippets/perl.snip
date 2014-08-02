@@ -3,3 +3,25 @@ abbr        シェバンといつもの
 	#!/usr/bin/perl
 	use strict;
 	use warnings;
+
+snippet     dumper
+abbr        変数dump
+	use Data::Dumper;
+	print Dumper [1, 2, 3]
+
+snippet     Test::More
+abbr        perlテスト
+	use Test::More;
+	subtest '${1:hogesubtest}' => sub {
+		plan "skip_all" => "reason";
+		diag explain @one;
+		is_deeply $one[0],[1,2];
+		ok(!defined $one[4]);
+	};
+	done_testing;
+
+snippet     Test-Skip
+abbr        perlテストSkip
+	plan "skip_all" => "${1:reason}";
+
+
