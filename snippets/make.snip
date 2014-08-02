@@ -1,0 +1,10 @@
+snippet     makefile-template
+abbr        雛形
+	YEAR = 2014
+	KEYFILE  = $(YEAR)/server.key
+	RANDFILE = $(YEAR)/rand.dat
+	$(KEYFILE): $(RANDFILE)
+		openssl genrsa -rand $(RANDFILE) 2048 > $@
+		@echo "echo off"
+	$(RANDFILE):
+		openssl dgst -md5 /var/log/syslog > $@
