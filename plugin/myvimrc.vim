@@ -81,7 +81,7 @@ nnoremap <F11> :RjcolorNext<CR>
 nnoremap <F12> :RjcolorBack<CR>
 nnoremap <F1> :tab :h<CR>
 nnoremap <F2> :NERDTreeToggle<CR>
-nnoremap <F3> :execute "NeoSnippetEdit -split ".&ft<CR>
+nnoremap <F3> :call MyNeoSnippetEdit()<CR>
 nnoremap <F4> :Unite line<CR>
 nnoremap <F5> :Unite neosnippet<CR>
 nnoremap <F6> :Unite buffer<CR>
@@ -111,7 +111,7 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 autocmd BufReadPost  * silent! loadview
 autocmd BufWritePost * call MkView()
 autocmd BufWritePost *.md,*.markdown silent! OreMarkdown bg utf8
-autocmd BufWritePost *.snip NeoSnippetMakeCache
+"autocmd BufWritePost *.snip NeoSnippetMakeCache
 autocmd Filetype neosnippet setlocal list noexpandtab
 autocmd Filetype qf         nnoremap <buffer> q  :q<CR>
 autocmd Filetype snippet    setlocal noexpandtab list
@@ -326,6 +326,14 @@ function! Goo(jisyo,...) "{{{2
                 \ l:search_tag .
                 \ " | perl -ple 's/<.+?>//g'"
                 \ " | head -50"
+endfunction "}}}
+
+function! MyNeoSnippetEdit() "{{{2
+    if &ft == "mail"
+        botright split ~/.vim/snippets/mail.snip
+    else
+        execute "NeoSnippetEdit -split ".&ft
+    endif
 endfunction "}}}
 
 "}}}
