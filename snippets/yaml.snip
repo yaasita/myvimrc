@@ -6,8 +6,7 @@ snippet     ansible_shell
 abbr        シェル実行
 	shell: ${1:apt-get source dwm} creates=${2:/tmp/dwm-6.0} chdir=${3:/tmp}
 
-snippet     ansible_apt
-alias       with_items
+snippet     ansible_apt_with_items
 abbr        aptでインストール
 	apt: pkg={{ item }} state=installed
 	with_items:
@@ -93,3 +92,13 @@ snippet ansible_tags
 abbr 処理名
 	tags:
 	  - ${1:test}
+
+snippet     with_items_multi_key
+abbr        with_items複数
+	- name: ifcfg-eth0設定
+	  template: src=ifcfg-eth0.j2 dest=/etc/sysconfig/network-scripts/ifcfg-{{ item.name }} owner=root group=root mode=0644
+	  with_items:
+	   - { name: 'eth0:1',  ip: '{{ apache_a }}' }
+	   - { name: 'eth0:2',  ip: '{{ apache_b }}' }
+	   - { name: 'eth0:3',  ip: '{{ apache_c }}' }
+	   - { name: 'eth0:4',  ip: '{{ apache_d }}' }
