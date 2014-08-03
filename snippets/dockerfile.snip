@@ -7,7 +7,8 @@ abbr        ひな形
 	ADD 02proxy /etc/apt/apt.conf.d/02proxy
 	RUN apt-get update
 	#package
-	RUN apt-get install -y vim git aptitude build-essential
+	RUN apt-get install -y vim git \
+	 aptitude build-essential
 	#ssh
 	RUN apt-get install -y openssh-server
 	RUN mkdir /var/run/sshd/
