@@ -10,18 +10,27 @@ abbr        変数dump
 	print Dumper [1, 2, 3]
 
 snippet     Test::More
+alias       test-template
 abbr        perlテスト
 	use Test::More;
 	subtest '${1:hogesubtest}' => sub {
 		plan "skip_all" => "reason";
 		diag explain @one;
 		is_deeply $one[0],[1,2];
+		is &pattern_search(3)+0,120;
 		ok(!defined $one[4]);
 	};
 	done_testing;
 
-snippet     Test-Skip
+snippet     test-skip
 abbr        perlテストSkip
 	plan "skip_all" => "${1:reason}";
 
+snippet     test-is
+abbr        テストis一致
+	is &pattern_search(3)+0,120;
+	is min_cost(2),-1;
 
+snippet     test-deeply
+abbr        構造体比較
+	is_deeply $one[0],[1,2];
