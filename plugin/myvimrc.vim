@@ -123,6 +123,7 @@ command! -nargs=0 LCdCurrent lcd %:p:h
 command! -nargs=0 CdCurrent cd %:p:h
 command! -nargs=1 -complete=file VDsplit vertical diffsplit <args>
 command! -nargs=? Eiwa call Goo("ej",<f-args>)
+command! -nargs=? Ruigo call Goo("thsrs",<f-args>)
 command! -nargs=? Kokugo call Goo("jn",<f-args>)
 command! -nargs=? Waei call Goo("je",<f-args>)
 command! TagEscape call TagEscape() 
@@ -317,9 +318,11 @@ function! Goo(jisyo,...) "{{{2
     if a:jisyo == "ej"
         let l:search_tag = " | perl -nle 'print if /alllist/i../<\\/dl>/ or /prog_meaning/'"
     elseif a:jisyo == "je"
-        let l:search_tag = " | perl -nle 'print if /alllist/i../<\\/dl>/ or /prog_meaning|prog_example/' "
+        let l:search_tag = " | perl -nle 'print if /alllist/i../<\\/dl>/ or /prog_meaning|prog_example/'"
     elseif a:jisyo == "jn"
-        let l:search_tag = " | perl -nle 'print if /alllist/i../<\\/dl>/ or /meaning/' "
+        let l:search_tag = " | perl -nle 'print if /alllist/i../<\\/dl>/ or /meaning/'"
+    elseif a:jisyo == "thsrs"
+        let l:search_tag = " | perl -nle 'print if /--wordDefinition/i../--\\/wordDefinition/i'"
     endif
     execute l:cmd . "curl -s -L " .
                 \ "http://dictionary.goo.ne.jp/srch/" . a:jisyo . "/" .
