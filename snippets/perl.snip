@@ -34,3 +34,7 @@ abbr        テストis一致
 snippet     test-deeply
 abbr        構造体比較
 	is_deeply $one[0],[1,2];
+
+snippet     sort
+abbr        ソート指定
+	sort {$b->[2] <=> $a->[2]} @COMPANIES
