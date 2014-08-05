@@ -40,3 +40,7 @@ abbr        URLエンコード
 	use URI::Escape;
 	$unescaped = uri_unescape( $escaped ); #URLエンコード済み文字列のデコード
 	$escaped = uri_escape( $unescaped ); #URLエンコード済み文字列へのエンコード
+
+snippet     sort
+abbr        ソート指定
+	sort {$b->[2] <=> $a->[2]} @COMPANIES
