@@ -35,6 +35,12 @@ snippet     test-deeply
 abbr        構造体比較
 	is_deeply $one[0],[1,2];
 
+snippet     url_encode
+abbr        URLエンコード
+	use URI::Escape;
+	$unescaped = uri_unescape( $escaped ); #URLエンコード済み文字列のデコード
+	$escaped = uri_escape( $unescaped ); #URLエンコード済み文字列へのエンコード
+
 snippet     sort
 abbr        ソート指定
 	sort {$b->[2] <=> $a->[2]} @COMPANIES
