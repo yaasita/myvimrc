@@ -50,3 +50,6 @@ alias       ヒアドキュメントで変数にいれる
 	`
 	echo "$val"
 
+snippet     rsync_copy_only
+alias       rsyncでとりあえずコピーできればいい
+	rsync -azv --no-perms --no-owner --no-group --no-times --size-only --delete --exclude-from=/jitaku/exc.txt ore_jitaku:/raid/samba/ /jitaku/samba/
