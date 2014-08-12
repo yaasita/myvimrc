@@ -102,3 +102,8 @@ abbr        with_items複数
 	   - { name: 'eth0:2',  ip: '{{ apache_b }}' }
 	   - { name: 'eth0:3',  ip: '{{ apache_c }}' }
 	   - { name: 'eth0:4',  ip: '{{ apache_d }}' }
+
+snippet     wait_for_port
+alias       sleep_port
+abbr        portが開くまで待つ
+	- wait_for: port=8000 delay=10
