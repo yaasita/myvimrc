@@ -107,3 +107,8 @@ snippet     wait_for_port
 alias       sleep_port
 abbr        portが開くまで待つ
 	- wait_for: port=8000 delay=10
+
+snippet     ansible_bash
+abbr        bashの実行例
+	shell: cd; bash -lc "rbenv global {{ ruby_default_version }}"
+
