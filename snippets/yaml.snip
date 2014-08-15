@@ -82,7 +82,7 @@ abbr var/main.ymlファイル例
 
 snippet ansible_git
 abbr git
-	git: repo=${1:ssh://git@github.com/mylogin/hello.git} dest=${2:/home/mylogin/hello}
+	git: repo=${1:ssh://git@github.com/mylogin/hello.git} dest=${2:/home/mylogin/hello} accept_hostkey=${3:yes} key_file=${4:/path/to/.ssh/private}
 
 snippet ansible_name
 abbr 処理名
