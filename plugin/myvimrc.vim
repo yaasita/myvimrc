@@ -110,7 +110,10 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 autocmd BufReadPost  * silent! loadview
 autocmd BufWritePost * call MkView()
-autocmd BufWritePost *.md,*.markdown silent! OreMarkdown bg utf8
+augroup markdown
+  autocmd!
+  autocmd BufWritePost *.md,*.markdown silent! OreMarkdown bg
+augroup END
 "autocmd BufWritePost *.snip NeoSnippetMakeCache
 autocmd Filetype neosnippet setlocal list noexpandtab
 autocmd Filetype qf         nnoremap <buffer> q  :q<CR>
