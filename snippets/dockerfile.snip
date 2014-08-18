@@ -6,6 +6,7 @@ abbr        ひな形
 	#apt
 	ADD 02proxy /etc/apt/apt.conf.d/02proxy
 	RUN apt-get update
+	RUN apt-get upgrade -y
 	#package
 	RUN apt-get install -y vim git \
 	 aptitude build-essential
