@@ -44,3 +44,8 @@ abbr        URLエンコード
 snippet     sort
 abbr        ソート指定
 	sort {$b->[2] <=> $a->[2]} @COMPANIES
+
+snippet     open_write
+abbr        ファイルOPEN書き込み
+	open (WR,">${1:hoge.txt}") or die $!;
+
