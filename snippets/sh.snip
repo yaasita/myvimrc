@@ -53,3 +53,25 @@ alias       ヒアドキュメントで変数にいれる
 snippet     rsync_copy_only
 alias       rsyncでとりあえずコピーできればいい
 	rsync -azv --no-perms --no-owner --no-group --no-times --size-only --delete --exclude-from=/jitaku/exc.txt ore_jitaku:/raid/samba/ /jitaku/samba/
+
+snippet     getopts
+abbr        引数解析
+	local OPT
+	OPTIND=1
+	while getopts "hs:c:" OPT
+	do
+		case $OPT in
+		"h" ) 
+			echo $usage
+			return
+			;;
+		"s" )
+			echo "servername -> $OPTARG"
+			local SNI="-servername $OPTARG"
+			;;
+		"c" )
+			local SSL_HOST="$OPTARG"
+			echo "connect -> $SSL_HOST"
+			;;
+		esac
+	done
