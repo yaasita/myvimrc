@@ -112,3 +112,13 @@ snippet     ansible_bash
 abbr        bashの実行例
 	shell: cd; bash -lc "rbenv global {{ ruby_default_version }}"
 
+snippet     ansible_mysql_create_db
+abbr        mysqlでDB作成
+	- name: DB作成
+	  mysql_db: name={{dbname}} state=present encoding=utf8
+
+snippet     ansible_mysql_create_user
+abbr        mysqlでuser作成
+	- name: ユーザー作成
+	  mysql_user: name={{dbuser}} password={{dbpass}} priv={{dbname}}.*:ALL
+
