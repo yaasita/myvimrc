@@ -144,3 +144,7 @@ abbr        一行追加
 snippet     ansible_change_lineinfile
 abbr        一行変更
 	lineinfile: dest=/etc/apache2/conf-enabled/security.conf regexp="^ServerTokens" line="ServerTokens Prod"
+
+snippet     ansible_debfile_install
+abbr        debファイルからインストール
+	apt: deb=${1:/tmp/mypackage.deb}
