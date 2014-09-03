@@ -1,2 +1,2 @@
-set keywordprg=ansible-doc
+setlocal keywordprg=ansible-doc
 setlocal indentexpr=
