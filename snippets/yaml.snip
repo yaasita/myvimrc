@@ -122,3 +122,21 @@ abbr        mysqlでuser作成
 	- name: ユーザー作成
 	  mysql_user: name={{dbuser}} password={{dbpass}} priv={{dbname}}.*:ALL
 
+snippet     ansible_task_templete
+alias       hinagata
+abbr        タスク雛形
+	---
+	
+	- name: mysql関連必要パッケージ
+	  action: apt name={{item}}
+	  with_items:
+		- mysql-server
+		- python-mysqldb
+		- libmysqld-dev
+		- postfix
+		- postfix-mysql
+		- postfixadmin
+
+snippet     ansible_add_lineinfile
+abbr        一行追加
+	lineinfile: dest=/etc/apache2/apache2.conf line="ServerName mailserver"
