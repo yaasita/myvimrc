@@ -118,7 +118,7 @@ augroup END
 autocmd Filetype neosnippet setlocal list noexpandtab
 autocmd Filetype qf         nnoremap <buffer> q  :q<CR>
 autocmd Filetype snippet    setlocal noexpandtab list
-autocmd Filetype yaml       set shiftwidth=2
+autocmd Filetype yaml       setlocal shiftwidth=2
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
 
 command! -nargs=* Ygrep call Ygrep(<f-args>)
