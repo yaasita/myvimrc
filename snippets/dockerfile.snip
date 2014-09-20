@@ -1,3 +1,23 @@
+snippet     dockerfile-ssh
+abbr        sshd入れるとき
+	#ssh
+	RUN apt-get install -y openssh-server
+	RUN mkdir /var/run/sshd/
+	RUN mkdir /root/.ssh
+	ADD authorized_keys /root/.ssh/authorized_keys
+	RUN perl -i -ple 's/^(permitrootlogin\s)(.*)/\1yes/i' /etc/ssh/sshd_config
+	RUN echo root:root | chpasswd
+	EXPOSE 22
+	CMD /usr/sbin/sshd -D
+
+snippet     dockerfile-supervisord
+abbr        supervisord入れるとき
+	# supervisor
+	RUN apt-get install -y supervisor
+	ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+	EXPOSE 22 80
+	CMD ["/usr/bin/supervisord"]
+
 snippet     dockerfile-template-normal
 abbr        ひな形通常
 	FROM debian:jessie
@@ -12,14 +32,8 @@ abbr        ひな形通常
 	RUN apt-get install -y vim git \
 	 aptitude build-essential
 	
-	#ssh
-	RUN apt-get install -y openssh-server
-	RUN mkdir /var/run/sshd/
-	RUN mkdir /root/.ssh
-	ADD authorized_keys /root/.ssh/authorized_keys
-	RUN perl -i -ple 's/^(permitrootlogin\s)(.*)/\1yes/i' /etc/ssh/sshd_config
-	RUN echo root:root | chpasswd
-	CMD /usr/sbin/sshd -D
+	${1:#:sshはdockerfile-ssh参照}
+	${2:#:supervisordはdockerfile-supervisord参照}
 
 snippet     dockerfile-template-rails
 abbr        ひな形rails
@@ -59,16 +73,6 @@ abbr        ひな形rails
 		zlib1g \
 		zlib1g-dev
 	
-	# ssh
-	RUN apt-get install -y openssh-server
-	RUN mkdir /var/run/sshd/
-	RUN mkdir /root/.ssh
-	ADD authorized_keys /root/.ssh/authorized_keys
-	RUN perl -i -ple 's/^(permitrootlogin\s)(.*)/\1yes/i' /etc/ssh/sshd_config
-	RUN echo root:root | chpasswd
-	
-	# supervisor
-	RUN apt-get install -y supervisor
-	ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-	EXPOSE 22 80
-	CMD ["/usr/bin/supervisord"]
+	${1:#:sshはdockerfile-ssh参照}
+	${2:#:supervisordはdockerfile-supervisord参照}
+
