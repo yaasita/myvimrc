@@ -40,8 +40,19 @@ alias       func
 		${0:TARGET}
 	}
 
+snippet     hear_document_cat
+abbr        ヒアドキュメントでファイル書く
+	cat <<EOF > exc.txt
+	- /sys/*
+	- /proc/*
+	- /mnt/*
+	- /dev/*
+	- /tmp/*
+	EOF
+
+
 snippet     hear_document_to_variable
-alias       ヒアドキュメントで変数にいれる
+abbr        ヒアドキュメントで変数にいれる
 	val=`cat <<EOF
 	hoge
 	huga
@@ -51,7 +62,7 @@ alias       ヒアドキュメントで変数にいれる
 	echo "$val"
 
 snippet     rsync_copy_only
-alias       rsyncでとりあえずコピーできればいい
+abbr       rsyncでとりあえずコピーできればいい
 	rsync -azv --no-perms --no-owner --no-group --no-times --size-only --delete --exclude-from=/jitaku/exc.txt ore_jitaku:/raid/samba/ /jitaku/samba/
 
 snippet     getopts
