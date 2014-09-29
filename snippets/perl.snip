@@ -49,3 +49,8 @@ snippet     open_write
 abbr        ファイルOPEN書き込み
 	open (WR,">${1:hoge.txt}") or die $!;
 
+snippet     cgi_test
+abbr        CGIのテスト
+	#!/usr/bin/perl
+	print "Content-type:text/plain\n\n";
+	print "CGI Test";
