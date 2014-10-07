@@ -12,4 +12,5 @@ autocmd BufRead,BufNewFile *.mail call s:FTMail()
 function! s:FTMail()
     setf mail
 endfunction
+autocmd BufRead,BufNewFile *.cgi setf perl
 
