@@ -10,6 +10,19 @@ abbr        sshd入れるとき
 	EXPOSE 22
 	CMD /usr/sbin/sshd -D
 
+snippet     dockerfile-ssh-centos
+abbr        sshd入れるとき(CentOS6)
+	#ssh
+	RUN yum install -y openssh-server
+	RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -C '' -N ''
+	RUN ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key -C '' -N ''
+	RUN mkdir /root/.ssh
+	ADD authorized_keys /root/.ssh/authorized_keys
+	RUN echo root:root | chpasswd
+	EXPOSE 22
+	CMD /usr/sbin/sshd -D
+
+
 snippet     dockerfile-supervisord
 abbr        supervisord入れるとき
 	# supervisor
