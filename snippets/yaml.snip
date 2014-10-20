@@ -148,3 +148,8 @@ abbr        一行変更
 snippet     ansible_debfile_install
 abbr        debファイルからインストール
 	apt: deb=${1:/tmp/mypackage.deb}
+
+snippet     ansible_debug
+abbr        デバッグメッセージ
+	debug: msg="System {{ inventory_hostname }} has uuid {{ ansible_product_uuid }}"
+
