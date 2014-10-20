@@ -83,7 +83,7 @@ nnoremap <F1> :tab :h<CR>
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <F3> :call MyNeoSnippetEdit()<CR>
 nnoremap <F4> :Unite line<CR>
-nnoremap <F5> :Unite neosnippet<CR>
+nnoremap <F5> :set invpaste<CR>
 nnoremap <F6> :Unite buffer<CR>
 nnoremap <F7> :Unite file_rec<CR>
 nnoremap <F8> :Unite file_mru<CR>
