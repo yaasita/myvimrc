@@ -121,6 +121,16 @@ autocmd Filetype snippet    setlocal noexpandtab list
 autocmd Filetype yaml       setlocal shiftwidth=2
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
 
+augroup BinaryXXD
+  autocmd!
+  autocmd BufReadPre  *.bin let &binary =1
+  autocmd BufReadPost * if &binary | silent %!xxd -g 1
+  autocmd BufReadPost * set ft=xxd | endif
+  autocmd BufWritePre * if &binary | %!xxd -r | endif
+  autocmd BufWritePost * if &binary | silent %!xxd -g 1
+  autocmd BufWritePost * set nomod | endif
+augroup END
+
 command! -nargs=* Ygrep call Ygrep(<f-args>)
 command! -nargs=0 LCdCurrent lcd %:p:h
 command! -nargs=0 CdCurrent cd %:p:h
