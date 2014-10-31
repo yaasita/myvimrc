@@ -123,18 +123,12 @@ autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
 
 augroup BinaryXXD
   autocmd!
-  autocmd BufReadPre  *.bin let &binary =1
-  autocmd BufReadPost * if &binary 
-  autocmd BufReadPost *   silent %!xxd -g 1
-  autocmd BufReadPost *   set ft=xxd 
-  autocmd BufReadPost * endif
-  autocmd BufWritePre * if &binary 
-  autocmd BufWritePre *   silent %!xxd -r
-  autocmd BufWritePre * endif
-  autocmd BufWritePost * if &binary 
-  autocmd BufWritePost *   silent %!xxd -g 1
-  autocmd BufWritePost *   set nomod 
-  autocmd BufWritePost * endif
+  autocmd BufReadPre  *.bin setlocal bin
+  autocmd BufReadPost *.bin silent %!xxd -g 1
+  autocmd BufReadPost *.bin set ft=xxd 
+  autocmd BufWritePre *.bin silent %!xxd -r
+  autocmd BufWritePost *.bin silent %!xxd -g 1
+  autocmd BufWritePost *.bin set nomod 
 augroup END
 
 command! -nargs=* Ygrep call Ygrep(<f-args>)
