@@ -153,3 +153,8 @@ snippet     ansible_debug
 abbr        デバッグメッセージ
 	debug: msg="System {{ inventory_hostname }} has uuid {{ ansible_distribution }}"
 
+snippet     ansible_gather_facts
+abbr        情報収集をやめる
+	gather_facts: no
+
+
