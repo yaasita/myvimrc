@@ -1,4 +1,6 @@
-"Last Change:2014/07/19.
+"Last Change:2014/11/05.
+"
+setlocal nowrap
 
 "(大文字/小文字を区別しない)
 syntax case ignore
