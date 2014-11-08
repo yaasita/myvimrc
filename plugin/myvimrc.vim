@@ -62,6 +62,7 @@ syntax on
 "**** map ************** {{{1
 
 cnoreabbrev t tabe
+cnoreabbrev Y Ygrep
 cnoremap <C-N> <Down>
 cnoremap <C-P> <Up>
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
