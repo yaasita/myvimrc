@@ -54,6 +54,7 @@ abbr     include
 	  sudo_user: "{{ ruby_deploy_user }}"
 
 snippet ansible_register
+alias       when
 abbr    実行結果判定
 	- name: rbenvにインストールされてるバージョンチェック
 	  shell: cd; bash -lc "rbenv versions | grep -q {{ install_ruby_version }}"
