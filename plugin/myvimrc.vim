@@ -12,8 +12,8 @@ set autoindent
 set autoread
 set backspace=2
 set cmdheight=2
-set complete=.,w
 set completefunc=GoogleComplete
+set complete=.,w
 set foldcolumn=2
 set foldopen=mark,percent,quickfix,tag
 set formatoptions=tcqmM
@@ -47,6 +47,7 @@ set spellcapcheck=
 set spelllang=en_us
 set statusline=%<%f\ %m%{&ro?'[RO]':''}%h%w%=%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}\ %2*%y%0*%6l,%c%V%1*%8P
 set tabstop=4
+set tags=tags;
 set titlelen=100
 set titlestring=%t\ (%<%{expand(\"%:p:h\")})\ \-\ %{v:servername}\ %{v:version}
 set viewoptions=folds,cursor
