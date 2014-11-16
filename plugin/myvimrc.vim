@@ -12,8 +12,8 @@ set autoindent
 set autoread
 set backspace=2
 set cmdheight=2
-set completefunc=GoogleComplete
 set complete=.,w
+set completefunc=GoogleComplete
 set foldcolumn=2
 set foldopen=mark,percent,quickfix,tag
 set formatoptions=tcqmM
@@ -32,6 +32,7 @@ set nobackup
 set noendofline
 set noequalalways
 set noswapfile
+set nowrap
 set nowrapscan
 set nrformats=hex
 set number
