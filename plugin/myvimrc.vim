@@ -63,18 +63,18 @@ syntax on
 "------------------------------------------
 "**** map ************** {{{1
 
-cnoreabbrev t tabe
 cnoreabbrev Y Ygrep
+cnoreabbrev t tabe
 cnoremap <C-N> <Down>
 cnoremap <C-P> <Up>
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 inoremap <silent> <ESC> <ESC>:set imi=0<CR>
 inoremap <silent> jj <ESC>
 nnoremap + ,
+nnoremap ,a :!cat >> %<CR>
 nnoremap ,c :w<CR>:!gcc % <CR>:!a.exe<CR>
 nnoremap ,d :DeleteComment<CR>
 nnoremap ,e :Imadesyo<CR>
-nnoremap ,a :!cat >> %<CR>
 nnoremap ,r :Unite file_mru<CR>
 nnoremap / :set ims=0<CR>/
 nnoremap <BS> gT
@@ -84,20 +84,24 @@ nnoremap <F11> :RjcolorNext<CR>
 nnoremap <F12> :RjcolorBack<CR>
 nnoremap <F1> :tab :h<CR>
 nnoremap <F2> :NERDTreeToggle<CR>
-nnoremap <F3> :call MyNeoSnippetEdit()<CR>
+"nnoremap <F3> :call MyNeoSnippetEdit()<CR>
 nnoremap <F4> :Unite line<CR>
 nnoremap <F5> :set invpaste<CR>
-nnoremap <F6> :Unite buffer<CR>
-nnoremap <F7> :Unite file_rec<CR>
-nnoremap <F8> :Unite file_mru<CR>
+"nnoremap <F6> :Unite buffer<CR>
+"nnoremap <F7> :Unite file_rec<CR>
+"nnoremap <F8> :Unite file_mru<CR>
 nnoremap <F9> :call SpellToggle()<CR>
 nnoremap <Left>  zh
 nnoremap <Right> zl
 nnoremap <SPACE> gt
 nnoremap co :copen<CR>
+nnoremap sb :Unite buffer<CR>
+nnoremap se :call MyNeoSnippetEdit()<CR>
+nnoremap sf :Unite file_rec<CR>
+nnoremap sm :Unite file_mru<CR>
 nnoremap sp :Unite neosnippet<CR>
-nnoremap tt 0y$
 nnoremap tf :call OtherWindowOpen(expand("<cfile>"))<CR>
+nnoremap tt 0y$
 nnoremap x "_x
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 vnoremap ' di'<C-R>"'<ESC>
