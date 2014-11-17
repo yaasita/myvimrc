@@ -91,11 +91,21 @@ abbr        ひな形rails
 	${2:#:supervisordはdockerfile-supervisord参照}
 
 snippet     dockerfile-locale-jessie
+alias       dockerfile-timezone-jessie
 abbr        locale設定(jessie)
 	# locale
 	RUN apt-get install -y locales dialog
 	COPY etc/default/locale /etc/default/locale
 	COPY etc/locale.alias /etc/locale.alias
 	COPY etc/locale.gen /etc/locale.gen
+	COPY etc/localtime /etc/localtime
+	COPY etc/timezone /etc/timezone
+
+snippet     dockerfile-locale-ubuntu-1404
+abbr        locale設定(ubuntu)
+alias       dockerfile-timezone-ubuntu-1404
+	# locale
+	RUN apt-get install -y locales language-pack-ja
+	COPY etc/default/locale /etc/default/locale
 	COPY etc/localtime /etc/localtime
 	COPY etc/timezone /etc/timezone
