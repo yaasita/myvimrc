@@ -165,3 +165,7 @@ abbr        コマンド実行
 snippet     ansible_changed_when
 abbr        変更判定
 	changed_when: result.rc == 0
+
+snippet     ansible_when_distribution
+abbr        ディストリ判定
+	when: ansible_distribution == "Ubuntu"
