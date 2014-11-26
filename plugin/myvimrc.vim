@@ -98,7 +98,7 @@ nnoremap co :copen<CR>
 nnoremap sb :Unite buffer<CR>
 nnoremap se :call MyNeoSnippetEdit()<CR>
 nnoremap sf :Unite file_rec<CR>
-nnoremap sm :Unite file_mru<CR>
+nnoremap sl :Unite file_mru<CR>
 nnoremap sp :Unite neosnippet<CR>
 nnoremap tf :call OtherWindowOpen(expand("<cfile>"))<CR>
 nnoremap tt 0y$
