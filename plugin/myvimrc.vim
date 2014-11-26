@@ -36,6 +36,7 @@ set nowrap
 set nowrapscan
 set nrformats=hex
 set number
+set pastetoggle=<F5>
 set ruler
 set selection=inclusive
 set selectmode=""
@@ -68,7 +69,7 @@ cnoreabbrev t tabe
 cnoremap <C-N> <Down>
 cnoremap <C-P> <Up>
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-inoremap <silent> <ESC> <ESC>:set imi=0<CR>
+"inoremap <silent> <ESC> <ESC>:set imi=0<CR>
 inoremap <silent> jj <ESC>
 nnoremap + ,
 nnoremap ,a :!cat >> %<CR>
@@ -86,7 +87,7 @@ nnoremap <F1> :tab :h<CR>
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <F3> :call MyNeoSnippetEdit()<CR>
 nnoremap <F4> :Unite line<CR>
-nnoremap <F5> :set invpaste<CR>
+"nnoremap <F5> :set invpaste<CR>
 nnoremap <F6> :Unite buffer<CR>
 nnoremap <F7> :Unite file_rec<CR>
 nnoremap <F8> :Unite file_mru<CR>
@@ -115,18 +116,10 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 "------------------------------------------
 "**** command ********** {{{1
 
-autocmd BufReadPost  * silent! loadview
-autocmd BufWritePost * call MkView()
-augroup markdown
+augroup Markdown
   autocmd!
   autocmd BufWritePost *.md,*.markdown silent! OreMarkdown bg
 augroup END
-"autocmd BufWritePost *.snip NeoSnippetMakeCache
-autocmd Filetype neosnippet setlocal list noexpandtab
-autocmd Filetype qf         nnoremap <buffer> q  :q<CR>
-autocmd Filetype snippet    setlocal noexpandtab list
-autocmd Filetype yaml       setlocal shiftwidth=2
-autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
 
 augroup BinaryXXD
   autocmd!
@@ -136,6 +129,23 @@ augroup BinaryXXD
   autocmd BufWritePre *.bin silent %!xxd -r
   autocmd BufWritePost *.bin silent %!xxd -g 1
   autocmd BufWritePost *.bin set nomod 
+augroup END
+
+augroup PasteOff
+    autocmd!
+    autocmd InsertLeave * set nopaste
+augroup END
+
+augroup SaveView
+    autocmd!
+    autocmd BufReadPost  * silent! loadview
+    autocmd BufWritePost * call MkView()
+augroup END
+
+augroup Quickfix
+    autocmd!
+    autocmd Filetype qf         nnoremap <buffer> q  :q<CR>
+    autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
 augroup END
 
 command! -nargs=* Ygrep call Ygrep(<f-args>)
