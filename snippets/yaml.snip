@@ -169,3 +169,7 @@ abbr        変更判定
 snippet     ansible_when_distribution
 abbr        ディストリ判定
 	when: ansible_distribution == "Ubuntu"
+
+snippet     ansible_failed_when
+abbr        失敗とみなす条件
+	failed_when: result.rc not in [0, 1]
