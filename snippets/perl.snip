@@ -58,3 +58,9 @@ abbr        CGIのテスト
 	#!/usr/bin/perl
 	print "Content-type:text/plain\n\n";
 	print "CGI Test";
+
+snippet     chdir_script_bin
+alias       find_bin
+abbr        スクリプト実行ファイルにchdir
+	use FindBin;
+	chdir $FindBin::Bin;
