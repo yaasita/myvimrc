@@ -159,10 +159,6 @@ command! -nargs=? Kokugo call Goo("jn",<f-args>)
 command! -nargs=? Waei call Goo("je",<f-args>)
 command! TagEscape call TagEscape() 
 command! BookmarkOpen tabe ~/.NERDTreeBookmarks
-command! Bundle call Bundle()
-command! BundleClean   NeoBundleClean
-command! BundleInstall NeoBundleInstall
-command! BundleUpdate  NeoBundleUpdate
 command! ClearHistory call ClearHistory()
 command! Clip set clipboard=unnamed 
 command! CopyPaste setlocal nonu foldcolumn=0
@@ -290,13 +286,6 @@ function! Migemo() "{{{2
     else
         cnoremap <expr><CR> migemosearch#replace_search_word()."\<CR>"
     endif
-endfunction "}}}
-
-function! Bundle() "{{{2
-    silent! execute "!cd ~/.vim && find ./view/ ./undo/ -mtime +90 -delete"
-    NeoBundleInstall
-    NeoBundleUpdate
-    NeoBundleClean!
 endfunction "}}}
 
 function! WindowSizeToggle() "{{{2
