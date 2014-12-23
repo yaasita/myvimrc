@@ -171,10 +171,10 @@ command! Cul call Cul()
 command! DeleteComment g/^\s*#\|^\s*$/d
 command! Diffoff diffoff! | set fdc=2
 command! HankakuSpace call HankakuSpace()
-command! Ist tabe ~/.vim/bundle/imadesyo_develop/autoload/imadesyo.vim
+command! Ist tabe ~/.vim/plugged/imadesyo_develop/autoload/imadesyo.vim
 command! Kakkofold call Kakkofold() 
 command! Migemo call Migemo()
-command! Sst tabe ~/.vim/bundle/myvimrc/plugin/myvimrc.vim
+command! Sst tabe ~/.vim/plugged/myvimrc/plugin/myvimrc.vim
 command! Tabnasi setlocal expandtab | setlocal list | retab
 command! Ttp call Ttp()
 command! WindowSizeToggle call WindowSizeToggle()
