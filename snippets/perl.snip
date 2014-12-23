@@ -64,3 +64,8 @@ alias       find_bin
 abbr        スクリプト実行ファイルにchdir
 	use FindBin;
 	chdir $FindBin::Bin;
+
+snippet     copy
+abbr        fileのコピー
+	use File::Copy 'copy';
+	copy $source, $destination or die $!;
