@@ -69,3 +69,13 @@ snippet     copy
 abbr        fileのコピー
 	use File::Copy 'copy';
 	copy $source, $destination or die $!;
+
+snippet     pipe_open_write
+abbr        パイプで渡して書き込み
+	open (my $at,'|-',"at $+{hhmm} $+{month}/$+{day}/$+{year}") or die $!;
+	print $at "touch /tmp/hoge";
+	close $at;
+
+snippet     use_encode
+abbr        use Encode
+	use Encode;
