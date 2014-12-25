@@ -70,7 +70,6 @@ cnoreabbrev t tabe
 cnoremap <C-N> <Down>
 cnoremap <C-P> <Up>
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-"inoremap <silent> <ESC> <ESC>:set imi=0<CR>
 inoremap <silent> jj <ESC>
 nnoremap + ,
 nnoremap ,a :!cat >> %<CR>
@@ -88,7 +87,6 @@ nnoremap <F1> :tab :h<CR>
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <F3> :call MyNeoSnippetEdit()<CR>
 nnoremap <F4> :Unite line<CR>
-"nnoremap <F5> :set invpaste<CR>
 nnoremap <F6> :Unite buffer<CR>
 nnoremap <F7> :Unite file_rec<CR>
 nnoremap <F8> :Unite file_mru<CR>
@@ -96,6 +94,7 @@ nnoremap <F9> :call SpellToggle()<CR>
 nnoremap <Left>  zh
 nnoremap <Right> zl
 nnoremap <SPACE> gt
+nnoremap Y y$
 nnoremap co :copen<CR>
 nnoremap sb :Unite buffer<CR>
 nnoremap se :call MyNeoSnippetEdit()<CR>
