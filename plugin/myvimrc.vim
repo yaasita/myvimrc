@@ -26,6 +26,7 @@ set ignorecase
 set incsearch
 set laststatus=2
 set listchars=tab:>-,trail:-
+set matchtime=1
 set modeline
 set modelines=10
 set nobackup
