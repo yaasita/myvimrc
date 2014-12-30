@@ -102,15 +102,12 @@ nnoremap sf :Unite file_rec<CR>
 nnoremap sg :Unite line<CR>
 nnoremap sl :Unite file_mru<CR>
 nnoremap sp :Unite neosnippet<CR>
-nnoremap tf :call OtherWindowOpen(expand("<cfile>"))<CR>
-nnoremap tt 0y$
 nnoremap x "_x
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 vnoremap ' di'<C-R>"'<ESC>
 vnoremap ( di(<C-R>")<ESC>
 vnoremap * y/<C-R>"<CR>
 vnoremap [ di[<C-R>"]<ESC>
-vnoremap hcm di<!-- <C-R>" --><Esc>
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 "}}}
@@ -242,11 +239,6 @@ function! ClearHistory() "{{{2
     exe "normal a \<BS>\<Esc>"
     let &undolevels = old_undolevels
     unlet old_undolevels
-endfunction "}}}
-
-function! OtherWindowOpen(filename) "{{{2
-    execute "normal \<c-w>\<c-p>"
-    execute "e ".a:filename
 endfunction "}}}
 
 function! Ygrep(...) "{{{2
