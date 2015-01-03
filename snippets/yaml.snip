@@ -173,3 +173,8 @@ abbr        ディストリ判定
 snippet     ansible_failed_when
 abbr        失敗とみなす条件
 	failed_when: result.rc not in [0, 1]
+
+snippet     ansible_local_action
+abbr        ローカル実行
+	- name: make実行
+	  local_action: shell cd roles/ore_cron/files/ && make
