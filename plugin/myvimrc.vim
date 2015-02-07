@@ -70,6 +70,7 @@ cnoreabbrev t tabe
 cnoremap <C-N> <Down>
 cnoremap <C-P> <Up>
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+inoremap <C-S> <F5>
 inoremap <silent> jj <ESC>
 nnoremap + ,
 nnoremap ,a :!cat >> %<CR>
