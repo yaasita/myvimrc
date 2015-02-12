@@ -178,3 +178,15 @@ snippet     ansible_local_action
 abbr        ローカル実行
 	- name: make実行
 	  local_action: shell cd roles/ore_cron/files/ && make
+
+snippet     ansible_service_yum_enable
+abbr        サービスの有効化
+	- name: ntpdの有効化
+	  service: name=nginx16-nginx enabled=yes state=started
+
+snippet     ansible_yum_install
+abbr        yumでインストール
+	- name: 必要パッケージインストール
+	  yum: name={{ item }}
+	  with_items:
+		- mysql
