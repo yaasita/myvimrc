@@ -33,3 +33,15 @@ abbr    テーブル
 	| col 3 is      | right-aligned | \$1600 |
 	| col 2 is      | centered      |   \$12 |
 	| zebra stripes | are neat      |    \$1 |
+
+snippet bold
+abbr    強調
+	**${1:#:hoge}**
+
+snippet italic
+abbr    イタリック
+	*${1:#:hoge}*
+
+snippet strikethrough
+abbr    打消し線
+	~~${1:#:hoge}~~
