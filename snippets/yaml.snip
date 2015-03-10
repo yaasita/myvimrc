@@ -190,3 +190,9 @@ abbr        yumでインストール
 	  yum: name={{ item }}
 	  with_items:
 		- mysql
+
+snippet     ansible_absent
+abbr        ファイルの削除
+	- name: nginx.default削除
+	  file: path=/etc/nginx/conf.d/default.conf state=absent
+	  notify: restart nginx
