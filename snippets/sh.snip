@@ -54,12 +54,12 @@ abbr        ヒアドキュメントでファイル書く
 
 snippet     hear_document_to_variable
 abbr        ヒアドキュメントで変数にいれる
-	val=`cat <<EOF
+	val=\`cat <<EOF
 	hoge
 	huga
 	hoge
 	EOF
-	`
+	\`
 	echo "$val"
 
 snippet     rsync_copy_only
