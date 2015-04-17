@@ -159,7 +159,6 @@ command! -nargs=? Waei call Goo("je",<f-args>)
 command! TagEscape call TagEscape() 
 command! BookmarkOpen tabe ~/.NERDTreeBookmarks
 command! ClearHistory call ClearHistory()
-command! Clip set clipboard=unnamed 
 command! CopyPaste setlocal nonu foldcolumn=0
 command! Cuc call Cuc() 
 command! Cul call Cul() 
