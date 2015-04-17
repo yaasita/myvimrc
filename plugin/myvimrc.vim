@@ -11,6 +11,7 @@ filetype plugin indent on
 set autoindent
 set autoread
 set backspace=2
+set clipboard=unnamed,unnamedplus,exclude:cons\|linux
 set cmdheight=2
 set complete=.,w
 set completefunc=GoogleComplete
