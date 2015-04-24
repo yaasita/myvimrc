@@ -192,6 +192,7 @@ abbr        yumでインストール
 		- mysql
 
 snippet     ansible_absent
+alias       ansible_file_delete
 abbr        ファイルの削除
 	- name: nginx.default削除
 	  file: path=/etc/nginx/conf.d/default.conf state=absent
@@ -202,3 +203,11 @@ abbr     sudo
 	- include: rbenv-setup.yml
 	  sudo: yes
 	  sudo_user: hogeuser
+
+snippet  ansible_authorized_keys
+abbr     鍵設定
+	- name: 
+	  authorized_key: user={{ item }} key="{{ lookup('file','note/' + item + '.pub') }}"
+	  with_items:
+		- hogeuser
+		- hugauser
