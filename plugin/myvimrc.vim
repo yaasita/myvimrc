@@ -104,6 +104,7 @@ nnoremap sf :Unite file_rec<CR>
 nnoremap sg :Unite line<CR>
 nnoremap sl :Unite file_mru<CR>
 nnoremap sp :Unite neosnippet<CR>
+nnoremap st :TagbarToggle<CR>
 nnoremap x "_x
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 vnoremap ' di'<C-R>"'<ESC>
