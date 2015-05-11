@@ -90,3 +90,19 @@ abbr        ヒアドキュメント
 	abcdefg
 	hijklmno
 	EOS
+
+snippet     sendmail
+abbr        sendmail使うとき
+	open (my $sendmailfh, "|-:encoding(UTF-8)", "/usr/sbin/sendmail -f $to $to") or die $!;
+	print $sendmailfh &mail_heder($to,"テスト");
+	close $sendmailfh;
+
+snippet     base64
+abbr        base64
+	use MIME::Base64;
+	print encode_base64($source_data);
+
+snippet     Time::Piece
+	use Time::Piece;
+	my $t = localtime;
+	return $t->strftime("%Y%m%d");
