@@ -79,6 +79,16 @@ abbr        パイプで渡して書き込み
 snippet     use_encode
 abbr        use Encode
 	use Encode;
+	use utf8;
+	binmode STDOUT, ":utf8";
+	open(my $fh, "<:encoding(Shift-JIS)","PRT-010-CSV-003-20150511.CSV") or die $!;
+	while(<$fh>){
+		#print encode("UTF-8",$_);
+		if (/米ドル・日本円取引所為替証拠金取引/){
+			print;
+		}
+	}
+	close $fh;
 
 snippet     use_feature_say
 abbr        say使うとき
