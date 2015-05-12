@@ -106,3 +106,11 @@ snippet     Time::Piece
 	use Time::Piece;
 	my $t = localtime;
 	return $t->strftime("%Y%m%d");
+
+snippet     File::Temp
+	use File::Temp qw/ tempfile tempdir /;
+	my $tempdir = tempdir(CLEANUP => 1);
+
+snippet     pwd
+	use Cwd;
+	print getcwd();
