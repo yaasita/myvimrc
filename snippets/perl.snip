@@ -114,8 +114,10 @@ abbr        base64
 
 snippet     Time::Piece
 	use Time::Piece;
+	use Time::Seconds;
 	my $t = localtime;
-	return $t->strftime("%Y%m%d");
+	print $t->strftime("%Y%m%d");
+	print $t + ONE_DAY;
 
 snippet     File::Temp
 	use File::Temp qw/ tempfile tempdir /;
