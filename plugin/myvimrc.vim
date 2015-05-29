@@ -149,6 +149,13 @@ augroup Quickfix
     autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
 augroup END
 
+if $VIMMODE == "rails"
+    augroup Rails
+        autocmd!
+        autocmd Filetype ruby call unite#custom#source('file_rec', 'ignore_pattern', './coverage/')
+    augroup END
+endif
+
 command! -nargs=* Ygrep call Ygrep(<f-args>)
 command! -nargs=0 CdCurrent cd %:p:h
 command! -nargs=0 LCdCurrent lcd %:p:h
