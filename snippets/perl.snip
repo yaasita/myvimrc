@@ -126,3 +126,9 @@ snippet     File::Temp
 snippet     pwd
 	use Cwd;
 	print getcwd();
+
+snippet     namae_cap
+abbr        正規表現の名前付きキャプチャ
+	if ($line =~ /^(?<key>.*?)\s*=\s*(?<val>.*)$/) {
+		printf "%s: %s\n", $+{key}, $+{val};
+	}
