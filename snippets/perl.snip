@@ -159,3 +159,8 @@ abbr        変数に一気に読み込む
 snippet     md5
 	use Digest::MD5 qw(md5 md5_hex md5_base64);
 	say md5_hex("hoge");
+
+snippet     binmode_stdin_stdout
+abbr        STDOUT,STDINのエンコード指定
+	binmode STDOUT, ":utf8";
+	binmode STDIN,  ":utf8";
