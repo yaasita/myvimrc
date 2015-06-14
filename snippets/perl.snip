@@ -132,3 +132,30 @@ abbr        正規表現の名前付きキャプチャ
 	if ($line =~ /^(?<key>.*?)\s*=\s*(?<val>.*)$/) {
 		printf "%s: %s\n", $+{key}, $+{val};
 	}
+
+snippet     getopt
+alias       hikisuu
+abbr        引数処理
+	use Getopt::Long;
+	# 単独
+	my $opt_all = 0;
+	my $opt_debug = 0;
+	GetOptions('all' => \$opt_all, 'debug' => \$opt_debug);
+	# 引数付きオプション
+	my $name = 'John Doe';
+	my $count = 1;
+	GetOptions('name=s' => \$name, 'count=i' => \$count);
+
+snippet     all_read_input
+alias       marunomi
+abbr        変数に一気に読み込む
+	## $/(改行区切り)を無効にすることにより改行も含めて一括で変数dataに読み込める
+	open (IN , "< input.txt");
+	local $/ = undef;
+	my $data = <IN>;
+	print "$data\n";
+	close(IN);
+
+snippet     md5
+	use Digest::MD5 qw(md5 md5_hex md5_base64);
+	say md5_hex("hoge");
