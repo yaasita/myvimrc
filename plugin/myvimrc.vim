@@ -152,7 +152,7 @@ augroup END
 if $VIMMODE == "rails"
     augroup Rails
         autocmd!
-        autocmd Filetype ruby call unite#custom#source('file_rec', 'ignore_pattern', './coverage/')
+        autocmd Filetype ruby call unite#custom#source('file_rec', 'ignore_pattern', './coverage/\|png\|jpe\=g$\|gif$')
     augroup END
 endif
 
