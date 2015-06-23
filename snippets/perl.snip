@@ -59,6 +59,29 @@ abbr        CGIのテスト
 	print "Content-type:text/plain\n\n";
 	print "CGI Test";
 
+
+snippet     use_cgi
+abbr        use CGI
+	#!/usr/bin/perl
+	use strict;
+	use warnings;
+	use CGI;
+	my $q = new CGI;
+	print $q->header( -charset => "utf-8", );
+	print <<"HEADER";
+	<html>
+		<head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+			<title></title>
+		</head>
+		<body>
+	HEADER
+	print "<h1>CGI</h1>";
+	print <<"FOOTER";
+		</body>
+	</html>
+	FOOTER
+
 snippet     chdir_script_bin
 alias       find_bin
 abbr        スクリプト実行ファイルにchdir
