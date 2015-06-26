@@ -98,6 +98,7 @@ nnoremap <Right> zl
 nnoremap <SPACE> gt
 nnoremap Y y$
 nnoremap co :copen<CR>
+nnoremap s <Nop>
 nnoremap sb :Unite buffer<CR>
 nnoremap se :call MyNeoSnippetEdit()<CR>
 nnoremap sf :Unite file_rec<CR>
