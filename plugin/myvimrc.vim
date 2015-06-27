@@ -165,7 +165,6 @@ command! -nargs=0 Memo tabe ~/memo
 command! -nargs=1 -complete=file VDsplit vertical diffsplit <args>
 command! -nargs=? Eiwa call Goo("ej",<f-args>)
 command! -nargs=? Kokugo call Goo("jn",<f-args>)
-command! -nargs=? Ruigo call Goo("thsrs",<f-args>)
 command! -nargs=? Waei call Goo("je",<f-args>)
 command! BookmarkOpen tabe ~/.NERDTreeBookmarks
 command! ClearHistory call ClearHistory()
@@ -340,20 +339,17 @@ function! Goo(jisyo,...) "{{{2
         let l:search_word = a:1
     endif
     if a:jisyo == "ej"
-        let l:search_tag = " | perl -nle 'print if /alllist/i../<\\/dl>/ or /prog_meaning/'"
+        let l:search_tag = " | perl -nle 'print if /list-search-a/i../section/ or /音節/../出典/'"
     elseif a:jisyo == "je"
-        let l:search_tag = " | perl -nle 'print if /alllist/i../<\\/dl>/ or /prog_meaning|prog_example/'"
+        let l:search_tag = " | perl -nle 'print if /list-search-a/i../section/ or /<h1 class=.header ttl-a.>/../出典/'"
     elseif a:jisyo == "jn"
-        let l:search_tag = " | perl -nle 'print if /alllist/i../<\\/dl>/ or /meaning/'"
-    elseif a:jisyo == "thsrs"
-        let l:search_tag = " | perl -nle 'print if /--wordDefinition/i../--\\/wordDefinition/i'"
+        let l:search_tag = " | perl -nle 'print if /list-search-a/i../section/ or /<div class=.kokugo.>/../出典/'"
     endif
     execute l:cmd . "curl -s -L " .
                 \ "http://dictionary.goo.ne.jp/srch/" . a:jisyo . "/" .
-                \ "$(echo " . l:search_word . " | nkf -wMQ | tr = \\%)" .
-                \ "/m1u/ " .
+                \ "$(echo " . l:search_word . " | nkf -wMQ | tr = \\%)/m0u/" . 
                 \ l:search_tag .
-                \ " | perl -ple 's/<.+?>//g'"
+                \ " | perl -ple 's/<.+?>//g;s/\\s*//' | perl -nle 'print unless /^$/'" .
                 \ " | head -50"
 endfunction "}}}
 
