@@ -4,7 +4,7 @@
 ## インストール
 
     # http
-    NeoBundle 'yaasita/myvimrc'
+    Plug 'yaasita/myvimrc'
 
     # developer
-    NeoBundle 'git@github.com:yaasita/myvimrc'
+    Plug 'git@github.com:yaasita/myvimrc'
