@@ -194,3 +194,30 @@ snippet     File::Basename
 abbr        basename取る
 	use File::Basename qw/basename dirname/;
 	basename $0;
+
+snippet     form_sample
+abbr        HTMLのフォームサンプル
+	print <<"EOL_HTML";
+	<html>
+		<head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+			<title></title>
+		</head>
+		<body>
+			<h1>インスタンスの停止/開始</h1>
+			<form action="@{[basename \$0]}" method="post">
+				<input type="hidden" name="postdata" value="start">
+				<input type="submit" value="START">
+			</form>
+			<br />
+			<form action="@{[basename \$0]}" method="post">
+				<input type="hidden" name="postdata" value="stop">
+				<input type="submit" value="STOP">
+			</form>
+			<hr>
+			<div style="white-space: pre;">
+	@messages
+			</div>
+		</body>
+	</html>
+	EOL_HTML
