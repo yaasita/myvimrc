@@ -67,6 +67,7 @@ abbr        use CGI
 	use warnings;
 	use CGI;
 	use CGI::Carp qw(fatalsToBrowser);
+	use CGI::Pretty;
 	my $q = new CGI;
 	print $q->header( -charset => "utf-8", );
 	print <<"HEADER";
