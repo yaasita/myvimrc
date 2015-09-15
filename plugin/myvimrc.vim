@@ -124,6 +124,11 @@ augroup Markdown
   autocmd BufWritePost *.md,*.markdown silent! OreMarkdown bg
 augroup END
 
+augroup Conf
+  autocmd!
+  autocmd BufNewFile,BufRead *.conf setf conf
+augroup END
+
 augroup BinaryXXD
   autocmd!
   autocmd BufReadPre  *.bin setlocal bin
