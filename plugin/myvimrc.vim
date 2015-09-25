@@ -227,10 +227,10 @@ endfunction "}}}
 
 function! HankakuSpace() "{{{2
     syntax match   HankakuSpace / /
-    redir @"
+    redir => l:hi
     highlight HankakuSpace
     redir END
-    if match(@",'cleared') >= 0
+    if match(l:hi,'cleared') >= 0
         highlight! default link HankakuSpace TabLine
     else
         highlight! default link HankakuSpace NONE
@@ -239,10 +239,10 @@ endfunction "}}}
 
 function! ZenkakuSpace() "{{{2
     syntax match   ZenkakuSpace /　/
-    redir @"
+    redir => l:hi 
     highlight ZenkakuSpace
     redir END
-    if match(@",'cleared') >= 0
+    if match(l:hi,'cleared') >= 0
         highlight! default link ZenkakuSpace WildMenu
     else
         highlight! default link ZenkakuSpace NONE
