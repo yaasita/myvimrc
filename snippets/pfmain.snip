@@ -1,3 +1,14 @@
 snippet     maildir
 abbr        mboxじゃなくてmaildir形式へ
 	home_mailbox = Maildir/
+
+snippet     black-hole
+abbr        すべて集約する設定
+	virtual_alias_domains = regexp:/etc/postfix/domains
+	virtual_alias_maps = regexp:/etc/postfix/aliases.reg
+	
+	/etc/postfix/domains
+		/.*/i true
+	
+	/etc/postfix/aliases.reg
+		/^(.+)@.+$/ yamasita@localhost
