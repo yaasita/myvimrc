@@ -24,7 +24,12 @@ abbr        supervisordの設定
 
 	[program:mysql]
 	command=/usr/bin/mysqld_safe
-
+	
+	[program:postgresql]
+	command=/usr/lib/postgresql/9.4/bin/postgres -D /var/lib/postgresql/9.4/main -c config_file=/etc/postgresql/9.4/main/postgresql.conf
+	user=postgres
+	autorestart=false
+	
 	[program:postfix]
 	process_name = master
 	directory = /etc/postfix
@@ -36,64 +41,19 @@ abbr        supervisordの設定
 	command=/home/tryplus-student/bin/tryplus-student.sh restart
 	startsecs = 0
 	autorestart = false
-
-	[program:postgresql]
-	command=/usr/lib/postgresql/9.4/bin/postgres -D /var/lib/postgresql/9.4/main -c config_file=/etc/postgresql/9.4/main/postgresql.conf
-	user=postgres
-	autorestart=false
-
+	
 	[program:cron]
 	command = cron -f
-
+	
 	[program:mongodb]
 	command = /etc/init.d/mongodb start
 	autorestart=false
-
+	
 	[program:rsyslogd]
 	command=rsyslogd -n
 	startsecs = 0
 	autorestart = false
-	[supervisord]
-	nodaemon=true
 
-	[program:nginx]
-	command=/usr/sbin/nginx -c /etc/nginx/nginx.conf
-	redirect_stderr=true 
-
-	[program:sshd]
-	command=/usr/sbin/sshd -D
-
-	[program:apache2]
-	command=/bin/bash -c "source /etc/apache2/envvars && exec /usr/sbin/apache2 -DFOREGROUND"
-
-	[program:mysql]
-	command=/usr/bin/mysqld_safe
-
-	[program:postfix]
-	process_name = master
-	directory = /etc/postfix
-	command = service postfix start
-	startsecs = 0
-	autorestart = false
-
-	[program:unicorn]
-	command=/home/tryplus-student/bin/tryplus-student.sh restart
-	startsecs = 0
-	autorestart = false
-
-	[program:postgresql]
-	command=/usr/lib/postgresql/9.4/bin/postgres -D /var/lib/postgresql/9.4/main -c config_file=/etc/postgresql/9.4/main/postgresql.conf
-	user=postgres
-	autorestart=false
-
-	[program:cron]
-	command = cron -f
-
-	[program:mongodb]
-	command = /etc/init.d/mongodb start
-	autorestart=false
-
-	[program:rsyslogd]
-	command=rsyslogd -n
-	startsecs = 0
-	autorestart = false
+snippet     journald.conf-storage
+abbr        journaldログの設定永続化
+	Storage=persistent
