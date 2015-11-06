@@ -1,0 +1,5 @@
+snippet     itumono_mysql
+abbr        いつものMySQL初期
+	create database ${1:#:dbname} character set utf8;
+	create user '${2:#:user}'@'localhost' identified by '$2';
+	grant all privileges on $1.* to '$2'@'localhost';${0}
