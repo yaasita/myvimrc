@@ -83,8 +83,7 @@ nnoremap / :set ims=0<CR>/
 nnoremap <BS> gT
 nnoremap <ESC><ESC> :noh<CR>
 nnoremap <F10> :WindowSizeToggle<CR>
-nnoremap <F11> :RjcolorNext<CR>
-nnoremap <F12> :RjcolorBack<CR>
+nnoremap <F11> :call RjcolorToggle()<CR>
 nnoremap <F1> :tab :h<CR>
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <F3> :call MyNeoSnippetEdit()<CR>
@@ -307,6 +306,16 @@ function! WindowSizeToggle() "{{{2
         nnoremap <C-j> <C-w>-
         nnoremap <C-k> <C-w>+
         nnoremap <C-l> <C-w>>
+    endif
+endfunction "}}}
+
+function! RjcolorToggle() "{{{2
+    if hasmapto('RjcolorNext','n') 
+        nunmap <C-n>
+        nunmap <C-p>
+    else
+        nnoremap <C-n> :RjcolorNext<CR>
+        nnoremap <C-p> :RjcolorBack<CR>
     endif
 endfunction "}}}
 
