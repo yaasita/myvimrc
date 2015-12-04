@@ -222,3 +222,8 @@ abbr        HTMLのフォームサンプル
 		</body>
 	</html>
 	EOL_HTML
+
+snippet     Digest::SHA
+abbr        SHAハッシュ
+	use Digest::SHA qw/sha512_hex/;
+	print sha512_hex("あいうえお"),"\n";
