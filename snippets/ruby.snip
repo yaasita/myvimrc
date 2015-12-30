@@ -15,7 +15,7 @@ abbr        Gemfile
 snippet     fileopen
 alias       open
 abbr        File.open(filename) do ... end
-  File.open(${1:#:filename}, '${2:#:mode:r|w}') do |${3:io}|
+  File.open(${1:#:filename}, '${2:#:mode:r|w|a}') do |${3:io}|
     ${0:TARGET}
   end
 
