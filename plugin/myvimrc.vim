@@ -15,6 +15,7 @@ set clipboard=unnamed,unnamedplus,exclude:cons\|linux
 set cmdheight=2
 set complete=.,w
 set completefunc=GoogleComplete
+set diffopt=filler,vertical
 set foldcolumn=2
 set foldopen=mark,percent,quickfix,tag
 set formatoptions=tcqmM
