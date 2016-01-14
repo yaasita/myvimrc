@@ -114,3 +114,8 @@ abbr        引数解析
 			;;
 		esac
 	done
+
+snippet     tempdir
+alias       tmpdir
+	TEMPDIR=$(mktemp -d)
+	rm -rf $TEMPDIR
