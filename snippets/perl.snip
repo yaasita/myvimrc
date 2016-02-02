@@ -51,7 +51,13 @@ abbr        ソート指定
 
 snippet     open_write
 abbr        ファイルOPEN書き込み
-	open (WR,">${1:hoge.txt}") or die $!;
+	open (my $wr,">:utf8", "tmp/05_wiki.redmine") or die $!;
+	close $wr;
+
+snippet     open_input
+abbr        ファイルOPEN読み込み
+	open (my $in,"<", "tmp/04_body.txt") or die $!;
+	close $in;
 
 snippet     cgi_test
 abbr        CGIのテスト
@@ -176,11 +182,11 @@ snippet     all_read_input
 alias       marunomi
 abbr        変数に一気に読み込む
 	## $/(改行区切り)を無効にすることにより改行も含めて一括で変数dataに読み込める
-	open (IN , "< input.txt");
+	open (my $in,"<", "input.txt") or die $!;
 	local $/ = undef;
-	my $data = <IN>;
+	my $data = <$in>;
 	print "$data\n";
-	close(IN);
+	close($in);
 
 snippet     md5
 	use Digest::MD5 qw(md5 md5_hex md5_base64);
@@ -227,3 +233,10 @@ snippet     Digest::SHA
 abbr        SHAハッシュ
 	use Digest::SHA qw/sha512_hex/;
 	print sha512_hex("あいうえお"),"\n";
+
+snippet     use_JSON
+abbr        json
+	use JSON qw/encode_json decode_json/;
+	my $json_in = '[{"name" : "Ken", "age" : 19}, {"name" : "Ken", "age" : 25}]';
+	my $data = decode_json($json_in);
+	my $json_out = encode_json($data);
