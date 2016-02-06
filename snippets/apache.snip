@@ -14,8 +14,12 @@ abbr        ファイルを保存させる
 		Header set Content-Disposition attachment
 	</Files>
 
-snippet    allssl
-abbr       常時SSL
+snippet    allssl_redirect
+abbr       常時SSLリダイレクト
 	RewriteEngine on
 	RewriteCond %{SERVER_PORT} !^443$
 	RewriteRule ^/(.*)?$ https://%{HTTP_HOST}/\$1 [L,R]
+
+snippet    token_off
+abbr       バージョン情報非表示
+	ServerTokens Prod
