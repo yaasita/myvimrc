@@ -141,7 +141,7 @@ abbr        sendmail使うとき
 
 snippet     base64
 abbr        base64
-	use MIME::Base64;
+	use MIME::Base64 qw/encode_base64 decode_base64/;
 	print encode_base64($source_data);
 
 snippet     Time::Piece
