@@ -217,7 +217,8 @@ abbr     鍵設定
 
 
 snippet  ansible_postgres
-- name: ユーザの作成
-  postgresql_user: name=hogeuser password=hugahuga
-- name: DBの作成
-  postgresql_db: name=testdb encoding="UTF-8" owner=hogeuser login_user=postgres login_host=127.0.0.1
+abbr     postgresql
+	- name: ユーザの作成
+	  postgresql_user: name=hogeuser password=hugahuga
+	- name: DBの作成
+	  postgresql_db: name=testdb encoding="UTF-8" owner=hogeuser login_user=postgres login_host=127.0.0.1
