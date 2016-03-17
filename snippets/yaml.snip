@@ -143,7 +143,7 @@ abbr        タスク雛形
 
 snippet     ansible_add_lineinfile
 abbr        一行追加
-	lineinfile: dest=/etc/apache2/apache2.conf line="ServerName mailserver"
+	lineinfile: dest=/etc/hosts state=present regexp="ServerName" line="ServerName mailserver"
 
 snippet     ansible_change_lineinfile
 abbr        一行変更
