@@ -222,3 +222,9 @@ abbr     postgresql
 	  postgresql_user: name=hogeuser password=hugahuga
 	- name: DBの作成
 	  postgresql_db: name=testdb encoding="UTF-8" owner=hogeuser login_user=postgres login_host=127.0.0.1
+
+snippet  ansible_group
+abbr     グループ作成と追加
+	- name: samba group add
+	  group: name=samba state=present gid=500
+	- user: name=hoge shell=/bin/bash groups=sudo,adm append=yes
