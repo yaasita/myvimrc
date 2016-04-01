@@ -143,7 +143,7 @@ abbr        タスク雛形
 
 snippet     ansible_add_lineinfile
 abbr        一行追加
-	lineinfile: dest=/etc/apache2/apache2.conf line="ServerName mailserver"
+	lineinfile: dest=/etc/hosts state=present regexp="ServerName" line="ServerName mailserver"
 
 snippet     ansible_change_lineinfile
 abbr        一行変更
@@ -217,7 +217,14 @@ abbr     鍵設定
 
 
 snippet  ansible_postgres
-- name: ユーザの作成
-  postgresql_user: name=hogeuser password=hugahuga
-- name: DBの作成
-  postgresql_db: name=testdb encoding="UTF-8" owner=hogeuser login_user=postgres login_host=127.0.0.1
+abbr     postgresql
+	- name: ユーザの作成
+	  postgresql_user: name=hogeuser password=hugahuga
+	- name: DBの作成
+	  postgresql_db: name=testdb encoding="UTF-8" owner=hogeuser login_user=postgres login_host=127.0.0.1
+
+snippet  ansible_group
+abbr     グループ作成と追加
+	- name: samba group add
+	  group: name=samba state=present gid=500
+	- user: name=hoge shell=/bin/bash groups=sudo,adm append=yes
