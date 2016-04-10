@@ -2,6 +2,7 @@ autocmd BufRead,BufNewFile *.cgi setf perl
 autocmd BufRead,BufNewFile *.mq4 setf mql4
 autocmd BufRead,BufNewFile *.pco setf cobol
 autocmd BufRead,BufNewFile Dockerfile setf dockerfile
+autocmd BufRead,BufNewFile *.slim set ft=slim
 
 autocmd BufRead,BufNewFile *hosts,hosts* call s:FTAnsible()
 function! s:FTAnsible()
