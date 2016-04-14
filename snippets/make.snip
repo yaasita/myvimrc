@@ -8,3 +8,17 @@ abbr        雛形
 		@echo "echo off"
 	$(RANDFILE):
 		openssl dgst -md5 /var/log/syslog > $@
+	# 普通な書き方 slim例
+	HTML = \
+		   page1.html \
+		   page2.html \
+		   page3.html \
+		   page4.html
+	
+	all: $(HTML)
+	
+	page1.html: page1.slim
+		slimrb -p $+ > $@
+	
+	page2.html: page2.slim
+		slimrb -p $+ > $@
