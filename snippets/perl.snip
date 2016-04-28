@@ -240,3 +240,16 @@ abbr        json
 	my $json_in = '[{"name" : "Ken", "age" : 19}, {"name" : "Ken", "age" : 25}]';
 	my $data = decode_json($json_in);
 	my $json_out = encode_json($data);
+
+snippet     format
+	my $rank=1;
+	my $percent;
+	my $count;
+	my $name;
+	format STDOUT_TOP =
+	Rank  Name              Message    Percentage
+	.
+	format STDOUT =
+	@##   @<<<<<<<<<<<<<<<  @######    @########%
+	$rank, $name, $count, $percent
+	.
