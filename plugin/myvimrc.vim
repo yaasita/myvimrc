@@ -329,8 +329,14 @@ function! GoogleComplete(findstart, base) "{{{2
         endwhile
         return start
     else
-        let ret = system('curl -s -G --data-urlencode "q='
-                    \ . a:base . '" "http://suggestqueries.google.com/complete/search?&client=firefox&hl=ja&ie=utf8&oe=utf8"')
+        let ret = system('curl -s -G'
+                    \ . ' --data-urlencode "q=' . a:base . '"'
+                    \ . ' --data-urlencode "client=firefox"'
+                    \ . ' --data-urlencode "hl=ja"'
+                    \ . ' --data-urlencode "ie=utf8"'
+                    \ . ' --data-urlencode "oe=utf8"'
+                    \ . ' "http://suggestqueries.google.com/complete/search"'
+                    \)
         let res = split(substitute(ret,'\[\|\]\|"',"","g"),",")
         return res
     endif
