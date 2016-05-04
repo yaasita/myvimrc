@@ -240,3 +240,20 @@ abbr        json
 	my $json_in = '[{"name" : "Ken", "age" : 19}, {"name" : "Ken", "age" : 25}]';
 	my $data = decode_json($json_in);
 	my $json_out = encode_json($data);
+
+snippet     oop
+abbr        オブジェクト指向
+	package Class;
+	sub new{
+	my $class = shift;
+	# オブジェクトを作成して返す
+	my $self = {
+	X => 10,
+	Y => 100,
+	};
+	return bless $self, $class;
+	}
+	sub method1{
+	my $self = shift;
+	print "$self->{X} : $self->{Y}\n";
+	}
