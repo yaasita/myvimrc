@@ -257,3 +257,17 @@ abbr        オブジェクト指向
 	my $self = shift;
 	print "$self->{X} : $self->{Y}\n";
 	}
+
+snippet     format
+	my $rank=1;
+	my $percent;
+	my $count;
+	my $name;
+	format STDOUT_TOP =
+	Rank  Name              Message    Percentage
+	.
+	format STDOUT =
+	@##   @<<<<<<<<<<<<<<<  @######    @########%
+	$rank, $name, $count, $percent
+	.
+
