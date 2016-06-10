@@ -70,7 +70,7 @@ abbr    実行結果判定
 
 snippet  ansible_ignore_errors
 abbr エラー無視
-	ignore_errors: True
+	ignore_errors: true
 
 snippet ansible_varfile
 abbr var/main.ymlファイル例
@@ -202,10 +202,11 @@ abbr        ファイルの削除
 	  notify: restart nginx
 
 snippet  ansible_sudo
-abbr     sudo
+alias    ansible_become
+abbr     sudo,become
 	- include: rbenv-setup.yml
-	  sudo: yes
-	  sudo_user: hogeuser
+	  become: yes
+	  become_user: hogeuser
 
 snippet  ansible_authorized_keys
 abbr     鍵設定
