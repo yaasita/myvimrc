@@ -125,6 +125,7 @@ abbr        ファイルから一行ずつ読む
 	cnt=0
 	while read line
 	do
-		cnt=`expr $cnt + 1`
+		cnt=\`expr $cnt + 1\`
 		echo "LINE $cnt : $line"
 	done < /tmp/test.txt
+
