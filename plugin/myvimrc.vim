@@ -15,7 +15,6 @@ set clipboard=unnamed,unnamedplus,exclude:cons\|linux
 set cmdheight=2
 set complete=.,w
 set completefunc=GoogleComplete
-set cryptmethod=blowfish2
 set diffopt=filler,vertical
 set foldcolumn=2
 set foldopen=mark,percent,quickfix,tag
@@ -63,6 +62,11 @@ set wildmenu
 set wildmode=list:longest
 
 syntax on
+
+" バージョン依存
+if v:version >= 704
+    set cryptmethod=blowfish2
+endif
 
 "}}}
 "------------------------------------------
