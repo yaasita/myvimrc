@@ -10,3 +10,27 @@ abbr        書き始め
 	func main() {
 		fmt.Println("hoge")
 	}
+
+snippet     read-line
+abbr        1行ずつ読み込み
+	package main
+	import (
+		"fmt"
+		"bufio"
+		"os"
+		//"github.com/russross/blackfriday"
+	)
+	func main() {
+		fmt.Println("start")
+		fp, err := os.Open("/tmp/in.txt")
+		if err != nil {
+			panic(err)
+		}
+		defer fp.Close()
+		scanner := bufio.NewScanner(fp)
+		for scanner.Scan() {
+			fmt.Printf("%v\n", len([]byte(scanner.Text())))
+		}
+		//fmt.Println(scanner)
+		//fmt.Printf("%T\n",fp)
+	}
