@@ -63,6 +63,11 @@ set wildmode=list:longest
 
 syntax on
 
+" バージョン依存
+if v:version >= 704
+    set cryptmethod=blowfish2
+endif
+
 "}}}
 "------------------------------------------
 "**** map ************** {{{1
