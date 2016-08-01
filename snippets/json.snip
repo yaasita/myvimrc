@@ -1,0 +1,8 @@
+snippet     runc-bind-config
+abbr        runcでbindするとき
+	{
+	"destination": "/tmp",
+	"type": "bind",
+	"source": "/tmp",
+	"options": ["rbind","rw"]
+	},
