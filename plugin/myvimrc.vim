@@ -87,6 +87,8 @@ nnoremap ,e :Imadesyo<CR>
 nnoremap ,r :Unite file_mru<CR>
 nnoremap / :set ims=0<CR>/
 nnoremap <BS> gT
+nnoremap <C-N> :bn<CR>
+nnoremap <C-P> :bp<CR>
 nnoremap <ESC><ESC> :noh<CR>
 nnoremap <F10> :WindowSizeToggle<CR>
 nnoremap <F11> :call RjcolorToggle()<CR>
