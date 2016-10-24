@@ -89,6 +89,7 @@ nnoremap / :set ims=0<CR>/
 nnoremap <BS> gT
 nnoremap <C-N> :bn<CR>
 nnoremap <C-P> :bp<CR>
+nnoremap <C-S> i<F5>
 nnoremap <ESC><ESC> :noh<CR>
 nnoremap <F10> :WindowSizeToggle<CR>
 nnoremap <F11> :call RjcolorToggle()<CR>
