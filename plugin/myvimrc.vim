@@ -64,7 +64,7 @@ set wildmode=list:longest
 syntax on
 
 " バージョン依存
-if v:version >= 704
+if has("patch-7.4.401")
     set cryptmethod=blowfish2
 endif
 
