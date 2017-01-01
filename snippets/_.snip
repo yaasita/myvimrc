@@ -3,23 +3,10 @@ abbr        ファイル名フルパス
 options     word
     `expand('%:p')`
 
-snippet     filename
-abbr        ファイル名
-alias       fname
-options     word
-    `expand('%:t')`
-
-snippet     autodate
-abbr        Last modified time
-alias       lmod
-	Last Change:`strftime("%Y/%m/%d")`.
-
 snippet     date
 abbr        日付
-alias       lmod hiduke
 	`strftime("%Y/%m/%d")`
 
 snippet     mode-line
-alias       fdm fold
 abbr        vimのモードライン
 	vim: fdm=marker
