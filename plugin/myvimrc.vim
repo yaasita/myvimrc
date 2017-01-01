@@ -93,6 +93,7 @@ nnoremap <C-S> i<F5>
 nnoremap <ESC><ESC> :noh<CR>
 nnoremap <F10> :WindowSizeToggle<CR>
 nnoremap <F11> :call RjcolorToggle()<CR>
+nnoremap <F12> :normal zR<CR>
 nnoremap <F1> :tab :h<CR>
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <F3> :call MyNeoSnippetEdit()<CR>
