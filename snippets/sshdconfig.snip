@@ -8,3 +8,7 @@ abbr        sftpのみ許可するユーザ
 		ForceCommand internal-sftp -u 0000
 		PasswordAuthentication yes
 
+snippet     passwd_ok_network
+abbr        sftpのみ許可するユーザ
+	Match Address 192.168.0.*
+		PasswordAuthentication yes
