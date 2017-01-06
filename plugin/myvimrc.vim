@@ -128,10 +128,10 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 "------------------------------------------
 "**** command ********** {{{1
 
-augroup Markdown
-  autocmd!
-  autocmd BufWritePost *.md,*.markdown silent! OreMarkdown bg
-augroup END
+"augroup Markdown
+"  autocmd!
+"  autocmd BufWritePost *.md,*.markdown silent! OreMarkdown bg
+"augroup END
 
 augroup Conf
   autocmd!
