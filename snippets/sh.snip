@@ -66,10 +66,10 @@ snippet     rsync_copy_only
 abbr       rsyncでとりあえずコピーできればいい
 	rsync -azv --no-perms --no-owner --no-group --no-times --size-only --delete --exclude-from=/jitaku/exc.txt ore_jitaku:/raid/samba/ /jitaku/samba/
 
-snippet     rsync_part_copy
-abbr       rsyncで指定バックアップ
+snippet     rsync_copy
+abbr        rsyncでバックアップ
 	# 全体バックアップ
-	cat <<EOF > /tmp/exc.txt
+	cat <<EOF > exc.txt
 	- /sys/*
 	- /proc/*
 	- /mnt/*
@@ -79,7 +79,7 @@ abbr       rsyncで指定バックアップ
 	
 	EOF
 	# 部分バックアップ
-	cat <<EOF > /tmp/exc.txt
+	cat <<EOF > exc.txt
 	+ /var/
 	+ /var/www/
 	+ /var/www/cal/
@@ -90,8 +90,7 @@ abbr       rsyncで指定バックアップ
 	
 	EOF
 	
-	rsync -av --exclude-from=/tmp/exc.txt /path/to/src /path/to/dest
-	rsync -av --delete-excluded --exclude-from=/tmp/exc.txt / /tmp/backup/
+	rsync -av -P --delete-excluded --exclude-from=exc.txt root@example-server:/ ./root/
 
 snippet     getopts
 abbr        引数解析
