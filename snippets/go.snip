@@ -34,3 +34,21 @@ abbr        1行ずつ読み込み
 		//fmt.Println(scanner)
 		//fmt.Printf("%T\n",fp)
 	}
+
+snippet     test-template
+abbr        テストのひな型
+	package main
+	
+	import (
+		"strings"
+		"testing"
+	)
+	
+	func TestReplace1(t *testing.T) {
+		after := replace_url("http:")
+		after = strings.TrimRight(after, "\n")
+		if after != "- http:" {
+			t.Errorf("after = %s", after)
+		}
+	}
+

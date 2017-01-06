@@ -93,6 +93,7 @@ nnoremap <C-S> i<F5>
 nnoremap <ESC><ESC> :noh<CR>
 nnoremap <F10> :WindowSizeToggle<CR>
 nnoremap <F11> :call RjcolorToggle()<CR>
+nnoremap <F12> :normal zR<CR>
 nnoremap <F1> :tab :h<CR>
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <F3> :call MyNeoSnippetEdit()<CR>
@@ -127,10 +128,10 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 "------------------------------------------
 "**** command ********** {{{1
 
-augroup Markdown
-  autocmd!
-  autocmd BufWritePost *.md,*.markdown silent! OreMarkdown bg
-augroup END
+"augroup Markdown
+"  autocmd!
+"  autocmd BufWritePost *.md,*.markdown silent! OreMarkdown bg
+"augroup END
 
 augroup Conf
   autocmd!
