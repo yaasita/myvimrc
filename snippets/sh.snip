@@ -70,12 +70,14 @@ snippet     rsync_copy
 abbr        rsyncでバックアップ
 	# 全体バックアップ
 	cat <<EOF > exc.txt
-	- /sys/*
-	- /proc/*
-	- /mnt/*
 	- /dev/*
+	- /mnt/*
+	- /proc/*
 	- /raid/*
+	- /run/udev/*
+	- /sys/*
 	- /tmp/*
+	- /var/tmp/*
 	
 	EOF
 	# 部分バックアップ
