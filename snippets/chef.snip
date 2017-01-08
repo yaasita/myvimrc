@@ -5,10 +5,10 @@ snippet     template
 		group "root"
 		mode "0644"
 		variables(
-			:dbname => node['bps']['mysql_create_database'],
-			:dbuser => node['bps']['mysql_create_database'],
-			:dbpass => node['bps']['mysql_create_database'],
-		:unicorn_processes => node['bps']['unicorn_processes']
+			:dbname => node['hoge']['mysql_create_database'],
+			:dbuser => node['hoge']['mysql_create_database'],
+			:dbpass => node['hoge']['mysql_create_database'],
+		:unicorn_processes => node['hoge']['unicorn_processes']
 		)
 	end
 
