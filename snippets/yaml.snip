@@ -40,11 +40,10 @@ abbr     ハンドラ例
 
 snippet      ansible_user
 abbr     ユーザ作成
-	user: name={{ item }} shell=/bin/bash groups=sudo,adm password={{ bps_password }} append=yes update_password=on_create
+	user: name={{ item }} shell=/bin/bash groups=sudo,adm password={{ hoge_passwd }} append=yes update_password=on_create
 	with_items:
 	  - yamasita
-	  - baba
-	  - morimori
+	  - yamada
 
 snippet  ansible_hostname
 abbr     ホスト名の設定
