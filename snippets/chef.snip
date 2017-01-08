@@ -49,8 +49,8 @@ snippet bash
 			mkdir -p ~/.rbenv/plugins
 			cd ~/.rbenv/plugins
 			git clone git://github.com/sstephenson/ruby-build.git
-			rbenv install #{node['bps']['rbenv_version']}
-			rbenv global  #{node['bps']['rbenv_version']}
+			rbenv install #{node['hoge']['rbenv_version']}
+			rbenv global  #{node['hoge']['rbenv_version']}
 			rbenv rehash
 			gem install bundle
 		EOH
@@ -71,4 +71,4 @@ snippet notifies
 	notifies :restart, "service[nagios-nrpe-server]"
 
 snippet include_recipe
-	include_recipe "bps-database"
+	include_recipe "hoge-database"
