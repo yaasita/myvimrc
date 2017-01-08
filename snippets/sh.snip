@@ -130,3 +130,13 @@ abbr        ファイルから一行ずつ読む
 		echo "LINE $cnt : $line"
 	done < /tmp/test.txt
 
+snippet     normal_if
+abbr        普通のIF分
+	if [ $size -eq 0 ]; then
+	  rm /tmp/hoge.txt
+	elif [ $size -eq 100 ]; then
+	  :
+	else
+	  echo 'Invalid file!' 1>&2
+	  exit 1
+	fi
