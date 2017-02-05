@@ -13,12 +13,12 @@ abbr         HTMLのページ内リンク
 	<!-- リンク先（到達点）-->
 	<h3 id="abc">ここがABCの位置</h3>
 
-snippet      start-template
-abbr         最初のひな型
-	<html>
-		<head>
-			<title>Test Page</title>
-			<!-- <meta http-equiv="Refresh" content="5"> -->
+snippet      auto-refresh
+abbr         自動更新
+	<meta http-equiv="Refresh" content="5">
+
+snippet      embedded-style-css
+abbr         埋め込み式CSS
 	<style type="text/css">
 	div {
 		white-space: pre;
@@ -27,7 +27,17 @@ abbr         最初のひな型
 		padding: 0.5em;
 	}
 	</style>
+
+snippet      start-template
+abbr         最初のひな型
+	<!DOCTYPE html>
+	<html lang="ja">
+		<head>
+			<meta charset="UTF-8">
+			<title>サイトのタイトル</title>
+			<link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" crossorigin="anonymous">
 		</head>
 		<body>
+			<h1>テストページ</h1>
 		</body>
 	</html>
