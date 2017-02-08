@@ -52,3 +52,36 @@ abbr        テストのひな型
 		}
 	}
 
+snippet     error-check
+abbr        エラーチェック
+	func check(e error) {
+		if e != nil {
+			panic(e)
+		}
+	}
+
+snippet     each-line-read
+abbr        一行ずつ読み込み
+	var fp *os.File
+	var err error
+	fp, err = os.Open(os.Args[1])
+	if err != nil {
+		panic(err)
+	}
+	scanner := bufio.NewScanner(fp)
+	var str []string
+	for scanner.Scan() {
+		str = append(str, scanner.Text())
+	}
+	if err := scanner.Err(); err != nil {
+		panic(err)
+	}
+	fp.Close()
+	// 書き出し
+	fw, _ := os.Create(os.Args[1])
+	for _, v := range str {
+		replace_str := replace_url(v)
+		fmt.Println(replace_str)
+		fw.Write([]byte(replace_str + "\n"))
+	}
+	fw.Close()
