@@ -54,7 +54,8 @@ abbr        テストのひな型
 
 snippet     error-check
 abbr        エラーチェック
-	func check(e error) {
+	func check(e error, s string) {
+		fmt.Fprintln(os.Stderr, s)
 		if e != nil {
 			panic(e)
 		}
@@ -85,3 +86,9 @@ abbr        一行ずつ読み込み
 		fw.Write([]byte(replace_str + "\n"))
 	}
 	fw.Close()
+
+snippet     regexp-replace
+abbr        正規表現
+	if http := regexp.MustCompile("^http"); http.MatchString(str) {
+		return http.ReplaceAllString(str, "- http")
+	}
