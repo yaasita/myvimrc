@@ -375,11 +375,7 @@ function! Goo(jisyo,...) "{{{2
 endfunction "}}}
 
 function! MyNeoSnippetEdit() "{{{2
-    if &ft == "mail"
-        botright split ~/.vim/snippets/mail.snip
-    else
-        execute "NeoSnippetEdit -split ".&ft
-    endif
+    execute "NeoSnippetEdit -split ".&ft
 endfunction "}}}
 
 "}}}
