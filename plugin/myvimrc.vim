@@ -185,22 +185,12 @@ command! Migemo call Migemo()
 command! Sst tabe ~/.vim/plugged/myvimrc/plugin/myvimrc.vim
 command! Tabnasi setlocal expandtab | setlocal list | retab
 command! TagEscape call TagEscape() 
-command! Ttp call Ttp()
 command! WindowSizeToggle call WindowSizeToggle()
 command! ZenkakuSpace call ZenkakuSpace()
 
 "}}}
 "------------------------------------------
 "**** function ********* {{{1
-
-function! Ttp() "{{{2
-	g!/ttp/d
-    g!/\.\(jpg\|png\|bmp\)/d 
-    %s/\.\(jpg\|png\|bmp\)/.\1\r/g
-    %s/^.*http/http/g
-	g!/^http/d
-    g!/\.\(jpg\|png\|bmp\)$/d 
-endfunction "}}}
 
 function! TagEscape() "{{{2
     %s/</\&lt;/gc
