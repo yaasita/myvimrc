@@ -1,0 +1,29 @@
+snippet     vuejs-template
+abbr        Vue.jsのひな型
+	var img = new Vue({
+		el: '#picture-box',
+		data: {
+			boxes:  [{"name":"/hoge/huga","sorder":"2"},{"name":"/foo/bar","sorder":"1"}],
+			showModal: false,
+			ModalURL: ""
+		},
+		computed: {
+			existImage: function(){
+				if(this.boxes.length > 0){
+					return true;
+				}
+				else {
+					return false;
+				}
+			},
+			sortBoxes: function () {
+				return _.orderBy(this.boxes, 'sorder')
+			}
+		},
+		methods: {
+			OpenModal: function(url){
+				this.ModalURL = url;
+				this.showModal = true;
+			}
+		}
+	});
