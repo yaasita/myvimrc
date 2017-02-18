@@ -1,13 +1,9 @@
-"**** myvimrc *******
+"*** myvimrc ***
 " vim: set fdm=marker:
-" by yaasita
-"
 
-"------------------------------------------
 "**** option ************* {{{1
 
 filetype plugin indent on
-
 set autoindent
 set autoread
 set backspace=2
@@ -61,11 +57,9 @@ set whichwrap+=[
 set whichwrap+=]
 set wildmenu
 set wildmode=list:longest
-
 syntax on
 
 "}}}
-"------------------------------------------
 "**** map ************** {{{1
 
 cnoreabbrev Y Ygrep
@@ -121,13 +115,7 @@ vnoremap [ di[<C-R>"]<ESC>
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 "}}}
-"------------------------------------------
 "**** command ********** {{{1
-
-"augroup Conf
-"  autocmd!
-"  autocmd BufNewFile,BufRead *.conf setf conf
-"augroup END
 
 augroup BinaryXXD
   autocmd!
@@ -189,7 +177,6 @@ command! WindowSizeToggle call WindowSizeToggle()
 command! ZenkakuSpace call ZenkakuSpace()
 
 "}}}
-"------------------------------------------
 "**** function ********* {{{1
 
 function! TagEscape() "{{{2
@@ -369,20 +356,3 @@ function! MyNeoSnippetEdit() "{{{2
 endfunction "}}}
 
 "}}}
-"------------------------------------------
-"**** memo ************* {{{1
-
-"let &t_SI .= "\eP\e[<r\e\\"
-"let &t_EI .= "\eP\e[<s\e[<0t\e\\"
-"let &t_te .= "\eP\e[<0t\e[<s\e\\"
-"let &t_SI .= "\e[<r"
-"let &t_EI .= "\e[<s\e[<0t"
-"let &t_te .= "\e[<0t\e[<s"
-"
-"set term=xterm-256color
-"
-"inoreabbrev --- ------------------------------------------
-"inoreabbrev *** ******************************************
-
-"}}}
-"------------------------------------------
