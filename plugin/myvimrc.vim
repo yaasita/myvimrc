@@ -4,8 +4,10 @@
 "**** option {{{1
 
 filetype plugin indent on
+set ambiwidth=double
 set autoindent
 set autoread
+set background=dark
 set backspace=2
 set clipboard=unnamed,unnamedplus,exclude:cons\|linux
 set cmdheight=2
@@ -13,6 +15,9 @@ set complete=.,w
 set completefunc=GoogleComplete
 set cryptmethod=blowfish2
 set diffopt=filler,vertical
+set expandtab
+set fileencodings=ucs-bom,utf-8,sjis,euc-jp
+set fileformats=unix,dos,mac
 set foldcolumn=2
 set foldopen=mark,percent,quickfix,tag
 set formatoptions=tcqmM
@@ -52,6 +57,9 @@ set tabstop=4
 set tags=tags;
 set titlelen=100
 set titlestring=%t\ (%<%{expand(\"%:p:h\")})\ \-\ %{v:servername}\ %{v:version}
+set undodir=~/.vim/undo/
+set undofile
+set viewdir=~/.vim/view/
 set viewoptions=folds,cursor
 set whichwrap+=[
 set whichwrap+=]
@@ -161,11 +169,13 @@ command! DeleteComment g/^\s*#\|^\s*$/d
 command! Diffoff diffoff! | set fdc=2
 command! Ist tabe ~/.vim/plugged/imadesyo/autoload/imadesyo.vim
 command! Kakkofold call Kakkofold() 
+command! Lst tabe $MYVIMRC
 command! Migemo call Migemo()
 command! Sst tabe ~/.vim/plugged/myvimrc/plugin/myvimrc.vim
 command! Tabnasi setlocal expandtab | setlocal list | retab
 command! TagEscape call TagEscape() 
 command! WindowSizeToggle call WindowSizeToggle()
+command! Wst call WikiOpen()
 
 "}}}
 "**** function {{{1
@@ -320,6 +330,11 @@ endfunction "}}}
 
 function! MyNeoSnippetEdit() "{{{2
     execute "NeoSnippetEdit -split ".&ft
+endfunction "}}}
+
+function! WikiOpen() "{{{2
+    tabe ~/wiki/README.md
+    LCdCurrent
 endfunction "}}}
 
 "}}}
