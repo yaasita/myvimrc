@@ -1,7 +1,7 @@
 "*** myvimrc ***
 " vim: set fdm=marker:
 
-"**** option ************* {{{1
+"**** option {{{1
 
 filetype plugin indent on
 set autoindent
@@ -60,7 +60,7 @@ set wildmode=list:longest
 syntax on
 
 "}}}
-"**** map ************** {{{1
+"**** map {{{1
 
 cnoreabbrev Y Ygrep
 cnoreabbrev t tabe
@@ -115,7 +115,7 @@ vnoremap [ di[<C-R>"]<ESC>
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 "}}}
-"**** command ********** {{{1
+"**** command {{{1
 
 augroup BinaryXXD
   autocmd!
@@ -144,13 +144,6 @@ augroup Quickfix
     autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
 augroup END
 
-if $VIMMODE =~ "rails"
-    augroup Rails
-        autocmd!
-        autocmd Filetype ruby call unite#custom#source('file_rec', 'ignore_pattern', './coverage/\|png\|jpe\=g$\|gif$')
-    augroup END
-endif
-
 command! -nargs=* Ygrep call Ygrep(<f-args>)
 command! -nargs=0 CdCurrent cd %:p:h
 command! -nargs=0 LCdCurrent lcd %:p:h
@@ -166,7 +159,6 @@ command! Cuc call Cuc()
 command! Cul call Cul() 
 command! DeleteComment g/^\s*#\|^\s*$/d
 command! Diffoff diffoff! | set fdc=2
-command! HankakuSpace call HankakuSpace()
 command! Ist tabe ~/.vim/plugged/imadesyo/autoload/imadesyo.vim
 command! Kakkofold call Kakkofold() 
 command! Migemo call Migemo()
@@ -174,10 +166,9 @@ command! Sst tabe ~/.vim/plugged/myvimrc/plugin/myvimrc.vim
 command! Tabnasi setlocal expandtab | setlocal list | retab
 command! TagEscape call TagEscape() 
 command! WindowSizeToggle call WindowSizeToggle()
-command! ZenkakuSpace call ZenkakuSpace()
 
 "}}}
-"**** function ********* {{{1
+"**** function {{{1
 
 function! TagEscape() "{{{2
     %s/</\&lt;/gc
@@ -200,30 +191,6 @@ function! Kakkofold() "{{{2
     normal zM
     setlocal fdm=manual
     setlocal foldmarker={{{,}}}
-endfunction "}}}
-
-function! HankakuSpace() "{{{2
-    syntax match   HankakuSpace / /
-    redir => l:hi
-    highlight HankakuSpace
-    redir END
-    if match(l:hi,'cleared') >= 0
-        highlight! default link HankakuSpace TabLine
-    else
-        highlight! default link HankakuSpace NONE
-    endif
-endfunction "}}}
-
-function! ZenkakuSpace() "{{{2
-    syntax match   ZenkakuSpace /　/
-    redir => l:hi 
-    highlight ZenkakuSpace
-    redir END
-    if match(l:hi,'cleared') >= 0
-        highlight! default link ZenkakuSpace WildMenu
-    else
-        highlight! default link ZenkakuSpace NONE
-    endif
 endfunction "}}}
 
 function! ClearHistory() "{{{2
