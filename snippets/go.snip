@@ -54,9 +54,15 @@ abbr        テストのひな型
 
 snippet     error-check
 abbr        エラーチェック
+	fp_out, err := os.Create("てすと.txt")
+	check(err, "書き込みに失敗しました")
+	
 	func check(e error, s string) {
-		fmt.Fprintln(os.Stderr, s)
 		if e != nil {
+			fmt.Fprintln(os.Stderr, s)
+			var res string
+			fmt.Println("何かキーを押してください")
+			_, _ = fmt.Scanln(&res)
 			panic(e)
 		}
 	}
