@@ -35,6 +35,8 @@ snippet     dockerfile-template-normal
 abbr        ひな形通常
 	FROM debian:jessie
 	MAINTAINER yaasita
+	# 新しい書き方
+	# LABEL maintainer yaasita
 	
 	#apt
 	ADD 02proxy /etc/apt/apt.conf.d/02proxy
@@ -44,48 +46,6 @@ abbr        ひな形通常
 	#package
 	RUN apt-get install -y vim git \
 	 aptitude build-essential
-	
-	${1:#:sshはdockerfile-ssh参照}
-	${2:#:supervisordはdockerfile-supervisord参照}
-
-snippet     dockerfile-template-rails
-abbr        ひな形rails
-	FROM ubuntu:latest
-	MAINTAINER yaasita
-	
-	#apt
-	ADD 02proxy /etc/apt/apt.conf.d/02proxy
-	RUN apt-get update
-	RUN apt-get upgrade -y
-	
-	#package
-	RUN apt-get install -y  \
-		autoconf \
-		automake \
-		bison \
-		build-essential \
-		curl \
-		dnsutils \
-		git \
-		htop \
-		imagemagick \
-		imagemagick-dbg \
-		libapr1-dev \
-		libcurl4-openssl-dev \
-		libmagick++-dev \
-		libreadline-dev \
-		libreadline6 \
-		libreadline6-dev \
-		libsqlite3-dev \
-		libssl-dev \
-		libxml2-dev \
-		libxslt1-dev \
-		libyaml-dev \
-		openssl \
-		sudo \
-		vim \
-		zlib1g \
-		zlib1g-dev
 	
 	${1:#:sshはdockerfile-ssh参照}
 	${2:#:supervisordはdockerfile-supervisord参照}
