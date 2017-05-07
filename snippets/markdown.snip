@@ -49,3 +49,16 @@ abbr    打消し線
 snippet     blog_tags_hugo
 abbr        ブログ用タグ
 	net, life, linux, program, rule, game, soft, windows, hard, crack
+
+snippet     tumblr-img-link
+abbr        tumblr画像リンク
+	<a href="#"><img id="tumblr-img" src=""></a>
+	
+	<script>
+	function callback(data){
+		var photos = data.response.posts[0].photos;
+		document.getElementById("tumblr-img").parentNode.href = photos[0].original_size.url;
+		document.getElementById("tumblr-img").src = photos[0].original_size.url;
+	}
+	</script>
+	<script src="https://api.tumblr.com/v2/blog/yaasita.tumblr.com/posts/photo?id=92242385452&api_key=jbUOCHVG82yLvRKfRsyLwTTIyYQAhNiF2WZ1v9DJQn0aNuswQg&jsonp=callback"></script>
