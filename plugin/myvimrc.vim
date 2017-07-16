@@ -36,6 +36,7 @@ set modelines=10
 set nobackup
 set noendofline
 set noequalalways
+set noerrorbells
 set noswapfile
 set nowrap
 set nowrapscan
@@ -53,6 +54,7 @@ set smartcase
 set spellcapcheck=
 set spelllang=en_us
 set statusline=%<%f\ %m%{&ro?'[RO]':''}%h%w%=%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}\ %2*%y%0*%6l,%c%V%1*%8P
+set t_vb=
 set tabstop=4
 set tags=tags;
 set titlelen=100
@@ -61,6 +63,7 @@ set undodir=~/.vim/undo/
 set undofile
 set viewdir=~/.vim/view/
 set viewoptions=folds,cursor
+set visualbell
 set whichwrap+=[
 set whichwrap+=]
 set wildmenu
