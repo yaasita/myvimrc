@@ -12,3 +12,9 @@ abbr        すべて集約する設定
 	
 	/etc/postfix/aliases.reg
 		/^(.+)@.+$/ yamasita@localhost
+
+snippet     ssl-tls-setting
+abbr        SSL/TLS設定
+	smtpd_tls_cert_file = /etc/letsencrypt/live/yaasita.net-0001/cert.pem
+	smtpd_tls_key_file = /etc/letsencrypt/live/yaasita.net-0001/privkey.pem
+	smtpd_tls_CAfile = /etc/letsencrypt/live/yaasita.net-0001/chain.pem
