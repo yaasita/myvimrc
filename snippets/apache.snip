@@ -23,3 +23,25 @@ abbr       常時SSLリダイレクト
 snippet    token_off
 abbr       バージョン情報非表示
 	ServerTokens Prod
+
+snippet    token_off
+abbr       ログをjsonにする
+	LogFormat "\
+	{ \
+	\"host\":\"%V\", \
+	\"method\":\"%m\", \
+	\"port\":\"%p\", \
+	\"processingTime\":\"%D\", \
+	\"protocol\":\"%H\", \
+	\"query\":\"%q\", \
+	\"referer\":\"%{Referer}i\", \
+	\"remoteIP\":\"%a\", \
+	\"request\":\"%U\", \
+	\"responseByte\":\"%B\", \
+	\"status\":\"%>s\", \
+	\"time\":\"%t\", \
+	\"unixtime\":\"%{%s}t\", \
+	\"userAgent\":\"%{User-agent}i\", \
+	\"user\":\"%u\" \
+	}" \
+	leapache
