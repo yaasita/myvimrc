@@ -174,11 +174,13 @@ command! Ist tabe ~/.vim/plugged/imadesyo/autoload/imadesyo.vim
 command! Kakkofold call Kakkofold() 
 command! Lst tabe $MYVIMRC
 command! Migemo call Migemo()
+command! SlackChUniq silent call SlackChUniq()
 command! Sst tabe ~/.vim/plugged/myvimrc/plugin/myvimrc.vim
 command! Tabnasi setlocal expandtab | setlocal list | retab
 command! TagEscape call TagEscape() 
 command! WindowSizeToggle call WindowSizeToggle()
 command! Wst call WikiOpen()
+
 
 "}}}
 "**** function {{{1
@@ -339,5 +341,19 @@ function! WikiOpen() "{{{2
     tabe ~/wiki/README.md
     LCdCurrent
 endfunction "}}}
+
+function! SlackChUniq() "{{{2
+    1,$y a
+    Memo
+    1,$d
+    put a
+    g!/^slack:\/\/\S\+\zs.*/d
+    %s/^slack:\/\/\S\+\zs.*//
+    1,$sort u
+    noh
+    1
+    w
+endfunction "}}}2
+
 
 "}}}
