@@ -67,19 +67,29 @@ abbr       rsyncでとりあえずコピーできればいい
 	rsync -azv --no-perms --no-owner --no-group --no-times --size-only --delete --exclude-from=/jitaku/exc.txt ore_jitaku:/raid/samba/ /jitaku/samba/
 
 snippet     rsync_copy
-abbr        rsyncでバックアップ
-	# 全体バックアップ
+abbr        rsyncでバックアップ(全体)
+	#!/bin/bash
+	set -e
 	cat <<EOF > exc.txt
 	- /dev/*
 	- /mnt/*
 	- /proc/*
 	- /raid/*
+	- /run/systemd/*
 	- /run/udev/*
+	- /run/user/*
 	- /sys/*
 	- /tmp/*
+	- /var/lib/docker/*
+	- /var/lib/libvirt/images/*
+	- /var/lib/machines/*
+	- /var/log/journal/*
 	- /var/tmp/*
-	
 	EOF
+	rsync -av -P --numeric-ids --delete-excluded --exclude-from=exc.txt root@hoge-server:/ ./root/
+
+snippet     rsync_copy
+abbr        rsyncでバックアップ(部分)
 	# 部分バックアップ
 	cat <<EOF > exc.txt
 	+ /var/
@@ -91,8 +101,7 @@ abbr        rsyncでバックアップ
 	- *
 	
 	EOF
-	
-	rsync -av -P --delete-excluded --exclude-from=exc.txt root@example-server:/ ./root/
+	rsync -av -P --numeric-ids --delete-excluded --exclude-from=exc.txt root@hoge-server:/ ./root/
 
 snippet     getopts
 abbr        引数解析
