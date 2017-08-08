@@ -66,7 +66,7 @@ snippet     rsync_copy_only
 abbr       rsyncでとりあえずコピーできればいい
 	rsync -azv --no-perms --no-owner --no-group --no-times --size-only --delete --exclude-from=/jitaku/exc.txt ore_jitaku:/raid/samba/ /jitaku/samba/
 
-snippet     rsync_copy
+snippet     rsync_copy-all
 abbr        rsyncでバックアップ(全体)
 	#!/bin/bash
 	set -e
@@ -88,7 +88,7 @@ abbr        rsyncでバックアップ(全体)
 	EOF
 	rsync -av -P --numeric-ids --delete-excluded --exclude-from=exc.txt root@hoge-server:/ ./root/
 
-snippet     rsync_copy
+snippet     rsync_copy-part
 abbr        rsyncでバックアップ(部分)
 	# 部分バックアップ
 	cat <<EOF > exc.txt
