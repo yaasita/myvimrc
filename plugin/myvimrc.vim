@@ -67,7 +67,7 @@ set visualbell
 set whichwrap+=[
 set whichwrap+=]
 set wildmenu
-set wildmode=list:longest
+set wildmode=list:longest,full
 syntax on
 
 "}}}
@@ -75,6 +75,8 @@ syntax on
 
 cnoreabbrev Y Ygrep
 cnoreabbrev t tabe
+cnoremap <C-k> <Left>
+cnoremap <C-j> <Right>
 cnoremap <C-N> <Down>
 cnoremap <C-P> <Up>
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
