@@ -102,4 +102,4 @@ abbr        正規表現
 snippet     write-file
 abbr        ファイルの書き込み
 	fp, err := os.OpenFile(*out, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, os.ModePerm)
-	fp.Write(write_data)
+	fp.WriteString("OK")
