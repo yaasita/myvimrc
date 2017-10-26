@@ -94,6 +94,7 @@ abbr        use CGI
 snippet     chdir_script_bin
 alias       find_bin
 abbr        スクリプト実行ファイルにchdir
+	# 実行ディレクトリへ移動する
 	use FindBin;
 	chdir $FindBin::Bin;
 
@@ -153,6 +154,7 @@ snippet     Time::Piece
 	print $t + ONE_DAY;
 
 snippet     File::Temp
+	# CLEANUPを1にすると自動削除
 	use File::Temp qw/ tempfile tempdir /;
 	my $tempdir = tempdir(CLEANUP => 1);
 
