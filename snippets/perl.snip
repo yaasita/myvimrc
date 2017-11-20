@@ -4,6 +4,7 @@ abbr        シェバンといつもの
 	use strict;
 	use warnings;
 	use v5.10;
+	use utf8;
 
 snippet     dumper
 abbr        変数dump
@@ -286,3 +287,8 @@ abbr        HTTPリクエスト
 		}
 	}
 	print $response->{content} if length $response->{content};
+
+snippet     YaasitaUtils
+	use YaasitaUtils;
+	use lib "/root/.myperl"
+	slack_webhook('http://hogehoge...', "test!!");
