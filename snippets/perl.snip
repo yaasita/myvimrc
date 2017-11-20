@@ -288,6 +288,13 @@ abbr        HTTPリクエスト
 	}
 	print $response->{content} if length $response->{content};
 
+snippet     DESTROY
+abbr        デストラクタ
+	sub DESTROY {
+		my $self = shift;
+		say "destory";
+	}
+
 snippet     YaasitaUtils
 	use YaasitaUtils;
 	use lib "/root/.myperl"
