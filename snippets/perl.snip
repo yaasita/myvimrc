@@ -115,7 +115,7 @@ abbr        use Encode
 	use Encode;
 	use utf8;
 	binmode STDOUT, ":utf8";
-	open(my $fh, "<:encoding(Shift-JIS)","PRT-010-CSV-003-20150511.CSV") or die $!;
+	open(my $fh, "<:encoding(CP932)","PRT-010-CSV-003-20150511.CSV") or die $!;
 	#open(my $fh, "<:utf8)","PRT-010-CSV-003-20150511.CSV") or die $!;
 	while(<$fh>){
 		#print encode("UTF-8",$_);
