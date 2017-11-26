@@ -3,13 +3,13 @@ abbr        シェバンといつもの
 	#!/usr/bin/perl
 	use strict;
 	use warnings;
-	use v5.10;
+	use feature qw(:5.10);
 	use utf8;
 
 snippet     dumper
 abbr        変数dump
 	use Data::Dumper;
-	print Dumper [1, 2, 3]
+	print Dumper [1, 2, 3];
 
 snippet     Test::More
 alias       test-template
