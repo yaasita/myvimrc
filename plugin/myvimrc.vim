@@ -4,7 +4,7 @@
 "**** option {{{1
 
 filetype plugin indent on
-set ambiwidth=double
+"set ambiwidth=double
 set autoindent
 set autoread
 set background=dark
