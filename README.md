@@ -1,7 +1,7 @@
 俺のvimrc
 ===============
 
-## インストール
+# インストール
 
     # http
     Plug 'yaasita/myvimrc'
