@@ -21,10 +21,16 @@ options     head
 	read ${1:input_val}
 	echo $$1
 
-snippet     if_>
-abbr        数値比較>
-	if [ "$pull_line" -gt "1" ]; then
+snippet     if-elif-else
+abbr        if文
+	if [ "$HOGE" -eq "1" ];then
+		echo 1
+	elif [ "$HOGE" -eq "2" ];then
+		echo 2
+	else
+		echo err
 	fi
+
 
 snippet     sudo-u
 abbr        sudoでユーザ実行
