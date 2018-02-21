@@ -155,3 +155,14 @@ abbr        普通のIF分
 	  echo 'Invalid file!' 1>&2
 	  exit 1
 	fi
+
+snippet     exception
+abbr        例外処理
+	#!/bin/bash
+	set -eu
+	
+	finalize(){
+	  echo "エラー発生"
+	  exit 1
+	}
+	trap "finalize" ERR 2
