@@ -166,3 +166,6 @@ abbr        例外処理
 	  exit 1
 	}
 	trap "finalize" ERR 2
+
+snippet     cd_script_directory
+	cd `dirname $0`
