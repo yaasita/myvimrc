@@ -22,6 +22,22 @@ abbr        perlテスト
 		is &pattern_search(3)+0,120;
 		ok(!defined $one[4]);
 	};
+	ok $got;                      # 真なら ok
+	ok !$got;                     # not ok とかないので逆にしたい場合はこうすると吉
+	is $got, $expected;           # ok $a eq $b のいい感じ版
+	isnt $got, $expected;         # is の逆。ほぼつかわない。
+	cmp_ok $got, '<' $expected;   # ok $a < $b のいい感じ版。'>=' とか '==' とか指定可能
+	like $got, qr/$expected/;     # $got に qr/foo/ が含まれる場合に OK
+	unlike $got, qr/$expected/;   # like の逆
+	is_deeply $got, $expected;    # 構造体の比較。超使う。最強
+	
+	pass $test_name;              # ここ通過したら OK みたいな感じで使うけどあんまり使わない
+	fail $test_name;              # ここ通過したら NG みたいな感じで使う
+	
+	note $message;                # メッセージを出力。make test とかでは出力されないので debug 用に使うイメージ
+	diag $message;                # メッセージを出力
+	explain $deep_structure;      # Data::Dumper::Dumper みたいなもん。出力自体はしないので note explain $got みたいにつかうとよい
+	
 	done_testing;
 
 snippet     test-skip
@@ -299,3 +315,11 @@ snippet     YaasitaUtils
 	use lib "/root/.myperl";
 	use YaasitaUtils;
 	slack_webhook('http://hogehoge...', "test!!");
+
+snippet     Exporter
+	use Exporter 'import'
+	our @EXPORT_OK = qw/prefix1/;
+	sub prefix1 {
+		return "OK";
+	}
+	1;
