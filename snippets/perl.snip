@@ -256,7 +256,7 @@ abbr        SHAハッシュ
 
 snippet     use_JSON
 abbr        json
-	use JSON qw/encode_json decode_json/;
+	use JSON::PP;
 	my $json_in = '[{"name" : "Ken", "age" : 19}, {"name" : "Ken", "age" : 25}]';
 	my $data = decode_json($json_in);
 	my $json_out = encode_json($data);
