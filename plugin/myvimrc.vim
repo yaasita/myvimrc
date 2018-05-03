@@ -75,10 +75,10 @@ syntax on
 
 cnoreabbrev Y Ygrep
 cnoreabbrev t tabe
-cnoremap <C-k> <Left>
-cnoremap <C-j> <Right>
 cnoremap <C-N> <Down>
 cnoremap <C-P> <Up>
+cnoremap <C-j> <Right>
+cnoremap <C-k> <Left>
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 inoremap <C-S> <F5>
 inoremap <silent> jj <ESC>
@@ -90,6 +90,7 @@ nnoremap ,e :Imadesyo<CR>
 nnoremap ,r :Unite file_mru<CR>
 nnoremap / :set ims=0<CR>/
 nnoremap <BS> gT
+nnoremap <C-H> :e slack://ch<CR>
 nnoremap <C-N> :bn<CR>
 nnoremap <C-P> :bp<CR>
 nnoremap <C-S> i<F5>
