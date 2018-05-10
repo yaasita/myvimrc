@@ -173,12 +173,12 @@ command! Cuc call Cuc()
 command! Cul call Cul() 
 command! DeleteComment g/^\s*#\|^\s*$/d
 command! Diffoff diffoff! | set fdc=2
-command! Ist tabe ~/.vim/plugged/imadesyo/autoload/imadesyo.vim
+command! Ist tabe ~/.vim/pack/plugins/start/imadesyo/autoload/imadesyo.vim
 command! Kakkofold call Kakkofold() 
 command! Lst tabe $MYVIMRC
 command! Migemo call Migemo()
 command! SlackChUniq silent call SlackChUniq()
-command! Sst tabe ~/.vim/plugged/myvimrc/plugin/myvimrc.vim
+command! Sst tabe ~/.vim/pack/plugins/start/myvimrc/plugin/myvimrc.vim
 command! Tabnasi setlocal expandtab | setlocal list | retab
 command! TagEscape call TagEscape() 
 command! WindowSizeToggle call WindowSizeToggle()
