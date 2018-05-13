@@ -178,7 +178,7 @@ command! Kakkofold call Kakkofold()
 command! Lst tabe $MYVIMRC
 command! Migemo call Migemo()
 command! SlackChUniq silent call SlackChUniq()
-command! Sst tabe ~/.vim/plugged/myvimrc/plugin/myvimrc.vim
+command! Sst tabe ~/.vim/pack/plugins/start/myvimrc/plugin/myvimrc.vim
 command! Tabnasi setlocal expandtab | setlocal list | retab
 command! TagEscape call TagEscape() 
 command! WindowSizeToggle call WindowSizeToggle()
