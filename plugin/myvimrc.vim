@@ -161,7 +161,7 @@ augroup END
 command! -nargs=* Ygrep call Ygrep(<f-args>)
 command! -nargs=0 CdCurrent cd %:p:h
 command! -nargs=0 LCdCurrent lcd %:p:h
-command! -nargs=0 Memo tabe ~/memo
+command! -nargs=0 Memo tabe ~/memo.md
 command! -nargs=1 -complete=file VDsplit vertical diffsplit <args>
 command! -nargs=? Eiwa call Goo("ej",<f-args>)
 command! -nargs=? Kokugo call Goo("jn",<f-args>)
