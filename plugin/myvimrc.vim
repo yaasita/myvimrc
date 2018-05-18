@@ -131,6 +131,7 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 " terminal mode
 if has('terminal')
     tnoremap <C-T> <C-W>""
+    tnoremap <C-Q> <C-W>N
 endif
 
 "}}}
