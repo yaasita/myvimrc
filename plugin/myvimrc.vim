@@ -128,6 +128,11 @@ vnoremap * y/<C-R>"<CR>
 vnoremap [ di[<C-R>"]<ESC>
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
+" terminal mode
+if has('terminal')
+    tnoremap <C-T> <C-W>""
+endif
+
 "}}}
 "**** command {{{1
 
