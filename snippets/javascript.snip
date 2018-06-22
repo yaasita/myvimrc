@@ -38,3 +38,31 @@ alias       hikisuu
 abbr        コマンドライン引数
 	// 0 が実行ファイル、1が実行スクリプト
 	console.log(process.argv[2]);
+
+snippet     promise
+	exports.handler = async (event) => {
+		const [s3_objects, instance_status]  = await Promise.all([count_s3_objects(), vm_status()]);
+		if (s3_objects > 0 && instance_status === "TERMINATED"){
+			console.log("start vm!")
+			const result = await vm.start();
+			console.log(result);
+		}
+		else {
+			console.log("nop");
+		}
+	};
+	async function count_s3_objects() {
+		const AWS = require('aws-sdk');
+		const s3 = new AWS.S3();
+		const params = {
+			Bucket: "batch-gcp",
+			MaxKeys: 100,
+			Prefix: "to-gcp/"
+		};
+		let result = await s3.listObjectsV2(params).promise();
+		return result.Contents.length;
+	}
+	async function vm_status() {
+		const instance = await vm.get();
+		return instance[0].metadata.status;
+	}
