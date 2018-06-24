@@ -169,3 +169,8 @@ abbr        例外処理
 
 snippet     cd_script_directory
 	cd \`dirname \$0\`
+
+snippet     trim_ext
+abbr        拡張子取り除く
+	original="test.txt"
+	filename="${original%.*}"
