@@ -69,3 +69,66 @@ snippet     promise
 		const instance = await vm.get();
 		return instance[0].metadata.status;
 	}
+
+snippet     stdin1
+abbr        標準入力読み取り1
+	var stdin = process.openStdin();
+	stdin.addListener("data", function(d) {
+		console.log("you entered: [" + 
+			d.toString().trim() + "]");
+	});
+
+snippet     stdin2
+abbr        標準入力読み取り2
+	const readline = require('readline');
+	async function question_from_stdin(q){
+		const rl = readline.createInterface({
+			input: process.stdin,
+			output: process.stdout
+		});
+		const result = await new Promise((resolv, reject) => {
+			rl.question(q, (answer) => {
+				rl.close();
+				resolv(answer);
+			});
+		})
+		return result;
+	}
+	(async function (){
+		console.log("start");
+		const indata = await question_from_stdin("OK? > ");
+		console.log(`*** ${indata} ***`);
+		console.log("end");
+		process.stdout.write('hogehoge');
+	})();
+
+snippet     unixtime
+	function unixtime() {
+		const d1 = new Date();
+		const d2 = d1.getTime();
+		const d3 = parseInt(d2/1000);
+		return String(d3);
+	}
+
+snippet     not_lf_print
+abbr        改行無し出力
+	// no require
+	process.stdout.write('hogehoge');
+
+snippet     nodejs-template
+	(async function (){
+		console.log("start");
+	})();
+
+snippet     fetch-get-with-param
+	const fetch = require('node-fetch');
+	(async () => {
+		console.log("OK")
+		var url = new URL('https://hoge.com')
+		var params = {lat:35.696233, long:139.570431} // or:
+		//var params = [['lat', '35.696233'], ['long', '139.570431']]
+		url.search = new URLSearchParams(params);
+		const result = await fetch(url);
+		const text = await result.text();
+		console.log(text);
+	})();
