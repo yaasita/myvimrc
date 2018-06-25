@@ -170,3 +170,17 @@ abbr        例外処理
 
 snippet     cd_script_directory
 	cd \`dirname \$0\`
+
+snippet     trim_ext
+abbr        拡張子取り除く
+	original="test.txt"
+	filename="${original%.*}"
+
+snippet     convmp3_ffmpeg
+abbr        mp3変換
+	function convmp3 {
+		local src=$1
+		local fname="${src%.*}"
+		ffmpeg -i $src $fname.mp3
+		mv $src /tmp/
+	}
