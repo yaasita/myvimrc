@@ -41,3 +41,94 @@ alias       hikisuu
 abbr        コマンドライン引数
 	// 0 が実行ファイル、1が実行スクリプト
 	console.log(process.argv[2]);
+
+snippet     promise
+	exports.handler = async (event) => {
+		const [s3_objects, instance_status]  = await Promise.all([count_s3_objects(), vm_status()]);
+		if (s3_objects > 0 && instance_status === "TERMINATED"){
+			console.log("start vm!")
+			const result = await vm.start();
+			console.log(result);
+		}
+		else {
+			console.log("nop");
+		}
+	};
+	async function count_s3_objects() {
+		const AWS = require('aws-sdk');
+		const s3 = new AWS.S3();
+		const params = {
+			Bucket: "batch-gcp",
+			MaxKeys: 100,
+			Prefix: "to-gcp/"
+		};
+		let result = await s3.listObjectsV2(params).promise();
+		return result.Contents.length;
+	}
+	async function vm_status() {
+		const instance = await vm.get();
+		return instance[0].metadata.status;
+	}
+
+snippet     stdin1
+abbr        標準入力読み取り1
+	var stdin = process.openStdin();
+	stdin.addListener("data", function(d) {
+		console.log("you entered: [" + 
+			d.toString().trim() + "]");
+	});
+
+snippet     stdin2
+abbr        標準入力読み取り2
+	const readline = require('readline');
+	async function question_from_stdin(q){
+		const rl = readline.createInterface({
+			input: process.stdin,
+			output: process.stdout
+		});
+		const result = await new Promise((resolv, reject) => {
+			rl.question(q, (answer) => {
+				rl.close();
+				resolv(answer);
+			});
+		})
+		return result;
+	}
+	(async function (){
+		console.log("start");
+		const indata = await question_from_stdin("OK? > ");
+		console.log(`*** ${indata} ***`);
+		console.log("end");
+		process.stdout.write('hogehoge');
+	})();
+
+snippet     unixtime
+	function unixtime() {
+		const d1 = new Date();
+		const d2 = d1.getTime();
+		const d3 = parseInt(d2/1000);
+		return String(d3);
+	}
+
+snippet     not_lf_print
+abbr        改行無し出力
+	// no require
+	process.stdout.write('hogehoge');
+
+snippet     nodejs-template
+	(async function (){
+		console.log("start");
+	})();
+
+snippet     fetch-get-with-param
+	const fetch = require('node-fetch');
+	(async () => {
+		console.log("OK")
+		var url = new URL('https://hoge.com')
+		var params = {lat:35.696233, long:139.570431} // or:
+		//var params = [['lat', '35.696233'], ['long', '139.570431']]
+		url.search = new URLSearchParams(params);
+		const result = await fetch(url);
+		const text = await result.text();
+		console.log(text);
+	})();
