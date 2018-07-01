@@ -312,7 +312,7 @@ abbr        デストラクタ
 	}
 
 snippet     YaasitaUtils
-	use lib "/root/.myperl";
+	use lib "$ENV{HOME}/.myperl";
 	use YaasitaUtils;
 	slack_webhook('http://hogehoge...', "test!!");
 
@@ -327,3 +327,4 @@ snippet     Exporter
 snippet     use-lib
 	use FindBin;
 	use lib "$FindBin::Bin/lib/";
+	use lib "$ENV{HOME}/.myperl";
