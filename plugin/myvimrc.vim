@@ -90,7 +90,6 @@ nnoremap ,e :Imadesyo<CR>
 nnoremap ,r :Unite file_mru<CR>
 nnoremap / :set ims=0<CR>/
 nnoremap <BS> gT
-nnoremap <C-H> :e slack://ch<CR>
 nnoremap <C-N> :bn<CR>
 nnoremap <C-P> :bp<CR>
 nnoremap <C-S> i<F5>
@@ -184,7 +183,6 @@ command! Ist tabe ~/.vim/pack/plugins/start/imadesyo/autoload/imadesyo.vim
 command! Kakkofold call Kakkofold() 
 command! Lst tabe $MYVIMRC
 command! Migemo call Migemo()
-command! SlackChUniq silent call SlackChUniq()
 command! Sst tabe ~/.vim/pack/plugins/start/myvimrc/plugin/myvimrc.vim
 command! Tabnasi setlocal expandtab | setlocal list | retab
 command! TagEscape call TagEscape() 
@@ -278,6 +276,7 @@ function! WindowSizeToggle() "{{{2
         nnoremap <C-l> <C-w>>
     endif
 endfunction "}}}
+WindowSizeToggle
 
 function! RjcolorToggle() "{{{2
     if hasmapto('RjcolorNext','n') 
@@ -351,19 +350,6 @@ function! WikiOpen() "{{{2
     tabe ~/wiki/README.md
     LCdCurrent
 endfunction "}}}
-
-function! SlackChUniq() "{{{2
-    1,$y a
-    Memo
-    1,$d
-    put a
-    g!/^slack:\/\/\S\+\zs.*/d
-    %s/^slack:\/\/\S\+\zs.*//
-    1,$sort u
-    noh
-    1
-    w
-endfunction "}}}2
 
 
 "}}}
