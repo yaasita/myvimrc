@@ -132,3 +132,12 @@ snippet     fetch-get-with-param
 		const text = await result.text();
 		console.log(text);
 	})();
+
+snippet     get-env
+abbr        環境変数
+	process.env.ENV_VARIABLE
+
+snippet     load-json
+abbr        JSONの読み込み
+	var json = require('./test.json');
+	console.log(json);
