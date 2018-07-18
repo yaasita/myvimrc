@@ -348,7 +348,7 @@ function! MyNeoSnippetEdit() "{{{2
 endfunction "}}}
 
 function! WikiOpen() "{{{2
-    tabe ~/wiki/README.md
+    e ~/wiki/README.md
     LCdCurrent
 endfunction "}}}
 
