@@ -97,7 +97,7 @@ abbr        標準入力読み取り2
 	(async function (){
 		console.log("start");
 		const indata = await question_from_stdin("OK? > ");
-		console.log(`*** ${indata} ***`);
+		console.log(\`*** \${indata} ***\`);
 		console.log("end");
 		process.stdout.write('hogehoge');
 	})();
@@ -116,6 +116,7 @@ abbr        改行無し出力
 	process.stdout.write('hogehoge');
 
 snippet     nodejs-template
+	'use strict';
 	(async () => {
 		console.log("start");
 	})();
@@ -141,3 +142,7 @@ snippet     load-json
 abbr        JSONの読み込み
 	var json = require('./test.json');
 	console.log(json);
+
+snippet     global variables
+abbr        グローバル変数
+	global.fetch = require("node-fetch");
