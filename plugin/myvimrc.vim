@@ -167,7 +167,7 @@ augroup END
 command! -nargs=* Ygrep call Ygrep(<f-args>)
 command! -nargs=0 CdCurrent cd %:p:h
 command! -nargs=0 LCdCurrent lcd %:p:h
-command! -nargs=0 Memo e ~/memo.md
+command! -nargs=0 M e ~/memo.md
 command! -nargs=0 T tabe %
 command! -nargs=1 -complete=file VDsplit vertical diffsplit <args>
 command! -nargs=? Eiwa call Goo("ej",<f-args>)
@@ -348,7 +348,7 @@ function! MyNeoSnippetEdit() "{{{2
 endfunction "}}}
 
 function! WikiOpen() "{{{2
-    tabe ~/wiki/README.md
+    e ~/wiki/README.md
     LCdCurrent
 endfunction "}}}
 
