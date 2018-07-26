@@ -166,7 +166,6 @@ augroup END
 
 command! -nargs=* Ygrep call Ygrep(<f-args>)
 command! -nargs=0 CdCurrent cd %:p:h
-command! -nargs=0 LCdCurrent lcd %:p:h
 command! -nargs=0 M e ~/memo.md
 command! -nargs=0 T tabe %
 command! -nargs=1 -complete=file VDsplit vertical diffsplit <args>
@@ -349,7 +348,7 @@ endfunction "}}}
 
 function! WikiOpen() "{{{2
     e ~/wiki/README.md
-    LCdCurrent
+    CdCurrent
 endfunction "}}}
 
 
