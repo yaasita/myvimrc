@@ -254,12 +254,18 @@ abbr        SHAハッシュ
 	use Digest::SHA qw/sha512_hex/;
 	print sha512_hex("あいうえお"),"\n";
 
-snippet     use_JSON
-abbr        json
+snippet     use_JSON_func
 	use JSON::PP;
 	my $json_in = '[{"name" : "Ken", "age" : 19}, {"name" : "Ken", "age" : 25}]';
 	my $data = decode_json($json_in);
 	my $json_out = encode_json($data);
+
+snippet     use_JSON_oop
+	use JSON::PP;
+	my $json = JSON::PP->new;
+	$json->canonical(1);
+	$json->pretty(1);
+	my $json_out = $json->utf8->encode(\%hiduke);
 
 snippet     oop
 abbr        オブジェクト指向
