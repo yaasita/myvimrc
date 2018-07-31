@@ -33,9 +33,6 @@ abbr        jsonの変換
 	JSON.parse('{"bar": 1234, "foo": undefined}');
 	JSON.stringify({ x: 10, y: undefined, z: 20 });
 
-snippet     strict
-	'use strict';
-
 snippet     argv
 alias       hikisuu
 abbr        コマンドライン引数
@@ -116,6 +113,7 @@ abbr        改行無し出力
 	process.stdout.write('hogehoge');
 
 snippet     nodejs-template
+	"use strict";
 	(async function (){
 		console.log("start");
 	})();
@@ -139,5 +137,5 @@ abbr        環境変数
 
 snippet     load-json
 abbr        JSONの読み込み
-	var json = require('./test.json');
+	const json = require('./test.json');
 	console.log(json);
