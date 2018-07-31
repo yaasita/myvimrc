@@ -303,6 +303,24 @@ abbr        HTTPリクエスト
 		}
 	}
 	print $response->{content} if length $response->{content};
+	# or
+	my $param = {
+		function => 'myFunction',
+		parameters => ['2018/07/21', 'yamasita', 'なんか', 'しごと'],
+		devMode => JSON::PP::true
+	};
+	$http->request('POST', 'https://example.com/hoge',
+		{
+			headers => {
+				Authorization => 'Bearer hogehoge',
+				'Content-type' => 'application/json'
+			},
+			content => encode_json($param)
+		}
+	);
+	if ($response->{success}){
+		say "$response->{status} $response->{reason}";
+	}
 
 snippet     DESTROY
 abbr        デストラクタ
