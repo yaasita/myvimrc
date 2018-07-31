@@ -112,6 +112,7 @@ nnoremap Y y$
 nnoremap co :copen<CR>
 nnoremap s <Nop>
 nnoremap sb :Unite buffer<CR>
+nnoremap sc :call CdPaste()<CR>
 nnoremap se :call MyNeoSnippetEdit()<CR>
 nnoremap sf :Unite file_rec<CR>
 nnoremap sg :Unite line<CR>
@@ -352,5 +353,8 @@ function! WikiOpen() "{{{2
     LCdCurrent
 endfunction "}}}
 
+function! CdPaste() "{{{2
+    exe "cd " . @" 
+endfunction "}}}
 
 "}}}
