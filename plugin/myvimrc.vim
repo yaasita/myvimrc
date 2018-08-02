@@ -53,7 +53,7 @@ set showtabline=2
 set smartcase
 set spellcapcheck=
 set spelllang=en_us
-set statusline=%<%f\ %m%{&ro?'[RO]':''}%h%w%=%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}\ %2*%y%0*%6l,%c%V%1*%8P
+set statusline=%<%f\ %2*%{&mod&&&bt!=#'terminal'?'[+]':''}%0*%{&ro?'[RO]':''}%h%w%=%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}\ %2*%y%0*%6l,%c%V%1*%8P
 set t_vb=
 set tabstop=4
 set tags=tags;
