@@ -184,11 +184,11 @@ command! Ist tabe ~/.vim/pack/plugins/start/imadesyo/autoload/imadesyo.vim
 command! Kakkofold call Kakkofold() 
 command! Lst tabe $MYVIMRC
 command! Migemo call Migemo()
-command! Sst tabe ~/.vim/pack/plugins/start/myvimrc/plugin/myvimrc.vim
+command! S tabe ~/.vim/pack/plugins/start/myvimrc/plugin/myvimrc.vim
 command! Tabnasi setlocal expandtab | setlocal list | retab
 command! TagEscape call TagEscape() 
+command! W call WikiOpen()
 command! WindowSizeToggle call WindowSizeToggle()
-command! Wst call WikiOpen()
 
 
 "}}}
