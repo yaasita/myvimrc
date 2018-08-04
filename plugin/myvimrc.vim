@@ -348,8 +348,13 @@ function! MyNeoSnippetEdit() "{{{2
 endfunction "}}}
 
 function! WikiOpen() "{{{2
-    e ~/wiki/README.md
-    CdCurrent
+    let wiki = expand("~/") . "wiki/README.md"
+    if filereadable(wiki)
+        e ~/wiki/README.md
+        CdCurrent
+    else
+        echomsg "wikiがない"
+    endif
 endfunction "}}}
 
 function! CdPaste() "{{{2
