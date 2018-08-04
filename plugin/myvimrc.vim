@@ -123,10 +123,8 @@ nnoremap sp :Unite neosnippet<CR>
 nnoremap st :TagbarToggle<CR>
 nnoremap x "_x
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-vnoremap ' di'<C-R>"'<ESC>
-vnoremap ( di(<C-R>")<ESC>
 vnoremap * y/<C-R>"<CR>
-vnoremap [ di[<C-R>"]<ESC>
+vnoremap E !ore_escape_filename.pl<CR>
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " terminal mode
