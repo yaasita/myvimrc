@@ -183,6 +183,7 @@ command! Kakkofold call Kakkofold()
 command! Lst tabe $MYVIMRC
 command! Migemo call Migemo()
 command! S tabe ~/.vim/pack/plugins/start/myvimrc/plugin/myvimrc.vim
+command! SSH e ~/.ssh/config
 command! Tabnasi setlocal expandtab | setlocal list | retab
 command! TagEscape call TagEscape() 
 command! W call WikiOpen()
