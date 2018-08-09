@@ -5,6 +5,7 @@
 
 filetype plugin indent on
 set ambiwidth=double
+set autochdir
 set autoindent
 set autoread
 set background=dark
@@ -180,7 +181,7 @@ command! DeleteComment g/^\s*#\|^\s*$/d
 command! Diffoff diffoff! | set fdc=2
 command! Ist tabe ~/.vim/pack/plugins/start/imadesyo/autoload/imadesyo.vim
 command! Kakkofold call Kakkofold() 
-command! Lst tabe $MYVIMRC
+command! L tabe $MYVIMRC
 command! Migemo call Migemo()
 command! S tabe ~/.vim/pack/plugins/start/myvimrc/plugin/myvimrc.vim
 command! Tabnasi setlocal expandtab | setlocal list | retab
