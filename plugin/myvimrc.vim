@@ -110,7 +110,7 @@ nnoremap sh :belowright :terminal<CR>
 nnoremap sl :Unite file_mru<CR>
 nnoremap sn :NERDTreeToggle<CR>
 nnoremap sp :Unite neosnippet<CR>
-nnoremap st :TagbarToggle<CR>
+nnoremap sv :call ToggleVe()<CR>
 nnoremap x "_x
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 vnoremap * y/<C-R>"<CR>
@@ -144,30 +144,30 @@ augroup Quickfix
 augroup END
 
 command! -nargs=* Ygrep call Ygrep(<f-args>)
+command! -nargs=0 BookmarkOpen tabe ~/.NERDTreeBookmarks
 command! -nargs=0 CdCurrent cd %:p:h
+command! -nargs=0 ClearHistory call ClearHistory()
+command! -nargs=0 CopyPaste setlocal nonu foldcolumn=0
+command! -nargs=0 Cuc call Cuc() 
+command! -nargs=0 Cul call Cul() 
+command! -nargs=0 DeleteComment g/^\s*#\|^\s*$/d
+command! -nargs=0 Diffoff diffoff! | set fdc=2
+command! -nargs=0 Kakkofold call Kakkofold() 
 command! -nargs=0 M e ~/memo.md
+command! -nargs=0 Migemo call Migemo()
+command! -nargs=0 RjcolorToggle call RjcolorToggle()
+command! -nargs=0 SSH e ~/.ssh/config
+command! -nargs=0 Spell call SpellToggle()
 command! -nargs=0 T tabe %
+command! -nargs=0 Tabnasi setlocal expandtab | setlocal list | retab
+command! -nargs=0 V tabe ~/.vim/pack/plugins/start/myvimrc/plugin/myvimrc.vim
+command! -nargs=0 VL tabe $MYVIMRC
+command! -nargs=0 W call WikiOpen()
+command! -nargs=0 WindowSizeToggle call WindowSizeToggle()
 command! -nargs=1 -complete=file VDsplit vertical diffsplit <args>
 command! -nargs=? Eiwa call Goo("ej",<f-args>)
 command! -nargs=? Kokugo call Goo("jn",<f-args>)
 command! -nargs=? Waei call Goo("je",<f-args>)
-command! BookmarkOpen tabe ~/.NERDTreeBookmarks
-command! ClearHistory call ClearHistory()
-command! CopyPaste setlocal nonu foldcolumn=0
-command! Cuc call Cuc() 
-command! Cul call Cul() 
-command! DeleteComment g/^\s*#\|^\s*$/d
-command! Diffoff diffoff! | set fdc=2
-command! Kakkofold call Kakkofold() 
-command! L tabe $MYVIMRC
-command! Migemo call Migemo()
-command! S tabe ~/.vim/pack/plugins/start/myvimrc/plugin/myvimrc.vim
-command! SSH e ~/.ssh/config
-command! Tabnasi setlocal expandtab | setlocal list | retab
-command! W call WikiOpen()
-command! WindowSizeToggle call WindowSizeToggle()
-command! RjcolorToggle call RjcolorToggle()
-command! Spell call SpellToggle()
 
 
 "}}}
@@ -333,6 +333,14 @@ endfunction "}}}
 
 function! CdPaste() "{{{2
     exe "cd " . @" 
+endfunction "}}}
+
+function! ToggleVe() "{{{2
+    if &ve == 'all'
+        set ve=
+    else
+        set ve=all
+    endif
 endfunction "}}}
 
 "}}}
