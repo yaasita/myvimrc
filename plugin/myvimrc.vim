@@ -84,28 +84,17 @@ imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 inoremap <C-S> <F5>
 inoremap <silent> jj <ESC>
 nnoremap + ,
-nnoremap ,a :!cat >> %<CR>
-nnoremap ,c :w<CR>:!gcc % <CR>:!a.exe<CR>
 nnoremap ,d :DeleteComment<CR>
 nnoremap ,e :Imadesyo<CR>
-nnoremap ,r :Unite file_mru<CR>
 nnoremap / :set ims=0<CR>/
 nnoremap <BS> gT
 nnoremap <C-N> :bn<CR>
 nnoremap <C-P> :bp<CR>
 nnoremap <C-S> i<F5>
 nnoremap <ESC><ESC> :noh<CR>
-nnoremap <F10> :WindowSizeToggle<CR>
-nnoremap <F11> :call RjcolorToggle()<CR>
-nnoremap <F12> :normal zR<CR>
 nnoremap <F1> :tab :h<CR>
-nnoremap <F2> :NERDTreeToggle<CR>
-nnoremap <F3> :call MyNeoSnippetEdit()<CR>
-nnoremap <F4> :Unite line<CR>
-nnoremap <F6> :Unite buffer<CR>
-nnoremap <F7> :Unite file_rec<CR>
-nnoremap <F8> :Unite file_mru<CR>
-nnoremap <F9> :call SpellToggle()<CR>
+nnoremap <F2> :WindowSizeToggle<CR>
+nnoremap <F3> :call SpellToggle()<CR>
 nnoremap <Left>  zh
 nnoremap <Right> zl
 nnoremap <SPACE> gt
@@ -136,16 +125,6 @@ endif
 
 "}}}
 "**** command {{{1
-
-augroup BinaryXXD
-  autocmd!
-  autocmd BufReadPre  *.bin setlocal bin
-  autocmd BufReadPost *.bin silent %!xxd -g 1
-  autocmd BufReadPost *.bin set ft=xxd 
-  autocmd BufWritePre *.bin silent %!xxd -r
-  autocmd BufWritePost *.bin silent %!xxd -g 1
-  autocmd BufWritePost *.bin set nomod 
-augroup END
 
 augroup PasteOff
     autocmd!
@@ -179,25 +158,20 @@ command! Cuc call Cuc()
 command! Cul call Cul() 
 command! DeleteComment g/^\s*#\|^\s*$/d
 command! Diffoff diffoff! | set fdc=2
-command! Ist tabe ~/.vim/pack/plugins/start/imadesyo/autoload/imadesyo.vim
 command! Kakkofold call Kakkofold() 
 command! L tabe $MYVIMRC
 command! Migemo call Migemo()
 command! S tabe ~/.vim/pack/plugins/start/myvimrc/plugin/myvimrc.vim
 command! SSH e ~/.ssh/config
 command! Tabnasi setlocal expandtab | setlocal list | retab
-command! TagEscape call TagEscape() 
 command! W call WikiOpen()
 command! WindowSizeToggle call WindowSizeToggle()
+command! RjcolorToggle call RjcolorToggle()
+command! Spell call SpellToggle()
 
 
 "}}}
 "**** function {{{1
-
-function! TagEscape() "{{{2
-    %s/</\&lt;/gc
-    %s/>/\&gt;/gc
-endfunction "}}}
 
 function! Cul() "{{{2
     highlight CursorLine guibg=NONE gui=underline
