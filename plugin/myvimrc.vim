@@ -156,6 +156,7 @@ command! -nargs=0 Diffoff diffoff! | set fdc=2
 command! -nargs=0 Kakkofold call Kakkofold() 
 command! -nargs=0 M e ~/memo.md
 command! -nargs=0 Migemo call Migemo()
+command! -nargs=0 P tabe ~/wiki/life/passwd.md
 command! -nargs=0 RjcolorToggle call RjcolorToggle()
 command! -nargs=0 SSH e ~/.ssh/config
 command! -nargs=0 Spell call SpellToggle()
