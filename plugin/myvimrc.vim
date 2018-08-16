@@ -24,7 +24,6 @@ set foldopen=mark,percent,quickfix,tag
 set formatoptions=tcqmM
 set grepformat=%f:%l:%m,%f:%l%m,%f\ \ %l%m,%f
 set grepprg=ack\ -il\ $*\ /dev/null
-set hidden
 set history=5000
 set hlsearch
 set ignorecase
