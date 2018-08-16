@@ -79,7 +79,7 @@ cnoremap <C-N> <Down>
 cnoremap <C-P> <Up>
 cnoremap <C-j> <Right>
 cnoremap <C-k> <Left>
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+imap     <C-k> <Plug>(neosnippet_expand_or_jump)
 inoremap <C-S> <F5>
 inoremap <silent> jj <ESC>
 nnoremap + ,
@@ -148,8 +148,6 @@ command! -nargs=0 BookmarkOpen tabe ~/.NERDTreeBookmarks
 command! -nargs=0 CdCurrent cd %:p:h
 command! -nargs=0 ClearHistory call ClearHistory()
 command! -nargs=0 CopyPaste setlocal nonu foldcolumn=0
-command! -nargs=0 Cuc call Cuc() 
-command! -nargs=0 Cul call Cul() 
 command! -nargs=0 DeleteComment g/^\s*#\|^\s*$/d
 command! -nargs=0 Diffoff diffoff! | set fdc=2
 command! -nargs=0 Kakkofold call Kakkofold() 
@@ -173,16 +171,6 @@ command! -nargs=? Waei call Goo("je",<f-args>)
 
 "}}}
 "**** function {{{1
-
-function! Cul() "{{{2
-    highlight CursorLine guibg=NONE gui=underline
-    set cursorline
-endfunction "}}}
-
-function! Cuc() "{{{2
-    highlight CursorColumn guibg=NONE gui=underline
-    set cursorcolumn
-endfunction "}}}
 
 function! Kakkofold() "{{{2
     setlocal foldmarker={,}
