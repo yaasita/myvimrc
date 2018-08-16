@@ -152,7 +152,6 @@ command! -nargs=0 DeleteComment g/^\s*#\|^\s*$/d
 command! -nargs=0 Diffoff diffoff! | set fdc=2
 command! -nargs=0 Kakkofold call Kakkofold() 
 command! -nargs=0 M e ~/memo.md
-command! -nargs=0 Migemo call Migemo()
 command! -nargs=0 P tabe ~/wiki/life/passwd.md
 command! -nargs=0 RjcolorToggle call RjcolorToggle()
 command! -nargs=0 SSH e ~/.ssh/config
@@ -217,14 +216,6 @@ function! SpellToggle() "{{{2
         syntax on
     endif
     setlocal spell?
-endfunction "}}}
-
-function! Migemo() "{{{2
-    if hasmapto('\<CR>','c')
-        cunmap <expr><CR>
-    else
-        cnoremap <expr><CR> migemosearch#replace_search_word()."\<CR>"
-    endif
 endfunction "}}}
 
 function! WindowSizeToggle() "{{{2
