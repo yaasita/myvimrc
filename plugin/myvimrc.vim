@@ -106,7 +106,6 @@ nnoremap se :call MyNeoSnippetEdit()<CR>
 nnoremap sf :Unite file_rec<CR>
 nnoremap sg :Unite line<CR>
 nnoremap sh :belowright :terminal<CR>
-nnoremap sl :Unite file_mru<CR>
 nnoremap sn :NERDTreeToggle<CR>
 nnoremap sp :Unite neosnippet<CR>
 nnoremap sv :call ToggleVe()<CR>
