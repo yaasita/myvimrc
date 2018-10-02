@@ -120,6 +120,11 @@ abbr        fileのコピー
 	use File::Copy 'copy';
 	copy $source, $destination or die $!;
 
+snippet     move
+abbr        fileの移動
+	use File::Copy 'move';
+	move $source, $destination or die $!;
+
 snippet     pipe_open_write
 abbr        パイプで渡して書き込み
 	open (my $at,'|-',"at $+{hhmm} $+{month}/$+{day}/$+{year}") or die $!;
