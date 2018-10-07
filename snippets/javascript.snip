@@ -149,3 +149,13 @@ abbr        グローバル変数
 snippet     process.exit
 abbr        fail exit
 	process.exit(1);
+
+snippet     sleep
+	await sleep(1);
+	function sleep(time){
+	  return new Promise((resolv,reject) => {
+		setTimeout(() => {
+		  resolv();
+		}, time * 1000);
+	  });
+	}
