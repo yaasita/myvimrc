@@ -174,11 +174,20 @@ snippet     Time::Piece
 	my $t = localtime;
 	print $t->strftime("%Y%m%d");
 	print $t + ONE_DAY;
+	sub convert_mydate {
+		my $str = shift;
+		$str =~ s/\..+$//;
+		my $t = Time::Piece->strptime($str , "%Y-%m-%dT%H:%M:%S");
+		my $new = $t + 9 * ONE_HOUR;
+		return $new->strftime("%Y/%m/%d_%H:%M:%S");
+	}
+	say convert_mydate("2018-10-09T15:40:11.000Z");
 
 snippet     File::Temp
 	# CLEANUPを1にすると自動削除
 	use File::Temp qw/ tempfile tempdir /;
 	my $tempdir = tempdir(CLEANUP => 1);
+	say File::Temp::tempnam("/tmp", "cost");
 
 snippet     pwd
 	use Cwd;
