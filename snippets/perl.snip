@@ -310,6 +310,7 @@ abbr        HTTPリクエスト
 	}
 	print $response->{content} if length $response->{content};
 	# or
+	$http = HTTP::Tiny->new( %attributes );
 	my $param = {
 		function => 'myFunction',
 		parameters => ['2018/07/21', 'yamasita', 'なんか', 'しごと'],
