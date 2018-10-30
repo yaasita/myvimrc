@@ -62,7 +62,7 @@ set titlestring=%t\ (%<%{expand(\"%:p:h\")})\ \-\ %{v:servername}\ %{v:version}
 set undodir=~/.vim/undo/
 set undofile
 set viewdir=~/.vim/view/
-set viewoptions=folds,cursor
+set viewoptions=folds,cursor,options
 set visualbell
 set whichwrap+=[
 set whichwrap+=]
