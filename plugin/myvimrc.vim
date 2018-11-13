@@ -163,7 +163,6 @@ command! -nargs=0 W call WikiOpen()
 command! -nargs=0 WindowSizeToggle call WindowSizeToggle()
 command! -nargs=1 -complete=file VDsplit vertical diffsplit <args>
 command! -nargs=? Eiwa call Goo("ej",<f-args>)
-command! -nargs=? Kokugo call Goo("jn",<f-args>)
 command! -nargs=? Waei call Goo("je",<f-args>)
 
 
