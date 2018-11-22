@@ -162,9 +162,9 @@ command! -nargs=0 VL tabe $MYVIMRC
 command! -nargs=0 W call WikiOpen()
 command! -nargs=0 WindowSizeToggle call WindowSizeToggle()
 command! -nargs=1 -complete=file VDsplit vertical diffsplit <args>
-command! -nargs=? Eiwa call Goo("ej",<f-args>)
-command! -nargs=? Waei call Goo("je",<f-args>)
-
+command! -nargs=? Eiwa call Trans()
+command! -nargs=0 -range HonyakuEJ <line1>,<line2>!trans -no-ansi -from en -to ja -show-original=n -show-languages=n -show-prompt-message=n -show-alternatives=n -show-translation-phonetics=n
+command! -nargs=0 -range HonyakuJE <line1>,<line2>!trans -no-ansi -from ja -to en -show-original=n -show-languages=n -show-prompt-message=n -show-alternatives=n -show-translation-phonetics=n
 
 "}}}
 "**** function {{{1
@@ -269,30 +269,10 @@ function! MkView() "{{{2
     endif
 endfunction "}}}
 
-function! Goo(jisyo,...) "{{{2
-	if has('win32') || has('gui_running')
-		let l:cmd = "!"
-    else
-		let l:cmd = "!clear && "
-    endif
-    if a:0 == 0
-        let l:search_word = expand("<cword>")
-    else
-        let l:search_word = a:1
-    endif
-    if a:jisyo == "ej"
-        let l:search_tag = " | perl -nle 'print if /list-search-a/i../section/ or /音節/../出典/'"
-    elseif a:jisyo == "je"
-        let l:search_tag = " | perl -nle 'print if /list-search-a/i../section/ or /<h1 class=.header ttl-a.>/../出典/'"
-    elseif a:jisyo == "jn"
-        let l:search_tag = " | perl -nle 'print if /list-search-a/i../section/ or /<div class=.kokugo.>/../出典/'"
-    endif
-    execute l:cmd . "curl -s -L " .
-                \ "http://dictionary.goo.ne.jp/srch/" . a:jisyo . "/" .
-                \ "$(echo " . l:search_word . " | nkf -wMQ | tr = \\%)/m0u/" . 
-                \ l:search_tag .
-                \ " | perl -ple 's/<.+?>//g;s/\\s*//' | perl -nle 'print unless /^$/'" .
-                \ " | head -50"
+function! Trans() "{{{2
+    let l:search_word = expand("<cword>")
+    let l:result = system("trans -no-ansi -from en -to ja -show-original=n -show-languages=n -show-prompt-message=n -show-alternatives=n -show-translation-phonetics=n -show-original-phonetics=n -show-dictionary=n " . l:search_word)
+    echo l:result
 endfunction "}}}
 
 function! MyNeoSnippetEdit() "{{{2
