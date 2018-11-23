@@ -1,3 +1,3 @@
 let b:imadesyo_command = 'OreMarkdown'
 "set viewoptions=cursor
-set iskeyword+=45-46
+setlocal iskeyword+=45-46
