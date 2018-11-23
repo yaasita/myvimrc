@@ -162,7 +162,7 @@ command! -nargs=0 VL tabe $MYVIMRC
 command! -nargs=0 W call WikiOpen()
 command! -nargs=0 WindowSizeToggle call WindowSizeToggle()
 command! -nargs=1 -complete=file VDsplit vertical diffsplit <args>
-command! -nargs=? Eiwa call Trans()
+command! -nargs=0 Eiwa call Trans()
 command! -nargs=0 -range HonyakuEJ <line1>,<line2>!trans -no-ansi -from en -to ja -show-original=n -show-languages=n -show-prompt-message=n -show-alternatives=n -show-translation-phonetics=n
 command! -nargs=0 -range HonyakuJE <line1>,<line2>!trans -no-ansi -from ja -to en -show-original=n -show-languages=n -show-prompt-message=n -show-alternatives=n -show-translation-phonetics=n
 
