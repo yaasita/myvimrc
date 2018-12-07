@@ -105,7 +105,7 @@ nnoremap sc :call CdPaste()<CR>
 nnoremap se :call MyNeoSnippetEdit()<CR>
 nnoremap sf :Unite file_rec<CR>
 nnoremap sg :Unite line<CR>
-nnoremap sh :belowright :terminal<CR>
+nnoremap sh :belowright :terminal ++close<CR>
 nnoremap sn :NERDTreeToggle<CR>
 nnoremap sp :Unite neosnippet<CR>
 nnoremap sv :call ToggleVe()<CR>
