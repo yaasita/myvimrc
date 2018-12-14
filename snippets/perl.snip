@@ -367,3 +367,9 @@ snippet     use-lib
 	use FindBin;
 	use lib "$FindBin::Bin/lib/";
 	use lib "$ENV{HOME}/.myperl";
+
+snippet     git
+	use Git;
+	my $git = Git->repository(Directory => $repo);
+	my $remote = $git->command_oneline("remote", "-v");
+	my $diff = $git->command("status", "-s");

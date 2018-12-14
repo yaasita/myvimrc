@@ -8,4 +8,3 @@
 
     # developer
     Plug 'git@github.com:yaasita/myvimrc'
-
