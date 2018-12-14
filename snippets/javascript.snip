@@ -159,3 +159,21 @@ snippet     sleep
 		}, time * 1000);
 	  });
 	}
+
+snippet     throw
+	throw new Error("一般的なエラーだよ");
+	throw new TypeError("型がちがうよ");
+	throw new SyntaxError("文法おかしいよ");
+	throw new URIError("URIちがうよ");
+
+snippet     basename
+	const path = require("path");
+	const nodecmd = path.basename(process.argv[0]);
+
+snippet     date
+	const date = new Date(json[i].time*1000);
+	date.getFullYear()
+
+snippet     fs
+	const fs = require('fs');
+	fs.writeFileSync(`out/${target}.json`, JSON.stringify(newjson, null, 2));
