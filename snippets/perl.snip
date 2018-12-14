@@ -373,3 +373,7 @@ snippet     git
 	my $git = Git->repository(Directory => $repo);
 	my $remote = $git->command_oneline("remote", "-v");
 	my $diff = $git->command("status", "-s");
+
+snippet     compare
+	use File::Compare;
+	compare($file, "$ENV{HOME}/$file")
