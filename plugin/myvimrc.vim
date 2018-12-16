@@ -142,6 +142,8 @@ augroup Quickfix
 augroup END
 
 command! -nargs=* Ygrep call Ygrep(<f-args>)
+command! -nargs=0 -range HonyakuEJ <line1>,<line2>!trans -no-ansi -from en -to ja -show-original=n -show-languages=n -show-prompt-message=n -show-alternatives=n -show-translation-phonetics=n
+command! -nargs=0 -range HonyakuJE <line1>,<line2>!trans -no-ansi -from ja -to en -show-original=n -show-languages=n -show-prompt-message=n -show-alternatives=n -show-translation-phonetics=n
 command! -nargs=0 B e ~/.bashrc
 command! -nargs=0 BookmarkOpen tabe ~/.NERDTreeBookmarks
 command! -nargs=0 CdCurrent cd %:p:h
@@ -149,9 +151,11 @@ command! -nargs=0 ClearHistory call ClearHistory()
 command! -nargs=0 CopyPaste setlocal nonu foldcolumn=0
 command! -nargs=0 DeleteComment g/^\s*#\|^\s*$/d
 command! -nargs=0 Diffoff diffoff! | set fdc=2
+command! -nargs=0 Eiwa call Trans()
 command! -nargs=0 Kakkofold call Kakkofold() 
 command! -nargs=0 M e ~/memo.md
 command! -nargs=0 P tabe ~/wiki/life/passwd.md
+command! -nargs=0 Prettier w | call system("prettier --write " . expand("%")) | e
 command! -nargs=0 RjcolorToggle call RjcolorToggle()
 command! -nargs=0 SSH e ~/.ssh/config
 command! -nargs=0 Spell call SpellToggle()
@@ -162,9 +166,6 @@ command! -nargs=0 VL tabe $MYVIMRC
 command! -nargs=0 W call WikiOpen()
 command! -nargs=0 WindowSizeToggle call WindowSizeToggle()
 command! -nargs=1 -complete=file VDsplit vertical diffsplit <args>
-command! -nargs=0 Eiwa call Trans()
-command! -nargs=0 -range HonyakuEJ <line1>,<line2>!trans -no-ansi -from en -to ja -show-original=n -show-languages=n -show-prompt-message=n -show-alternatives=n -show-translation-phonetics=n
-command! -nargs=0 -range HonyakuJE <line1>,<line2>!trans -no-ansi -from ja -to en -show-original=n -show-languages=n -show-prompt-message=n -show-alternatives=n -show-translation-phonetics=n
 
 "}}}
 "**** function {{{1
