@@ -189,3 +189,12 @@ snippet     for-loop
 	for f in *;do
 		echo $f
 	done
+
+snippet     ren
+alias       rename
+	#!/bin/bash
+	set -eu
+	alias mv='mv -i'
+	function idou {
+		mv $1 yamada-tarou/
+	}
