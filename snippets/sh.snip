@@ -198,3 +198,16 @@ alias       rename
 	function idou {
 		mv \$1 yamada-tarou/
 	}
+
+snippet     case
+	case "$1" in
+		"http-lb" )
+			echo lb
+			;;
+		"https-lb" )
+			echo lb2
+			;;
+		* )
+			echo usage
+			;;
+	esac
