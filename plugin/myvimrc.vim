@@ -146,7 +146,6 @@ command! -nargs=0 -range HonyakuEJ <line1>,<line2>!trans -no-ansi -from en -to j
 command! -nargs=0 -range HonyakuJE <line1>,<line2>!trans -no-ansi -from ja -to en -show-original=n -show-languages=n -show-prompt-message=n -show-alternatives=n -show-translation-phonetics=n
 command! -nargs=0 B e ~/.bashrc
 command! -nargs=0 BookmarkOpen tabe ~/.NERDTreeBookmarks
-command! -nargs=0 CdCurrent cd %:p:h
 command! -nargs=0 ClearHistory call ClearHistory()
 command! -nargs=0 CopyPaste setlocal nonu foldcolumn=0
 command! -nargs=0 DeleteComment g/^\s*#\|^\s*$/d
