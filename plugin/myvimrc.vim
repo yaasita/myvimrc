@@ -15,6 +15,7 @@ set cmdheight=2
 set complete=.,w
 set completefunc=GoogleComplete
 set cryptmethod=blowfish2
+set dictionary=~/.vim/dict.txt
 set diffopt=filler,vertical
 set expandtab
 set fileencodings=ucs-bom,utf-8,sjis,euc-jp
