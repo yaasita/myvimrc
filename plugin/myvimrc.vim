@@ -42,7 +42,6 @@ set noswapfile
 set nowrap
 set nowrapscan
 set nrformats=hex
-set number
 set pastetoggle=<F5>
 set ruler
 set selection=inclusive
