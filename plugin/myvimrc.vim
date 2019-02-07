@@ -284,7 +284,6 @@ function! WikiOpen() "{{{2
     let wiki = expand("~/") . "wiki/README.md"
     if filereadable(wiki)
         e ~/wiki/README.md
-        CdCurrent
     else
         echomsg "wikiがない"
     endif
