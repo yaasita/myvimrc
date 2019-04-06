@@ -119,6 +119,7 @@ snippet     nodejs-template
 	(async () => {
 		console.log("start");
 	})();
+	$0
 
 snippet     fetch-get-with-param
 	const fetch = require('node-fetch');
@@ -177,3 +178,25 @@ snippet     date
 snippet     fs
 	const fs = require('fs');
 	fs.writeFileSync(`out/${target}.json`, JSON.stringify(newjson, null, 2));
+
+snippet system_command
+alias       child_process
+	const { exec } = require('child_process');
+	exec('ls', (error, stdout, stderr) => {
+	  if (error) {
+		console.error("[ERROR]");
+	  }
+	  console.log(stdout);
+	});
+
+snippet system_command_promiss
+alias       child_process_promiss
+	const util = require('util');
+	const exec = util.promisify(require('child_process').exec);
+	async function lsExample() {
+	  const { stdout, stderr } = await exec('ls');
+	  console.log('stdout:', stdout);
+	  console.log('stderr:', stderr);
+	}
+	lsExample();
+
