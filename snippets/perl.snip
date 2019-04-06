@@ -207,11 +207,11 @@ abbr        引数処理
 	# 単独
 	my $opt_all = 0;
 	my $opt_debug = 0;
-	GetOptions('all' => \$opt_all, 'debug' => \$opt_debug);
+	GetOptions('all' => \\\$opt_all, 'debug' => \\\$opt_debug);
 	# 引数付きオプション
 	my $name = 'John Doe';
 	my $count = 1;
-	GetOptions('name=s' => \$name, 'count=i' => \$count);
+	GetOptions('name=s' => \\\$name, 'count=i' => \\\$count);
 
 snippet     all_read_input
 alias       marunomi
@@ -378,3 +378,12 @@ snippet     git
 snippet     compare
 	use File::Compare;
 	compare($file, "$ENV{HOME}/$file")
+
+snippet     file_find
+	use File::Find;
+	sub list {
+		my \$file = \$_;
+		say \$file;
+	}
+	find({wanted => \&list, no_chdir => 1}, "/path/to/dir");
+	$0

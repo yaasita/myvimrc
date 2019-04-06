@@ -175,9 +175,13 @@ snippet     date
 	const date = new Date(json[i].time*1000);
 	date.getFullYear()
 
-snippet     fs
+snippet     fs_write
 	const fs = require('fs');
-	fs.writeFileSync(`out/${target}.json`, JSON.stringify(newjson, null, 2));
+	fs.writeFileSync("out/target.json", JSON.stringify(newjson, null, 2));
+
+snippet     fs_read
+	const fs = require("fs");
+	const content = fs.readFileSync("/tmp/b", "utf8");
 
 snippet system_command
 alias       child_process
@@ -199,4 +203,3 @@ alias       child_process_promiss
 	  console.log('stderr:', stderr);
 	}
 	lsExample();
-
