@@ -203,3 +203,20 @@ alias       child_process_promiss
 	  console.log('stderr:', stderr);
 	}
 	lsExample();
+
+snippet class
+	module.exports = class Hoge {
+	  constructor(option) {
+		this.target = option;
+	  }
+	  async list() {
+		console.log("list");
+	  }
+	  save(instance) {
+		console.log("list");
+	  }
+	};
+
+snippet require
+	const huga = require("./hoge.js");
+	const a = new huga();
