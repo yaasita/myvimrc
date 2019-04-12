@@ -203,3 +203,9 @@ alias       child_process_promiss
 	  console.log('stderr:', stderr);
 	}
 	lsExample();
+
+snippet regex_match
+	function get_num(str) {
+	  const result = str.match(/^\d+/);
+	  return parseInt(result[0]);
+	}
