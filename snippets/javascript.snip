@@ -209,3 +209,20 @@ snippet regex_match
 	  const result = str.match(/^\d+/);
 	  return parseInt(result[0]);
 	}
+
+snippet class
+	module.exports = class Hoge {
+	  constructor(option) {
+		this.target = option;
+	  }
+	  async list() {
+		console.log("list");
+	  }
+	  save(instance) {
+		console.log("list");
+	  }
+	};
+
+snippet require
+	const huga = require("./hoge.js");
+	const a = new huga();
