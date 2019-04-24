@@ -39,18 +39,13 @@ snippet     argv
 alias       hikisuu
 abbr        コマンドライン引数
 	// 0 が実行ファイル、1が実行スクリプト
-	console.log(process.argv[2]);
+	process.argv[2];
 
 snippet     promise
 	exports.handler = async (event) => {
 		const [s3_objects, instance_status]  = await Promise.all([count_s3_objects(), vm_status()]);
 		if (s3_objects > 0 && instance_status === "TERMINATED"){
-			console.log("start vm!")
 			const result = await vm.start();
-			console.log(result);
-		}
-		else {
-			console.log("nop");
 		}
 	};
 	async function count_s3_objects() {
@@ -68,6 +63,10 @@ snippet     promise
 		const instance = await vm.get();
 		return instance[0].metadata.status;
 	}
+
+snippet     console.log
+alias       c
+	console.log($0);
 
 snippet     stdin1
 abbr        標準入力読み取り1
@@ -94,10 +93,8 @@ abbr        標準入力読み取り2
 		return result;
 	}
 	(async function (){
-		console.log("start");
 		const indata = await question_from_stdin("OK? > ");
 		console.log(\`*** \${indata} ***\`);
-		console.log("end");
 		process.stdout.write('hogehoge');
 	})();
 
@@ -117,21 +114,19 @@ abbr        改行無し出力
 snippet     nodejs-template
 	"use strict";
 	(async () => {
-		console.log("start");
+		// hugahuga();
 	})();
 	$0
 
 snippet     fetch-get-with-param
 	const fetch = require('node-fetch');
 	(async () => {
-		console.log("OK")
 		var url = new URL('https://hoge.com')
 		var params = {lat:35.696233, long:139.570431} // or:
 		//var params = [['lat', '35.696233'], ['long', '139.570431']]
 		url.search = new URLSearchParams(params);
 		const result = await fetch(url);
 		const text = await result.text();
-		console.log(text);
 	})();
 
 snippet     get-env
@@ -141,7 +136,6 @@ abbr        環境変数
 snippet     load-json
 abbr        JSONの読み込み
 	const json = require('./test.json');
-	console.log(json);
 
 snippet     global variables
 abbr        グローバル変数
@@ -191,7 +185,7 @@ alias       child_process
 	  if (error) {
 		console.error("[ERROR]");
 	  }
-	  console.log(stdout);
+	  // stdout
 	});
 
 snippet system_command_promiss
@@ -200,8 +194,7 @@ alias       child_process_promiss
 	const exec = util.promisify(require('child_process').exec);
 	async function lsExample() {
 	  const { stdout, stderr } = await exec('ls');
-	  console.log('stdout:', stdout);
-	  console.log('stderr:', stderr);
+	  // program
 	}
 	lsExample();
 
@@ -217,10 +210,10 @@ snippet class
 		this.target = option;
 	  }
 	  async list() {
-		console.log("list");
+		hoge();
 	  }
 	  save(instance) {
-		console.log("list");
+		huga();
 	  }
 	};
 
