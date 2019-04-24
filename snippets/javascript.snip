@@ -121,6 +121,14 @@ snippet     nodejs-template
 	})();
 	$0
 
+snippet     fetch-template
+	const result = await fetch(url, {
+	method: "POST",
+	body: JSON.stringify(data),
+	headers: {
+	  "Content-Type": "application/json"
+	}
+
 snippet     fetch-get-with-param
 	const fetch = require('node-fetch');
 	(async () => {
@@ -142,10 +150,6 @@ snippet     load-json
 abbr        JSONの読み込み
 	const json = require('./test.json');
 	console.log(json);
-
-snippet     global variables
-abbr        グローバル変数
-	global.fetch = require("node-fetch");
 
 snippet     process.exit
 abbr        fail exit
