@@ -121,10 +121,10 @@ snippet     nodejs-template
 snippet     fetch-template
 	const result = await fetch(url, {
 	method: "POST",
-	body: JSON.stringify(data),
 	headers: {
 	  "Content-Type": "application/json"
-	}
+	},
+	body: JSON.stringify(data)
 
 snippet     fetch-get-with-param
 	const fetch = require('node-fetch');
