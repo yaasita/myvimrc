@@ -9,3 +9,6 @@ snippet     debug_log
 alias       error_log
 abbr        debugメッセージ
 	error_log($_SERVER['HTTP_X_FORWARDED_HOST']."=>".$host."\n", 3, '/tmp/app.log');
+
+snippet     print_r
+	$var = print_r($hoge, true);
