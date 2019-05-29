@@ -129,9 +129,9 @@ snippet     fetch-template
 snippet     fetch-get-with-param
 	const fetch = require('node-fetch');
 	(async () => {
-		var url = new URL('https://hoge.com')
-		var params = {lat:35.696233, long:139.570431} // or:
-		//var params = [['lat', '35.696233'], ['long', '139.570431']]
+		const url = new URL('https://hoge.com')
+		const params = {lat:35.696233, long:139.570431} // or:
+		//const params = [['lat', '35.696233'], ['long', '139.570431']]
 		url.search = new URLSearchParams(params);
 		const result = await fetch(url);
 		const text = await result.text();
