@@ -128,14 +128,13 @@ snippet     fetch-template
 
 snippet     fetch-get-with-param
 	const fetch = require('node-fetch');
-	(async () => {
-		const url = new URL('https://hoge.com')
-		const params = {lat:35.696233, long:139.570431} // or:
-		//const params = [['lat', '35.696233'], ['long', '139.570431']]
-		url.search = new URLSearchParams(params);
-		const result = await fetch(url);
-		const text = await result.text();
-	})();
+	
+	const url = new URL('https://hoge.com')
+	const params = {lat:35.696233, long:139.570431} // or:
+	//const params = [['lat', '35.696233'], ['long', '139.570431']]
+	url.search = new URLSearchParams(params);
+	const result = await fetch(url);
+	const text = await result.text();
 
 snippet     get-env
 abbr        環境変数
