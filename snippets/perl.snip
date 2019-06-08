@@ -75,8 +75,9 @@ abbr        ファイルOPEN書き込み
 
 snippet     open_input
 abbr        ファイルOPEN読み込み
-	open (my $in,"<", "tmp/04_body.txt") or die $!;
+	open (my $in,"<", "tmp/hoge.txt") or die $!;
 	close $in;
+	$0
 
 snippet     cgi_test
 abbr        CGIのテスト
