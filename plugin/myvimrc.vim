@@ -94,6 +94,7 @@ nnoremap <ESC><ESC> :noh<CR>
 nnoremap <F1> :tab :h<CR>
 nnoremap <F2> :WindowSizeToggle<CR>
 nnoremap <F3> :call SpellToggle()<CR>
+nnoremap <F4> :set nu!<CR>
 nnoremap <Left>  zh
 nnoremap <Right> zl
 nnoremap <SPACE> gt
