@@ -193,6 +193,7 @@ alias       child_process
 
 snippet system_command_promiss
 alias       child_process_promiss
+alias       promiss_exec
 	const util = require('util');
 	const exec = util.promisify(require('child_process').exec);
 	async function lsExample() {
