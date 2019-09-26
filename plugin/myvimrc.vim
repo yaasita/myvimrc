@@ -109,6 +109,7 @@ nnoremap sg :Unite line<CR>
 nnoremap sh :belowright :terminal ++close<CR>
 nnoremap sn :NERDTreeToggle<CR>
 nnoremap sp :Unite neosnippet<CR>
+nnoremap st :tabc<CR>
 nnoremap sv :call ToggleVe()<CR>
 nnoremap x "_x
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
