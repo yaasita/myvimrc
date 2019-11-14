@@ -232,3 +232,31 @@ snippet require
 
 snippet parseInt
 	parseInt("123");
+
+snippet readline
+	const fs = require("fs");
+	const readline = require("readline");
+	exports.dump_to_json = async (bq_schema, dumpfile) => {
+	  const outfile = "tmp/out.json";
+	  const columns = bq_schema.split(",");
+	  await new Promise((resolv, reject) => {
+		const src = fs.createReadStream(dumpfile, "utf8");
+		const rl = readline.createInterface(src, {});
+		const dest = fs.createWriteStream(outfile, "utf8");
+		rl.on("line", line => {
+		  const a = line.split("\t");
+		  const line_json = {};
+		  for (let i = 0; i < columns.length; i++) {
+			const [name, bq_type] = columns[i].split(":");
+			if (a[i] === "NULL") line_json[name] = null;
+			else if (bq_type === "TIMESTAMP") line_json[name] = moment(a[i]).unix();
+			else line_json[name] = a[i];
+		  }
+		  dest.write(JSON.stringify(line_json) + "\n");
+		});
+		rl.on("close", () => {
+		  resolv();
+		});
+	  });
+	  return outfile;
+	};
