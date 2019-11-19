@@ -263,3 +263,8 @@ snippet readline
 
 snippet     shebang
 	#!/usr/bin/env node
+
+snippet     moment-timezone
+	const moment = require('moment-timezone');
+	const date = moment(1573805055 * 1000);
+	const c = date.tz("Asia/Tokyo").format("YYYY/MM/DD HH:mm");
