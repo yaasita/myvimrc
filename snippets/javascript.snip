@@ -181,7 +181,7 @@ snippet     fs_write
 	const fs = require('fs');
 	fs.writeFileSync("out/target.json", JSON.stringify(newjson, null, 2));
 
-snippet     fs_read
+snippet     fs_read_all
 	const fs = require("fs");
 	const content = fs.readFileSync("/tmp/b", "utf8");
 	$0
@@ -236,30 +236,24 @@ snippet parseInt
 snippet readline
 	const fs = require("fs");
 	const readline = require("readline");
-	exports.dump_to_json = async (bq_schema, dumpfile) => {
-	  const outfile = "tmp/out.json";
-	  const columns = bq_schema.split(",");
 	  await new Promise((resolv, reject) => {
 		const src = fs.createReadStream(dumpfile, "utf8");
-		const rl = readline.createInterface(src, {});
+		const rl = readline.createInterface({ input: src });
 		const dest = fs.createWriteStream(outfile, "utf8");
 		rl.on("line", line => {
-		  const a = line.split("\t");
-		  const line_json = {};
-		  for (let i = 0; i < columns.length; i++) {
-			const [name, bq_type] = columns[i].split(":");
-			if (a[i] === "NULL") line_json[name] = null;
-			else if (bq_type === "TIMESTAMP") line_json[name] = moment(a[i]).unix();
-			else line_json[name] = a[i];
-		  }
-		  dest.write(JSON.stringify(line_json) + "\n");
+		  dest.write(JSON.stringify({hoge: "huga"}) + "\n");
 		});
 		rl.on("close", () => {
 		  resolv();
 		});
 	  });
-	  return outfile;
-	};
+
+snippet readline_for_await
+	const src = fs.createReadStream("hoge.txt", "utf8");
+	const rl = readline.createInterface({ input: src });
+	for await (const line of rl){
+		console.log(line);
+	}
 
 snippet     shebang
 	#!/usr/bin/env node
