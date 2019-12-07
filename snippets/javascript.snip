@@ -129,11 +129,10 @@ snippet     fetch-template
 	headers: {
 	  "Content-Type": "application/json"
 	},
-	body: JSON.stringify(data)
+	body: JSON.stringify(data)});
 
 snippet     fetch-get-with-param
 	const fetch = require('node-fetch');
-	
 	const url = new URL('https://hoge.com')
 	const params = {lat:35.696233, long:139.570431} // or:
 	//const params = [['lat', '35.696233'], ['long', '139.570431']]
