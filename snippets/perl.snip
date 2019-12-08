@@ -388,3 +388,8 @@ snippet     file_find
 	}
 	find({wanted => \&list, no_chdir => 1}, "/path/to/dir");
 	$0
+
+snippet     pack
+	my $str = pack("H2H2", "ff", "fe" );
+	my $str = pack("H*", "E38299" );
+	my $str = unpack("H*", $data);
