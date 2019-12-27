@@ -25,9 +25,14 @@ set foldopen=mark,percent,quickfix,tag
 set formatoptions=tcqmM
 set grepformat=%f:%l:%m,%f:%l%m,%f\ \ %l%m,%f
 set grepprg=ack\ -il\ $*\ /dev/null
+set guioptions-=T
+set guioptions-=m
+set guitablabel=%N:\ %m%h\ %t
 set history=5000
 set hlsearch
 set ignorecase
+set iminsert=0
+set imsearch=0
 set incsearch
 set laststatus=2
 set listchars=tab:>-,trail:-
@@ -39,6 +44,7 @@ set noendofline
 set noequalalways
 set noerrorbells
 set noswapfile
+set novisualbell
 set nowrap
 set nowrapscan
 set nrformats=hex
