@@ -43,6 +43,7 @@ set nobackup
 set noendofline
 set noequalalways
 set noerrorbells
+set nofixendofline
 set noswapfile
 set novisualbell
 set nowrap
