@@ -1,71 +1,12 @@
-snippet     dockerfile-ssh
-abbr        sshd入れるとき
-	#ssh
-	RUN apt-get install -y openssh-server
-	RUN mkdir /var/run/sshd/
-	RUN mkdir /root/.ssh
-	ADD authorized_keys /root/.ssh/authorized_keys
-	RUN perl -i -ple 's/^(permitrootlogin\s)(.*)/\1yes/i' /etc/ssh/sshd_config
-	RUN echo root:root | chpasswd
-	EXPOSE 22
-	CMD /usr/sbin/sshd -D
-
-snippet     dockerfile-ssh-centos
-abbr        sshd入れるとき(CentOS6)
-	#ssh
-	RUN yum install -y openssh-server
-	RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -C '' -N ''
-	RUN ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key -C '' -N ''
-	RUN mkdir /root/.ssh
-	ADD authorized_keys /root/.ssh/authorized_keys
-	RUN echo root:root | chpasswd
-	EXPOSE 22
-	CMD /usr/sbin/sshd -D
-
-
-snippet     dockerfile-supervisord
-abbr        supervisord入れるとき
-	# supervisor
-	RUN apt-get install -y supervisor
-	ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-	EXPOSE 22 80
-	CMD ["/usr/bin/supervisord"]
-
-snippet     dockerfile-template-normal
+snippet     dockerfile-template
 abbr        ひな形通常
 	FROM debian:jessie
 	MAINTAINER yaasita
-	# 新しい書き方
-	# LABEL maintainer yaasita
-	
-	#apt
-	ADD 02proxy /etc/apt/apt.conf.d/02proxy
-	RUN apt-get update
-	RUN apt-get upgrade -y
-	
-	#package
-	RUN apt-get install -y vim git \
-	 aptitude build-essential
-	
-	${1:#:sshはdockerfile-ssh参照}
-	${2:#:supervisordはdockerfile-supervisord参照}
-
-snippet     dockerfile-locale-jessie
-alias       dockerfile-timezone-jessie
-abbr        locale設定(jessie)
-	# locale
-	RUN apt-get install -y locales dialog
+	LABEL maintainer yaasita
+	RUN apt-get install -y openssh-server
+	ADD authorized_keys /root/.ssh/authorized_keys
 	COPY etc/default/locale /etc/default/locale
-	COPY etc/locale.alias /etc/locale.alias
-	COPY etc/locale.gen /etc/locale.gen
-	COPY etc/localtime /etc/localtime
-	COPY etc/timezone /etc/timezone
-
-snippet     dockerfile-locale-ubuntu-1404
-abbr        locale設定(ubuntu)
-alias       dockerfile-timezone-ubuntu-1404
-	# locale
-	RUN apt-get install -y locales language-pack-ja
-	COPY etc/default/locale /etc/default/locale
-	COPY etc/localtime /etc/localtime
-	COPY etc/timezone /etc/timezone
+	WORKDIR /tmp
+	EXPOSE 22
+	CMD /usr/sbin/sshd -D
+	CMD ["/usr/bin/supervisord"]
