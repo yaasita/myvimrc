@@ -10,3 +10,7 @@ abbr        ひな形通常
 	EXPOSE 22
 	CMD /usr/sbin/sshd -D
 	CMD ["/usr/bin/supervisord"]
+
+snippet     copy-proxy
+abbr        apt proxy追加
+	COPY 02proxy /etc/apt/apt.conf.d/02proxy
