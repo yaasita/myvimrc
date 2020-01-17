@@ -89,6 +89,7 @@ cnoremap <C-k> <Left>
 imap     <C-k> <Plug>(neosnippet_expand_or_jump)
 inoremap <C-S> <F5>
 inoremap <silent> jj <ESC>
+inoremap ¥ \
 nnoremap + ,
 nnoremap ,d :DeleteComment<CR>
 nnoremap ,e :Imadesyo<CR>
