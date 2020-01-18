@@ -86,6 +86,7 @@ cnoremap <C-N> <Down>
 cnoremap <C-P> <Up>
 cnoremap <C-j> <Right>
 cnoremap <C-k> <Left>
+cnoremap ¥ \
 imap     <C-k> <Plug>(neosnippet_expand_or_jump)
 inoremap <C-S> <F5>
 inoremap <silent> jj <ESC>
