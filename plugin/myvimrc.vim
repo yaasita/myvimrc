@@ -123,6 +123,7 @@ nnoremap sv :call ToggleVe()<CR>
 nnoremap x "_x
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 vnoremap * y/<C-R>"<CR>
+vnoremap + ,
 vnoremap s !ore_escape_filename.pl<CR>
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
