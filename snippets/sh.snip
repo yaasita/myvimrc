@@ -19,8 +19,8 @@ snippet     read_stdin
 abbr        標準入力から読み込み
 alias       input
 options     head
-	read ${1:input_val}
-	echo $$1
+	read input_val
+	echo $input_val
 
 snippet     if-elif-else
 abbr        if文
