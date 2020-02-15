@@ -252,6 +252,7 @@ snippet readline
 	  });
 
 snippet readline_for_await
+	const readline = require('readline');
 	const src = fs.createReadStream("hoge.txt", "utf8");
 	const rl = readline.createInterface({ input: src });
 	for await (const line of rl){
