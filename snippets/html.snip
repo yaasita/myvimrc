@@ -1,3 +1,7 @@
+snippet      tag_img
+abbr         imgタグ
+	<img src="https://example.com/hoge.png" alt="hogehoge" width="314" height="229" border="0" />
+
 snippet      gist_paste
 abbr         gistの貼り付け
 	<script src="https://gist.github.com/yaasita/${1:#:a82d949e0b0c9f45ed99}.js"></script>
@@ -53,21 +57,12 @@ snippet      link_rel_css
 abbr         cssのリンク
 	<link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/grids-responsive-min.css">
 
-snippet      link_vue.js
-abbr         vue.jsのリンク
-	<script src="https://unpkg.com/vue/dist/vue.js"></script>
-
-snippet      link_vue.js_local
-abbr         ローカルのvue.jsリンク
-	<script src="/js/vue.js"></script>
-	<script src="/js/lodash.min.js"></script>
-
 snippet      form_tag
 	<form action="cgi-bin/formmail.cgi" method="post">
 		<input type='submit' value='開始'>
 	</form>
 
-snippet      list
+snippet      list_tag
 	<ul>
 		<li>1つめの項目</li>
 		<li>2つめの項目</li>
