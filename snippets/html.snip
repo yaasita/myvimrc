@@ -2,19 +2,13 @@ snippet      tag_img
 abbr         imgタグ
 	<img src="https://example.com/hoge.png" alt="hogehoge" width="314" height="229" border="0" />
 
-snippet      gist_paste
-abbr         gistの貼り付け
-	<script src="https://gist.github.com/yaasita/${1:#:a82d949e0b0c9f45ed99}.js"></script>
+snippet      tag_a
+abbr         aタグ
+	<a href="https://www.google.com/">google</a>
 
-snippet      gist_paste_by_file
-abbr         gistの貼り付けfile別
-	<script src="https://gist.github.com/yaasita/${1:#:a82d949e0b0c9f45ed99}.js?file=${2:hogefile.sh}"></script>
-
-snippet      page_link
+snippet      tag_a_page_link
 abbr         HTMLのページ内リンク
-	<!-- リンク元（出発点） -->
 	<a href="#abc">ABCの位置へジャンプ</a>
-	<!-- リンク先（到達点）-->
 	<h3 id="abc">ここがABCの位置</h3>
 
 snippet      auto-refresh
