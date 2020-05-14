@@ -102,7 +102,6 @@ nnoremap <C-S> i<F5>
 nnoremap <ESC><ESC> :noh<CR>
 nnoremap <F1> :tab :h<CR>
 nnoremap <F2> :WindowSizeToggle<CR>
-nnoremap <F3> :call SpellToggle()<CR>
 nnoremap <F4> :set nu!<CR>
 nnoremap <Left>  zh
 nnoremap <Right> zl
@@ -111,7 +110,7 @@ nnoremap Y y$
 nnoremap co :copen<CR>
 nnoremap s <Nop>
 nnoremap sb :Unite buffer<CR>
-nnoremap sc :call CdPaste()<CR>
+nnoremap sc :setlocal spell!<CR>
 nnoremap se :call MyNeoSnippetEdit()<CR>
 nnoremap sf :Unite file_rec<CR>
 nnoremap sg :Unite line<CR>
@@ -169,7 +168,6 @@ command! -nargs=0 P tabe ~/wiki/life/passwd.md
 command! -nargs=0 Prettier w | call system("prettier --write " . expand("%")) | e
 command! -nargs=0 RjcolorToggle call RjcolorToggle()
 command! -nargs=0 SSH e ~/.ssh/config
-command! -nargs=0 Spell call SpellToggle()
 command! -nargs=0 T tabe %
 command! -nargs=0 Tabnasi setlocal expandtab | setlocal list | retab
 command! -nargs=0 V tabe ~/.vim/pack/plugins/start/myvimrc/plugin/myvimrc.vim
@@ -216,16 +214,6 @@ function! Ygrep(...) "{{{2
     endwhile
     execute 'silent grep! ' . exp . " " . dir
     execute 'redr!'
-endfunction "}}}
-
-function! SpellToggle() "{{{2
-    setlocal spell!
-    if exists("g:syntax_on")
-        syntax off
-    else
-        syntax on
-    endif
-    setlocal spell?
 endfunction "}}}
 
 function! WindowSizeToggle() "{{{2
@@ -298,10 +286,6 @@ function! WikiOpen() "{{{2
     else
         echomsg "wikiがない"
     endif
-endfunction "}}}
-
-function! CdPaste() "{{{2
-    exe "cd " . @" 
 endfunction "}}}
 
 function! ToggleVe() "{{{2
