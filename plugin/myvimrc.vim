@@ -163,7 +163,6 @@ command! -nargs=0 CopyPaste setlocal nonu foldcolumn=0
 command! -nargs=0 DeleteComment g/^\s*#\|^\s*$/d
 command! -nargs=0 Diffoff diffoff! | set fdc=2
 command! -nargs=0 Eiwa call Trans()
-command! -nargs=0 Kakkofold call Kakkofold() 
 command! -nargs=0 M e ~/memo.md
 command! -nargs=0 P tabe ~/wiki/life/passwd.md
 command! -nargs=0 Prettier w | call system("prettier --write " . expand("%")) | e
@@ -180,14 +179,6 @@ command! -nargs=1 -complete=file VDsplit vertical diffsplit <args>
 
 "}}}
 "**** function {{{1
-
-function! Kakkofold() "{{{2
-    setlocal foldmarker={,}
-    setlocal fdm=marker
-    normal zM
-    setlocal fdm=manual
-    setlocal foldmarker={{{,}}}
-endfunction "}}}
 
 function! ClearHistory() "{{{2
     let old_undolevels = &undolevels
